@@ -14,7 +14,7 @@ body {
   background: #2C2C2C;
 }
 
-.header {
+.mainheader {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -33,8 +33,19 @@ body {
   border: 1px solid #1A1A1A;
 }
 
-.formRegister {
+.container-nostyle {
+    width: 50%;
+    margin: auto;
+}
+
+.formcontainer {
   width: 30%;
+  margin: auto;
+  padding: 1% 0% 3% 0%;
+}
+
+.listarea {
+  width: 80%;
   margin: auto;
   padding: 1% 0% 3% 0%;
 }
@@ -106,4 +117,21 @@ body {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    grid-gap: 20px;
+}
+
+.eopen {
+  width: 80%;
+  margin: auto;
+  padding: 1% 1% 1% 1%;
+  background: #333333;
+  border: 1px solid #1A1A1A;
+  border-radius: 2px;
+  color: #B9B9B9;
+}
+
+.eclosed {
+  width: 80%;
+  height: 20%;
+  margin: auto 1% auto auto;
+  background: #C0FFD9;
 }

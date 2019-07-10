@@ -3,10 +3,9 @@
 
 <head>
     <?php $page_title = 'Registration Form';
-    echo "<title>{$page_title}</title>"
+    echo "<title>{$page_title}</title>";
+    include './bit/htmlconfig.php';
     ?>
-    <link rel="stylesheet" href="./css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -15,7 +14,7 @@
       include './bit/header.php';
       ?>
         <div class="container">
-            <div class="formRegister">
+            <div class="formcontainer">
                 <form action="./post/p_register.php" method="POST">
                     <div class="line">
                         <div class="lineLabel">
