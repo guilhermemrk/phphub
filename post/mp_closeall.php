@@ -2,14 +2,14 @@
   include './../db/connect.php';
 
   $ae_companyid = $_POST['companyid'];
-  $ae_status = $_POST['status'];
+  $ae_urgency = $_POST['urgency'];
   $ae_problem = $_POST['problem'];
   $ae_date = date('Y/m/d H:i:s');
 
-  $sql = "INSERT INTO manager (companyid, problem, status, entryDate) VALUES ('$ae_companyid', '$ae_problem', '$ae_status', '$ae_date')";
+  $sql = "UPDATE manager SET isOpen=0";
 
   if (mysqli_query($conn, $sql)){
-    echo "Entry successfully added!";
+    echo "Closed all the entries successfully.";
     header("Location: ./../manager.php");
   } else {
     echo "ERROR: Could not execute [$sql]. " . mysqli_error($conn);

@@ -14,6 +14,11 @@ body {
   background: #2C2C2C;
 }
 
+a {
+  color: #B9B9B9;
+  text-decoration: none;
+}
+
 .mainheader {
   width: 100%;
   display: flex;
@@ -23,6 +28,17 @@ body {
   background-color: #525286;
   color: #F9F9F9;
   margin-bottom: 50px;
+}
+
+.mainfooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: #1A1A1A;
+  color: #F9F9F9;
+  margin-top: 50px;
 }
 
 .container {
@@ -101,37 +117,93 @@ body {
    margin: 1% auto 1% auto;
 }
 
-.navbar {
-   max-width: 60% !important;
-   max-height: 10% !important;
-   border: 1px solid red;
-   border-radius: 2px;
-   margin: 1% auto 1% auto;
-}
-
-.navitem {
-   border: 1px solid blue;
-   border-radius: 2px;
-   width: 10%;
-   margin: auto;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-gap: 20px;
-}
-
-.eopen {
-  width: 80%;
-  margin: auto;
-  padding: 1% 1% 1% 1%;
+.tropen {
   background: #333333;
   border: 1px solid #1A1A1A;
   border-radius: 2px;
   color: #B9B9B9;
 }
 
-.eclosed {
-  width: 80%;
-  height: 20%;
-  margin: auto 1% auto auto;
-  background: #C0FFD9;
+.trclosed {
+  background: #A0FFB0;
+  border: 1px solid #63FF7D;
+  border-radius: 2px;
+  color: #2C2C2C;
+}
+
+.trclosed a {
+  color: #2C2C2C;
+}
+
+.trurgent {
+  background: #FFF8A9;
+  border: 1px solid #FFF14C;
+  border-radius: 2px;
+  color: #2C2C2C;
+}
+
+.trurgent a {
+  color: #2C2C2C;
+}
+
+.navbar {
+   max-width: 60% !important;
+   max-height: 10% !important;
+   background: #333333;
+   border: 1px solid #1A1A1A;
+   border-radius: 2px;
+   margin: 1% auto 1% auto;
+}
+
+.navbaritem {
+  padding: 1% 2.5% 1% 2%;
+  display: inline-flex;
+  background: #333333;
+  border-right: 1px solid #1A1A1A;
+  color: #B9B9B9;
+  text-align: center;
+}
+
+.options {
+  margin: 1% auto 1% auto;
+}
+
+.mopt-left {
+  display: inline-flex;
+  background: #333333;
+  border: 1px solid #1A1A1A;
+  border-radius: 2px;
+  padding: .25% .75%;
+}
+
+.mopt-left:active {
+  border: 1px solid #6A6A6A;
+}
+
+.mopt-right {
+  display: inline-flex;
+  background: #333333;
+  border: 1px solid #1A1A1A;
+  border-radius: 2px;
+  padding: .25% .75%;
+}
+
+.mopt-right:active {
+  border: 1px solid #6A6A6A;
+}
+
+.colorexplanation {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #494949;
+  display: inline-flex;
+  align-items: center;
+}
+
+.space {
+  margin-right: 1%;
+}
+
+.tdWithSpace {
+  padding-left: 1%;
 }

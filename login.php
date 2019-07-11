@@ -15,7 +15,7 @@
         ?>
         <div class="container">
             <div class="formcontainer">
-                <form action="./post/p_login.php" method="POST">
+                <form action="./post/hp_login.php" method="POST">
                     <div class="line">
                         <div class="lineLabel">
                             <label for="name">Name</label>
@@ -37,6 +37,7 @@
             </div>
         </div>
     </main>
+    <?php include './bit/footer.php'; ?>
 </body>
 
 </html>
