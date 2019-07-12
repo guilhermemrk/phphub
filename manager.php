@@ -8,6 +8,9 @@
 
       $page_title = 'Manager';
       echo "<title>{$page_title}</title>";
+
+      $filter = $_GET['filter']; // 0 - closed, 1 - open, 2 - urgent, null = all
+
     ?>
   </head>
   <body>
@@ -15,42 +18,49 @@
       include './bit/header.php';
       include './bit/navbar.php';
     ?>
-    <div class="container-nostyle">
+    <div class="container-model1">
         <?php
           include './bit/manager_options.php';
 
-          $sql = "SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid ORDER BY status DESC, entryDate ASC";
+          $sql = "SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid ORDER BY status DESC, entryDate ASC LIMIT 50";
 
           if ($results = $conn->query($sql)){
-            echo "<table style='width:100%; text-align: center;'><tr class='tropen' style='color: #F9F9F9 !important;'><th>ID</th><th>Company</th><th>Entry Date</th><!--th>Expire Date</th--><th>Problem</th><th>Close</th><th>Edit</th></tr>";
+            echo "<table style='width:100%; text-align: center;'><tr class='trline' style='color: #F9F9F9 !important;'><th>&nbsp;</th><th>Company</th><th>Entry Date</th><!--th>Expire Date</th--><th>Problem</th><th>&nbsp;</th><th>&nbsp;</th></tr>";
 
             while ($row = $results->fetch_assoc()){
-              $a = $row["entryid"];
-              $b = $row["companyid"];
-              $ba = $row["companyName"];
-              $c = $row["problem"];
-              $d = $row["status"];
-              $e = $row["entryDate"];
+              $a = utf8_encode($row["entryid"]);
+              $b = utf8_encode($row["companyid"]);
+              $ba = utf8_encode($row["companyName"]);
+              $c = utf8_encode($row["problem"]);
+              $d = utf8_encode($row["status"]);
+              $e = utf8_encode($row["entryDate"]);
 
-              if (strlen($c) >= 50){ $c = substr($row["problem"], 0, 50); $c .= '...';}
-              if (strlen($ba) >= 10){ $ba = substr($row["companyName"], 0, 10); $ba .= '...';}
+              if (strlen($c) >= 80){ $c = substr($row["problem"], 0, 80); $c .= '...';}
+              if (strlen($ba) >= 20){ $ba = substr($row["companyName"], 0, 20); $ba .= '...';}
 
-              if ($d == 1){
-                  echo "<tr class='tropen'><td>{$a}</td><td>{$ba}</td><td>{$e}</td><!--td>{$f}</td--><td>{$c}</td><td><a href='./closeentry.php?id={$a}'>[Close]</a></td><td><a href='./editentry.php?id={$a}'>[Edit]</a></td></tr>";
-                } elseif ($d == 2) {
-                  echo "<tr class='trurgent'><td>{$a}</td><td>{$ba}</td><td>{$e}</td><!--td>{$f}</td--><td>{$c}</td><td><a href='./closeentry.php?id={$a}'>[Close]</a></td><td><a href='./editentry.php?id={$a}'>[Edit]</a></td></tr>";
-                } elseif ($d == 0) {
-                  echo "<tr class='trclosed'><td>{$a}</td><td>{$ba}</td><td>{$e}</td><!--td>{$f}</td--><td>{$c}</td><td><a href='./closeentry.php?id={$a}'>[Close]</a></td><td><a href='./editentry.php?id={$a}'>[Edit]</a></td></tr>";
-                }
-            }
+              if (is_NULL($filter)){
+                if ($d == 1){
+                    echo "<tr class='trline'><td class='tropen'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                  } elseif ($d == 2) {
+                    echo "<tr class='trline'><td class='trurgent'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                  } elseif ($d == 0) {
+                    echo "<tr class='trline'><td class='trclosed'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                  } } elseif (is_numeric($filter) & $filter == 0){ // 0 - closed
+                if ($d == 0){
+                  echo "<tr class='trline'><td class='trclosed'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                } } elseif ($filter == 1){ // 1 - open
+                if ($d == 1){
+                  echo "<tr class='trline'><td class='tropen'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                } } elseif ($filter == 2){ // 2 - urgent
+                if ($d == 2){
+                  echo "<tr class='trline'><td class='trurgent'>&nbsp;</td><td class='company-name'>{$ba}</td><td class='m-entrydate'>{$e}</td><td><a href='./problem.php?=$a'>{$c}</a></td><td class='mopt-box'><a href='./closeentry.php?id={$a}'><img src='./src/images/delete.png' /></a></td><td class='mopt-box'><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td></tr>";
+                } } }
             echo "</table>";
           }
+
+          include './bit/manager_exp.php';
+
         ?>
-        <div class='manager-options'>
-            <div class="colorexplanation" style="background: #333333;">&nbsp;</div> Open<span class="space">&nbsp;</span>
-            <div class="colorexplanation" style="background: #FFF8A9;">&nbsp;</div> Urgent<span class="space">&nbsp;</span>
-            <div class="colorexplanation" style="background: #A0FFB0;">&nbsp;</div> Closed<span class="space">&nbsp;</span>
-        </div>
     </div>
     <?php include './bit/footer.php'; ?>
   </body>

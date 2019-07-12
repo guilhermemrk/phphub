@@ -20,7 +20,7 @@
         ?>
         <div class="container-nostyle">
           <?php
-            $sql = "SELECT * FROM entity as e JOIN cep as c ON e.city = c.cityid WHERE companyid=$id";
+            $sql = "SELECT * FROM manager as e JOIN city as c ON e.city = c.cityid WHERE companyid=$id";
             if ($results = $conn->query($sql)){
               while ($row = $results->fetch_assoc()){
                 $a = $row["companyid"];
@@ -30,7 +30,6 @@
                 $f = $row["emailPrimary"];
                 $g = $row["emailAccountant"];
                 $h = $row["addedBy"];
-                $ad = $row["dateAdded"];
 
                 // Not working if [city] is actually NULL or ''
                 if ($row["city"] == NULL || $row["city"] == ''){
@@ -56,7 +55,6 @@
                   <tr class='trline' style='color: #F9F9F9 !important;'><th width='20%'>Phone 2</th><td class='tdWithSpace'>${e}</td></tr>
                   <tr class='trline' style='color: #F9F9F9 !important;'><th width='20%'>Email</th><td class='tdWithSpace'>${f}</td></tr>
                   <tr class='trline' style='color: #F9F9F9 !important;'><th width='20%'>Accountant Email</th><td class='tdWithSpace'>${g}</td></tr>
-                  <tr class='trline' style='color: #F9F9F9 !important;'><th width='20%'>Added on</th><td class='tdWithSpace'>${ad}</td></tr>
                   <tr class='trline' style='color: #F9F9F9 !important;'><th width='20%'>Added by</th><td class='tdWithSpace'>${h}</td></tr>
                 </table>";
               }

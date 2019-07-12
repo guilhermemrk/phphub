@@ -2,20 +2,28 @@
 
   include './../db/connect.php';
 
-  $f_name = $_POST['name'];
-  $f_pass = $_POST['password'];
-  $h_pass = password_hash($f_pass, PASSWORD_DEFAULT);
+  $username = $_POST['name'];
+  $password = md5($_POST['password']);
+  $submit = $_POST['submit'];
 
-  $sql = "SELECT * FROM config WHERE username={$f_name}";
+  $sql = "SELECT * FROM users WHERE username='$username' AND pass='$password'";
+  $verify = mysql_query($conn, $sql);
 
-  if($result = mysqli_query($conn, $sql)){
-    if (password_verify($h_pass, $result['pass'])) {
-        echo "Logged in!";
+  if ($verify){
+    $rows = mysql_fetch_assoc($verify);
+    if (mysql_num_rows($rows) <= 0){
+        echo "ERROR!";
+        header("Location: ./index.php");
+      } else {
+        // if ($rows["isActive"] == 1){
+          setcookie("login", $username);
+          header("Location: ./manager.php");
+        // } else {
+        //   echo "ERROR!";
+        //   header("Location: ./index.php");
+        // }
+      }
     }
-    else {
-        echo "Invalid credentials";
-    }
-  }
 
   mysqli_close($conn);
 ?>

@@ -31,14 +31,15 @@ a {
 }
 
 .mainfooter {
+  clear: both;
+  position: relative;
+  left: 0;
+  bottom: 0 !important;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 80px;
   background: #1A1A1A;
   color: #F9F9F9;
-  margin-top: 50px;
+  margin-top: 5%;
 }
 
 .container {
@@ -52,6 +53,15 @@ a {
 .container-nostyle {
     width: 50%;
     margin: auto;
+}
+
+.container-model1 {
+    width: 70%;
+    margin: auto;
+}
+
+.manager-explanation {
+  margin: 1% 1%;
 }
 
 .formcontainer {
@@ -117,29 +127,45 @@ a {
    margin: 1% auto 1% auto;
 }
 
-.tropen {
+.trline {
   background: #333333;
   border: 1px solid #1A1A1A;
-  border-radius: 2px;
   color: #B9B9B9;
+  border-radius: 2px;
+}
+
+.tropen {
+  width: 5px !important;
+  background: #8E8E8E;
+  border: 1px solid #AAAAAA;
+  /* background: #A0FFB0;
+  border: 1px solid #63FF7D;
+  color: #2C2C2C; */
+  border-radius: 2px;
 }
 
 .trclosed {
-  background: #A0FFB0;
-  border: 1px solid #63FF7D;
+  width: 5px !important;
+  background: #333333;
+  border: 1px solid #1A1A1A;
+  /* background: #333333;
+  border: 1px solid #1A1A1A; */
+  color: #B9B9B9;
   border-radius: 2px;
-  color: #2C2C2C;
 }
 
 .trclosed a {
-  color: #2C2C2C;
+  color: #B9B9B9;
 }
 
 .trurgent {
-  background: #FFF8A9;
+  width: 5px !important;
+  background: #FF7E7E;
+  border: 1px solid #FF5A5A;
+  /* background: #FFF8A9;
   border: 1px solid #FFF14C;
+  color: #2C2C2C; */
   border-radius: 2px;
-  color: #2C2C2C;
 }
 
 .trurgent a {
@@ -206,4 +232,28 @@ a {
 
 .tdWithSpace {
   padding-left: 1%;
+}
+
+.company-name {
+  width: 200px;
+}
+
+.m-entrydate {
+  width: 205px;
+}
+
+.mopt-box {
+  width: 35px;
+}
+
+.entity-name {
+  width: 250px;
+}
+
+.entity-email {
+  width: 350px;
+}
+
+.entity-phone {
+  width: 170px;
 }

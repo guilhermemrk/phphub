@@ -4,9 +4,8 @@
   $ae_companyid = $_POST['companyid'];
   $ae_status = $_POST['status'];
   $ae_problem = $_POST['problem'];
-  $ae_date = date('Y/m/d H:i:s');
 
-  $sql = "INSERT INTO manager (companyid, problem, status, entryDate) VALUES ('$ae_companyid', '$ae_problem', '$ae_status', '$ae_date')";
+  $sql = "INSERT INTO manager (companyid, problem, status) VALUES ('$ae_companyid', '$ae_problem', '$ae_status')";
 
   if (mysqli_query($conn, $sql)){
     echo "Entry successfully added!";

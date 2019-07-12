@@ -4,9 +4,9 @@
 
   $f_name = $_POST['name'];
   $f_email = $_POST['email'];
-  $f_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $f_pass = md5($_POST['password']);
 
-  $sql = "INSERT INTO config (username, email, pass) VALUES ('$f_name', '$f_email', '$f_pass')";
+  $sql = "INSERT INTO users (username, email, pass, addedBy) VALUES ('$f_name', '$f_email', '$f_pass', 'ADM')";
 
   if(mysqli_query($conn, $sql)){
     echo "Successfully added to the database!";

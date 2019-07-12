@@ -31,7 +31,7 @@
                         <div class="lineInput">
                             <input class="textarea" type="password" id="password" name="password">
                         </div>
-                        <input class="button" type="submit" value="Submit">
+                        <input class="button" type="submit" name="submit" id="submit" value="Submit">
                     </div>
                 </form>
             </div>
