@@ -6,7 +6,7 @@
   $ae_problem = $_POST['problem'];
   $ae_date = date('Y/m/d H:i:s');
 
-  $sql = "UPDATE manager SET isOpen=0";
+  $sql = "UPDATE manager SET status=0";
 
   if (mysqli_query($conn, $sql)){
     echo "Closed all the entries successfully.";

@@ -42,6 +42,17 @@ a {
   margin-top: 5%;
 }
 
+.fcontainer-prompt {
+  width: 50%;
+  margin: auto;
+  padding: 1% 0% 3% 0%;
+}
+
+.fprompt {
+  text-align: center;
+  margin: auto;
+}
+
 .container {
   width: 60%;
   margin: auto;
@@ -95,6 +106,11 @@ a {
   color: #F9F9F9;
 }
 
+.prompt-btn {
+  margin-top: 1%;
+  color: #F9F9F9;
+}
+
 .lineLabel {
   margin-bottom: 2%;
   color: #B9B9B9;
@@ -131,6 +147,13 @@ a {
   background: #333333;
   border: 1px solid #1A1A1A;
   color: #B9B9B9;
+  border-radius: 2px;
+}
+
+.trline-title {
+  background: #333333;
+  border: 1px solid #1A1A1A;
+  color: #F9F9F9;
   border-radius: 2px;
 }
 
@@ -211,7 +234,7 @@ a {
   background: #333333;
   border: 1px solid #1A1A1A;
   border-radius: 2px;
-  padding: .25% .75%;
+  padding: .5% .75% .25% .75%;
 }
 
 .mopt-right:active {
@@ -231,6 +254,29 @@ a {
 }
 
 .tdWithSpace {
+  padding-left: 1%;
+}
+
+.tdProblem {
+  padding-left: 1%;
+  width: 99.6% !important;
+  max-width: 99.6% !important;
+  word-wrap: break-word !important;
+  position: absolute;
+  background: #333333;
+  color: #B9B9B9;
+  padding: 2% 2% 2% 2%;
+}
+
+.tProblem {
+  width: 100% !important;
+  word-wrap: break-word !important;
+  text-align: left;
+  position: relative;
+}
+
+.pthWithSpace {
+  width: 20%;
   padding-left: 1%;
 }
 
@@ -256,4 +302,8 @@ a {
 
 .entity-phone {
   width: 170px;
+}
+
+.nfe-cod {
+  width: 75px;
 }

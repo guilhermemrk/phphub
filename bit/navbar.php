@@ -7,6 +7,9 @@
     <a href='./manager.php'>
         <div class='navbaritem'>Manager</div>
     </a>
+    <a href='./nfehistory.php'>
+        <div class='navbaritem'>NFE</div>
+    </a>
     <a href='./entity.php'>
         <div class='navbaritem'>Entity</div>
     </a>
