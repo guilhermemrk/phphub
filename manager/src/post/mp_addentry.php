@@ -9,7 +9,7 @@
 
   if (mysqli_query($conn, $sql)){
     echo "Entry successfully added!";
-    header("Location: ./../../manager.php");
+    header("Location: {$_SERVER['HTTP_REFERER']}");
   } else {
     echo "ERROR: Could not execute [$sql]. " . mysqli_error($conn);
   }

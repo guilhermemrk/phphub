@@ -16,6 +16,8 @@
       $vResult = preg_replace($p_pattern13, "$1 ($2) $3-$4", $dbPhone);
     } elseif (strlen($dbPhone) == 14) {
       $vResult = preg_replace($p_pattern14, "$1 ($2) $3-$4", $dbPhone);
+    } else {
+      $vResult = "<span style='color: #696969;'>Não informado.</span>";
     }
     return $vResult;
   }

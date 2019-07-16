@@ -54,7 +54,7 @@
                       <td class='txtalgncenter'>$e</th>
                       <td class='txtalgncenter'>$f</th>
                       <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
             } elseif ($i == 22) {
@@ -67,7 +67,7 @@
                       <td class='txtalgncenter'>$e</th>
                       <td class='txtalgncenter'>$f</th>
                       <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
             } elseif ($i == 20) {
@@ -80,7 +80,7 @@
                       <td class='txtalgncenter'>$e</th>
                       <td class='txtalgncenter'>$f</th>
                       <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                      <td></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
             } } elseif ($filter == 20){ // 0 - closed
@@ -94,7 +94,7 @@
                     <td class='txtalgncenter'>$e</th>
                     <td class='txtalgncenter'>$f</th>
                     <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                    <td></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
           } } elseif ($filter == 21){ // 1 - open
@@ -108,7 +108,7 @@
                     <td class='txtalgncenter'>$e</th>
                     <td class='txtalgncenter'>$f</th>
                     <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
           } } elseif ($filter == 22){ // 2 - urgent
@@ -122,7 +122,7 @@
                     <td class='txtalgncenter'>$e</th>
                     <td class='txtalgncenter'>$f</th>
                     <td><a href='./problem.php?id=$a'>" . ucfirst($h) . "</a></td>
-                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
           } } }

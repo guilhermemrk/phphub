@@ -40,8 +40,8 @@
                       <td class='tropen'>&nbsp;</td>
                       <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                       <td class='txtalgncenter'>$e</td>
-                      <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
-                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                      <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
+                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
             } elseif ($d == 2) {
@@ -49,8 +49,8 @@
                       <td class='trurgent'>&nbsp;</td>
                       <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                       <td class='txtalgncenter'>$e</td>
-                      <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
-                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                      <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
+                      <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
             } elseif ($d == 0) {
@@ -58,7 +58,7 @@
                       <td class='trclosed'>&nbsp;</td>
                       <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                       <td class='txtalgncenter'>$e</td>
-                      <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
+                      <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
                       <td></td>
                       <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                     </tr>";
@@ -68,7 +68,7 @@
                     <td class='trclosed'>&nbsp;</td>
                     <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                     <td class='txtalgncenter'>$e</td>
-                    <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
+                    <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
                     <td></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
@@ -78,8 +78,8 @@
                     <td class='tropen'>&nbsp;</td>
                     <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                     <td class='txtalgncenter'>$e</td>
-                    <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
-                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                    <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
+                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
           } } elseif ($filter == 2){ // 2 - urgent
@@ -88,8 +88,8 @@
                     <td class='trurgent'>&nbsp;</td>
                     <td><a href='./profile.php?id=$b'>" . ucfirst($ba) . "</a></td>
                     <td class='txtalgncenter'>$e</td>
-                    <td><a href='./problem.php?id=$a'>" . ucfirst($c) . "</a></td>
-                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber($a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
+                    <td><a href='./problem.php?id=$a'>" . ucfirst(utf8_encode($c)) . "</a></td>
+                    <td><a id='bclmodal-$a' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, $a); addModal(`bclmodal-$a`, `clmodal`);'><img src='./src/images/delete.png' /></a></td>
                     <td><a href='./editentry.php?id={$a}'><img src='./src/images/edit.png' /></a></td>
                   </tr>";
           } } }

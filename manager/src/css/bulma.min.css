@@ -3941,8 +3941,8 @@ fieldset[disabled] .button {
 	border-width: 0 0 1px;
 	padding: .5em .75em;
 	vertical-align: top;
-  background: #2C2C2C;
-  color: #999999;
+  background: #424242;
+  color: #D9D9D9;
 }
 
 .table td.is-white,

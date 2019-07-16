@@ -57,8 +57,12 @@
     width: 10px !important;
   }
 
-  .entity-name {
-    width: 20%;
+  .entity-email {
+    width: 350px;
+  }
+
+  .entity-phone {
+    width: 170px;
   }
 
   .trclosed {

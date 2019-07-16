@@ -43,13 +43,13 @@
                 <a href='#'><img src='./src/images/add.png' /></a>
               </span>
               <span class='icon has-text-info'>
-                <a href='#'><img src='./src/images/all.png' /></a>
+                <a href='./manager.php?entity'><img src='./src/images/all.png' /></a>
               </span>
               <span class='icon has-text-info'>
-                <a href='#'><img src='./src/images/open.png' /></a>
+                <a href='./manager.php?entity&filter=31'><img src='./src/images/open.png' /></a>
               </span>
               <span class='icon has-text-info'>
-                <a href='#'><img src='./src/images/delete.png' /></a>
+                <a href='./manager.php?entity&filter=30'><img src='./src/images/inactive.png' /></a>
               </span>
               </section>";
 ?>

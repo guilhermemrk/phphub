@@ -14,7 +14,7 @@ function removeModal(click, modal){
   });
 }
 
-function changeModalCloseNumber(closeNumberEntryId){
-  $("#confirmclosenumber").attr("onclick",`window.location.href='./src/post/mp_closeentry.php?id=${closeNumberEntryId}'`);
-  $("#closenumber").text(closeNumberEntryId);
+function changeModalCloseNumber(modalUrlTo, entryIdToClose){
+  $("#confirmclosenumber").attr("onclick",`window.location.href='${modalUrlTo}${entryIdToClose}'`);
+  $("#closenumber").text(entryIdToClose);
 }
