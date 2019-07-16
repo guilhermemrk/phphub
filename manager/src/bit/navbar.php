@@ -10,13 +10,16 @@
       <a class='navbar-item' href='./manager.php'>
         Manager
       </a>
-      <a class='navbar-item' href='./nfehistory.php'>
+      <a class='navbar-item' href='./manager.php?nfe'>
         NFe
       </a>
       <a class='navbar-item' href='./entity.php'>
-        Entity
+        Entidades
       </a>
-      <div class='navbar-item has-dropdown is-hoverable'>
+      <a class='navbar-item' href='#'>
+        SPED
+      </a>
+      <!--div class='navbar-item has-dropdown is-hoverable'>
         <a class='navbar-link'>
           None
         </a>
@@ -34,7 +37,7 @@
           <a class='navbar-item'>
             Report an issue
           </a>
-        </div>
+        </div-->
       </div>
     </div>
 

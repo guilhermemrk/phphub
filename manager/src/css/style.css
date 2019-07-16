@@ -44,11 +44,13 @@
   }
 
   .m-entrydate {
-    width: 8% !important;
+    width: 11% !important;
+    text-align: center !important;
   }
 
   .mopt-box {
     width: 40px;
+    text-align: center !important;
   }
 
   .mopt-status {
@@ -71,4 +73,23 @@
 
   .cexpspace {
     margin-right: 1%;
+  }
+
+  .manager_options {
+    margin: 1%;
+  }
+
+  .mopt-explanation {
+    color: #999999;
+    margin: 0% 0% .5% .5%;
+  }
+
+  .mopte-first {
+    padding-left: 6.25%;
+  }
+  .mopte-second {
+    padding-left: 10.25%;
+  }
+  .txtalgncenter {
+    text-align: center !important;
   }

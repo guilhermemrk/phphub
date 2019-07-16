@@ -3,7 +3,7 @@
 
   $ae_companyid = $_POST['companyid'];
   $ae_status = $_POST['status'];
-  $ae_problem = $_POST['problem'];
+  $ae_problem = utf8_encode($_POST['problem']);
 
   $sql = "INSERT INTO manager (companyid, problem, status) VALUES ('$ae_companyid', '$ae_problem', '$ae_status')";
 
