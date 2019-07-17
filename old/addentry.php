@@ -3,6 +3,7 @@
 
 <head>
     <?php
+    include_once './src/bit/login_verification.php';
       $section_title = 'Manager';
       $page_title = 'Add Entry';
       echo "<title>$section_title - $page_title</title>";

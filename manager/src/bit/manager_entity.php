@@ -33,7 +33,7 @@
         if (is_NULL($filter)){
           if ($e == 1){
               echo "<tr>
-                      <td class='tropen'></td>
+                      <td class='trstatus$e'></td>
                       <td class='txtalgncenter'>$a</td>
                       <td><a href='./profile.php?id=$a'>" . ucfirst($b) . "</a></td>
                       <td class='txtalgncenter'>" . formatPhone($c) . "</td>
@@ -43,7 +43,7 @@
                     </tr>";
             } elseif ($e == 0) {
               echo "<tr>
-                      <td class='trclosed'></td>
+                      <td class='trstatus$e'></td>
                       <td class='txtalgncenter'>$a</td>
                       <td><a href='./profile.php?id=$a'>" . ucfirst($b) . "</a></td>
                       <td class='txtalgncenter'>" . formatPhone($c) . "</td>
@@ -54,7 +54,7 @@
             } } elseif (is_numeric($filter) & $filter == 30){ // 0 - closed
           if ($e == 0){
             echo "<tr>
-                    <td class='trclosed'></td>
+                    <td class='trstatus$e'></td>
                     <td class='txtalgncenter'>$a</td>
                     <td><a href='./profile.php?id=$a'>" . ucfirst($b) . "</a></td>
                     <td class='txtalgncenter'>" . formatPhone($c) . "</td>
@@ -65,7 +65,7 @@
           } } elseif ($filter == 31){ // 1 - open
           if ($e == 1){
             echo "<tr>
-                    <td class='tropen'></td>
+                    <td class='trstatus$e'></td>
                     <td class='txtalgncenter'>$a</td>
                     <td><a href='./profile.php?id=$a'>" . ucfirst($b) . "</a></td>
                     <td class='txtalgncenter'>" . formatPhone($c) . "</td>

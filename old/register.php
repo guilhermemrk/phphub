@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <?php $page_title = 'Registration Form';
+    <?php
+    include_once './src/bit/login_verification.php';
+    $page_title = 'Registration Form';
     echo "<title>{$page_title}</title>";
     include './src/bit/htmlconfig.php';
     ?>

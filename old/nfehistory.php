@@ -3,6 +3,7 @@
   <head>
     <?php
       // Make so the entry get status=2 if a day has passed
+      include_once './src/bit/login_verification.php';
       include './src/db/connect.php';
       include './src/bit/htmlconfig.php';
 

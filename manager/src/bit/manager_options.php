@@ -1,55 +1,97 @@
 <?php
     echo "<section class='manager_options'>
-    <div class='mopt-explanation'>
-      <span>Ocorrências</span>
-      <span class='mopte-first'>NFe</span>
-      <span class='mopte-second'>Entidade</span>
-    </div>
-              <span class='icon has-text-info'>
-                <a id='omodal' onclick='addModal(`omodal`, `modal_add`);'><img src='./src/images/add.png' /></a>
-              </span>
-              <span class='icon'>
-                <a href='./manager.php'><img src='./src/images/all.png' /></a>
-              </span>
-              <span class='icon'>
-                <a href='./manager.php?filter=1'><img src='./src/images/open.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?filter=0'><img src='./src/images/delete.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?filter=2'><img src='./src/images/urgent.png' /></a>
-              </span>
-              <span class='cexpspace'></span>
-              <span class='cexpspace'></span>
-              <span class='icon has-text-info'>
-                <a href='#'><img src='./src/images/nfe-add.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?nfe'><img src='./src/images/nfe-all.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?nfe&filter=21'><img src='./src/images/nfe-open.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?nfe&filter=20'><img src='./src/images/nfe-close.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?nfe&filter=22'><img src='./src/images/nfe-urgent.png' /></a>
-              </span>
-              <span class='cexpspace'></span>
-              <span class='cexpspace'></span>
-              <span class='icon has-text-info'>
-                <a href='#'><img src='./src/images/add.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?entity'><img src='./src/images/all.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?entity&filter=31'><img src='./src/images/open.png' /></a>
-              </span>
-              <span class='icon has-text-info'>
-                <a href='./manager.php?entity&filter=30'><img src='./src/images/inactive.png' /></a>
-              </span>
-              </section>";
+      <div class='columns'>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>Ocorrências</div>
+          </div>
+          <div class='container'>
+          <button id='omodal' onclick='addModal(`omodal`, `modal_add`);' class='button is-small is-success'>
+            <span class='icon is-small'>
+              <i class='fas fa-plus'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-asterisk'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?filter=1`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-envelope-open-text'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?filter=0`' class='button is-danger is-small'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?filter=2`' class='button is-warning is-small'>
+            <span class='icon is-small'>
+              <i class='fas fa-exclamation-triangle'></i>
+            </span>
+          </button>
+          </div>
+        </div>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>NFe</div>
+          </div>
+          <div class='container'>
+          <button class='button is-small is-success'>
+            <span class='icon is-small'>
+              <i class='fas fa-plus'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?nfe`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-asterisk'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?nfe&filter=21`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-envelope-open-text'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?nfe&filter=20`' class='button is-danger is-small'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?nfe&filter=22`' class='button is-warning is-small'>
+            <span class='icon is-small'>
+              <i class='fas fa-exclamation-triangle'></i>
+            </span>
+          </button>
+          </div>
+        </div>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>Entidades</div>
+          </div>
+          <div class='container'>
+          <button class='button is-small is-success'>
+            <span class='icon is-small'>
+              <i class='fas fa-plus'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?entity`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-asterisk'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?entity&filter=31`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-check'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?entity&filter=30`' class='button is-small is-danger'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </section>";
 ?>

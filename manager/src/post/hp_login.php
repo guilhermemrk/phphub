@@ -1,29 +1,27 @@
 <?php
-
+  session_start();
   include './../db/connect.php';
 
-  $username = $_POST['name'];
-  $password = md5($_POST['password']);
-  $submit = $_POST['submit'];
+  if (empty($_POST['lusername']) || empty($_POST['lpass'])){
+    header("Location: /manager/login.php?failed");
+    exit();
+  }
 
-  $sql = "SELECT * FROM users WHERE username='$username' AND pass='$password'";
-  $verify = mysql_query($conn, $sql);
+  $username = mysqli_real_escape_string($conn, $_POST['lusername']);
+  $password = mysqli_real_escape_string($conn, $_POST['lpass']);
 
-  if ($verify){
-    $rows = mysql_fetch_assoc($verify);
-    if (mysql_num_rows($rows) <= 0){
-        echo "ERROR!";
-        header("Location: ./../../index.php");
-      } else {
-        // if ($rows["isActive"] == 1){
-          setcookie("login", $username);
-          header("Location: ./../../manager.php");
-        // } else {
-        //   echo "ERROR!";
-        //   header("Location: ./index.php");
-        // }
-      }
-    }
+  $sql = "SELECT username, pass, isActivated FROM users WHERE username='${username}' AND pass=md5('${password}') AND isActivated=1";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_num_rows($result);
+
+  if ($row == 1){
+    $_SESSION["username"] = $username;
+    header("Location: /manager/");
+    exit();
+  } else {
+    header("Location: /manager/login.php?failed");
+    exit();
+  }
 
   mysqli_close($conn);
 ?>

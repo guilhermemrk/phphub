@@ -1,5 +1,6 @@
 <?php
-  $session = 1;
+  session_start();
+  $sUsername = $_SESSION["username"];
 
   echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>
   <div id='navbarBasicExample' class='navbar-menu'>
@@ -13,10 +14,10 @@
       <a class='navbar-item' href='./manager.php?nfe'>
         NFe
       </a>
-      <a class='navbar-item' href='./entity.php'>
+      <a class='navbar-item' href='./manager.php?entity'>
         Entidades
       </a>
-      <a class='navbar-item' href='#'>
+      <a class='navbar-item' href='./manager.php?sped'>
         SPED
       </a>
       <!--div class='navbar-item has-dropdown is-hoverable'>
@@ -43,25 +44,40 @@
 
     ";
 
-if ($session == 1) {
+    if (!is_NULL($sUsername)){
   echo "<div class='navbar-end'>
-    <div class='navbar-item'>
+          <div class='navbar-item'>
+            <div class='navbar-item has-dropdown is-hoverable is-dark'>
+              <a class='navbar-link'>
+                Olá, ${sUsername}!
+              </a>
+              <div class='navbar-dropdown'>
+                <a href='/manager/user/profile.php?id=$a' class='navbar-item'>
+                  Perfil
+                </a>
+                <a href='#' class='navbar-item'>
+                  Configurações
+                </a>
+                <hr class='navbar-divider'>
+                <a href='/manager/src/post/hp_logout.php' class='navbar-item'>
+                  <strong>Logout</strong>
+                </a>
+              </div>
+            </div>
+    <!--div class='navbar-item'>
       <div class='buttons'>
-        <a class='button is-danger'>
+        <a href='/manager/src/post/hp_logout.php' class='button is-danger'>
           <strong>Logout</strong>
         </a>
       </div>
-    </div>
+    </div-->
   </div>";
 } else {
   echo "<div class='navbar-end'>
     <div class='navbar-item'>
       <div class='buttons'>
-        <a class='button is-primary'>
-          <strong>Sign up</strong>
-        </a>
-        <a class='button is-light'>
-          Log in
+        <a href='/manager/login.php' class='button is-primary'>
+          Login
         </a>
       </div>
     </div>

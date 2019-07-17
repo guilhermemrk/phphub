@@ -1,0 +1,75 @@
+.table {
+	color: #363636 !important;
+	border-radius: 2px !important;
+}
+
+.table td,
+.table th {
+	border: 1px solid #1C1C1C !important;
+	vertical-align: top !important;
+	background: #424242;
+	color: #D9D9D9 !important;
+}
+
+.table thead td,
+.table thead th {
+	color: #D9D9D9 !important;
+}
+
+.input,
+.select select,
+.textarea {
+	background-color: #363636 !important;
+	color: #C9C9C9 !important;
+}
+
+.input[disabled],
+.select fieldset[disabled] select,
+.select select[disabled],
+.textarea[disabled],
+fieldset[disabled] .input,
+fieldset[disabled] .select select,
+fieldset[disabled] .textarea {
+	background-color: #363636 !important;
+	color: #A9A9A9 !important
+}
+
+.label {
+	color: #F9F9F9 !important;
+}
+
+.menu-list a {
+	color: #C9C9C9 !important;
+}
+
+.modal-card-foot,
+.modal-card-head {
+	background-color: #2c2c2c !important;
+}
+
+.modal-card-head {
+	border-bottom: 1px solid #1A1A1A !important;
+}
+
+.modal-card-title {
+	color: #F9F9F9 !important;
+}
+
+.modal-card-foot {
+	border-top: 1px solid #1A1A1A !important
+}
+
+.modal-card-body {
+	background-color: #2c2c2c !important;
+	padding: 20px !important;
+	color: #F9F9F9 !important;
+}
+
+.footer {
+	background-color: #1C1C1C !important;
+	color: #696969 !important;
+}
+
+.button_text_fix {
+  margin-bottom: 5% !important;
+}

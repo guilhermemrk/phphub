@@ -1,9 +1,10 @@
 <?php
+  include_once './src/bit/login_verification.php';
   include './../db/connect.php';
 
   $ee_id = $_GET['id'];
-  $ee_status = $_POST['status'];
-  $ee_problem = $_POST['problem'];
+  $ee_status = $_POST['edit_entryStatus'];
+  $ee_problem = $_POST['edit_entryProblem'];
 
   $sql = "UPDATE manager SET problem='$ee_problem', status='$ee_status' WHERE entryid='$ee_id'";
 

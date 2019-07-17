@@ -10,8 +10,10 @@ echo "<div class='modal' id='clmodal'>
       Você tem certeza que quer fechar esta entrada?
     </section>
     <footer class='modal-card-foot'>
-      <button class='button is-danger' id='confirmclosenumber' onclick='window.location.href=``'>Fechar</button>
-      <button id='mcl_cancel' class='button is-black' onClick='removeModal(`mcl_cancel`, `clmodal`);'>Cancelar</button>
+      <button class='button is-danger is-focused' id='confirmclosenumber' onclick='window.location.href=``'>
+        <span class='icon is-small'><i class='fas fa-times'></i></span>
+      </button>
+      <button id='mcl_cancel' class='button is-black' onClick='removeModal(`mcl_cancel`, `clmodal`);'><span class='button_text_fix'>Cancelar</span></button>
     </footer>
   </div>
 </div>";

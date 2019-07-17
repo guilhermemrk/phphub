@@ -9,100 +9,147 @@
     <script src="script.js" charset="utf-8"></script>
   </head>
   <body>
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-    <!-- <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a> -->
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-      <a class="navbar-item">
-        Manager
-      </a>
-      <a class="navbar-item">
-        NFe
-      </a>
-      <a class="navbar-item">
-        Entity
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          None
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
+
+
+
+    <section class='manager_options'>
+      <div class='columns'>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>Ocorrências</div>
+          </div>
+          <div class='container'>
+
+
+            <!-- Ocorrencias -->
+
+
+            <button id='omodal' onclick='addModal(`omodal`, `modal_add`);' class='button is-small is-success'>
+              <span class='icon is-small'>
+                <i class='fas fa-plus'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php`' class='button is-small is-info'>
+              <span class='icon is-small'>
+                <i class='fas fa-asterisk'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?filter=1`' class='button is-small is-info'>
+              <span class='icon is-small'>
+                <i class='fas fa-envelope-open-text'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?filter=0`' class='button is-danger is-small'>
+              <span class='icon is-small'>
+                <i class='fas fa-times'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?filter=2`' class='button is-warning is-small'>
+              <span class='icon is-small'>
+                <i class='fas fa-exclamation-triangle'></i>
+              </span>
+            </button>
+
+
+
+          </div>
         </div>
-      </div>
-    </div>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>NFe</div>
+          </div>
+          <div class='container'>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+            <!-- NFe -->
+
+
+            <button class='button is-small is-success is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-plus'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?nfe`' class='button is-small is-info is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-asterisk'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?nfe&filter=21`' class='button is-small is-info is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-envelope-open-text'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?nfe&filter=20`' class='button is-danger is-small is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-times'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?nfe&filter=22`' class='button is-warning is-small is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-exclamation-triangle'></i>
+              </span>
+            </button>
+
+
+
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</nav>
-    <section class="hero is-dark is-bold">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Title
-          </h1>
-          <h2 class="subtitle">
-            Subtitle
-          </h2>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>Entidades</div>
+          </div>
+          <div class='container'>
+
+
+            <!-- Entidades -->
+
+
+            <button class='button is-small is-success'>
+              <span class='icon is-small'>
+                <i class='fas fa-user-plus'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?entity`' class='button is-small is-info is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-address-book'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?entity&filter=31`' class='button is-small is-info is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-user-check'></i>
+              </span>
+            </button>
+            <button onclick='window.location.href=`./manager.php?entity&filter=30`' class='button is-small is-info is-focused'>
+              <span class='icon is-small'>
+                <i class='fas fa-user-alt-slash'></i>
+              </span>
+            </button>
+
+
+
+
+          </div>
         </div>
       </div>
     </section>
-    <div class='columns is-centered'>
-      <div class='column is-4'>
-        <section class="container">
-          <section class="cSpaceAfterHeaderTable">
-            <a href="#?id=1">aaaaa</a>
-        </section>
-      </section>
-      </div>
-    </div>
-    <div class="cSpaceAfterHeaderMenu">
-      <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          </p>
-        </div>
-      </footer>
-    </div>
-  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
 </html>

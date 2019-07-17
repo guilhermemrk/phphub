@@ -3,6 +3,7 @@
 
 <head>
     <?php
+    include_once './src/bit/login_verification.php';
       $page_title = 'Add Entry';
       echo "<title>{$page_title}</title>";
       include './src/bit/htmlconfig.php';
