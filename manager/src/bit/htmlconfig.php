@@ -1,5 +1,6 @@
 <?php
-  date_default_timezone_set('America/Cuiaba');
+  define('TIMEZONE', 'America/Cuiaba');
+  date_default_timezone_set(TIMEZONE);
   header('Content-Type: text/html; charset=utf-8');
   echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />';
   echo '<meta charset="UTF-8">';

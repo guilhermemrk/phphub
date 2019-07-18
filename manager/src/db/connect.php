@@ -1,14 +1,18 @@
 <?php
-  $db_servername = 'localhost:3306';
-  $db_username = 'root';
-  $db_password = 'admindb123';
-  $db_name = 'managerdb';
+  $now = new DateTime();
+  $mins = $now->getOffset() / 60;
+  $sgn = ($mins < 0 ? -1 : 1);
+  $mins = abs($mins);
+  $hrs = floor($mins / 60);
+  $mins -= $hrs * 60;
+  $offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
 
-  $conn = mysqli_connect($db_servername, $db_username, $db_password, $db_name);
+  //Your DB Connection - sample
+  $db = new PDO('mysql:host=localhost;dbname=managerdb', 'root', 'admindb123');
+  $db->exec("SET time_zone='$offset';");
 
-  if ($conn === false){
-    die('Connection failed: ' . mysqli_connect_error());
+  if (!$db){
+    echo 'Não conectado ao banco de dados.';
   }
-
 
 ?>

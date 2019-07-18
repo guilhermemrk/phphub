@@ -6,14 +6,13 @@
   $ee_status = $_POST['edit_entryStatus'];
   $ee_problem = $_POST['edit_entryProblem'];
 
-  $sql = "UPDATE manager SET problem='$ee_problem', status='$ee_status' WHERE entryid='$ee_id'";
+  $data = $db->prepare("UPDATE manager SET problem=?, status=? WHERE entryid=?");
 
-  if (mysqli_query($conn, $sql)){
-    echo "Entry successfully added!";
+  if (!empty($ee_id) || !empty($ee_status) || !empty($ee_problem)){
+    $data->execute([$ee_problem, $ee_status, $ee_id]) or die(print_r($db->errorInfo(), true));
     header("Location: {$_SERVER['HTTP_REFERER']}");
   } else {
-    echo "ERROR: Could not execute [$sql]. " . mysqli_error($conn);
+    header("Location: /manager/manager.php?error_addentry");
   }
 
-  mysqli_close($conn);
 ?>

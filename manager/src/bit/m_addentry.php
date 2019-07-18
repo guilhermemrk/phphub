@@ -1,6 +1,6 @@
 <?php
 
-$sql = 'SELECT * FROM entity WHERE isActive=1 ORDER BY companyName ASC';
+$data = $db->query("SELECT * FROM entity WHERE isActive=1 ORDER BY companyName ASC");
 
 echo "<div class='modal' id='modal_add'>
   <div class='modal-background'></div>
@@ -16,17 +16,13 @@ echo "<div class='modal' id='modal_add'>
       <div class='control'>
         <div class='select'>
           <select name='companyid' id='companyid'>";
-
-          if ($results = $conn->query($sql)){
-            while ($row = $results->fetch_assoc()){
+            while ($row = $data->fetch()){
               echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($row['companyName']) . "</option>";
             }
-          }
-
-echo "</select>
-      </div>
-    </div>
-  </div>
+      echo "</select>
+            </div>
+          </div>
+        </div>
         <div class='field'>
           <label class='label'>Status</label>
           <div class='control'>
