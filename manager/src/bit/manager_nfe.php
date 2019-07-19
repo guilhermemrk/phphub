@@ -21,9 +21,9 @@
       <tbody>";
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate ASC LIMIT 50");
+  $data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate ASC LIMIT 50");
 } else {
-  $data = $db->prepare("SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate ASC LIMIT 50");
+  $data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate ASC LIMIT 50");
   $data->execute([$filter]);
 }
 
@@ -43,7 +43,7 @@ while ($row = $data->fetch()) {
   $nfe_todo = utf8_encode($row["nfe_todo"]); // j && ja = $nfe_todo_formatted
 
 
-  if ($nfe_model == '55'){ $nfe_model_formatted = 'NFe'; } elseif ($nfe_model == '65'){ $nfe_model_formatted = 'NFCe'; }
+  if ($nfe_model == '55'){ $nfe_model_formatted = 'NFe'; } elseif ($nfe_model == '65'){ $nfe_model_formatted = 'NFCe'; } elseif ($nfe_model == '99'){ $nfe_model_formatted = 'Outro'; }
   if (is_numeric($nfe_todo) && $nfe_todo == 0){ $nfe_todo_formatted = 'Cancelar'; } elseif ($nfe_todo == 1){ $nfe_todo_formatted = 'Autorizar'; } elseif ($nfe_todo == 2){ $nfe_todo_formatted = 'Inutilizar'; } elseif ($nfe_todo == 3){ $nfe_todo_formatted = 'Outro'; }
   if (strlen($m_problem) >= 30){ $m_problem = substr($row["problem"], 0, 30); $m_problem .= '...'; }
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...';}
@@ -70,7 +70,7 @@ while ($row = $data->fetch()) {
             </td>";
           } else {
             echo "<td>
-              <button id='bclmodal-$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`bclmodal-$m_entryid`, `clmodal`);' class='button is-small is-danger'>
+              <button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`bclmodal$m_entryid`, `clmodal`);' class='button is-small is-danger'>
                 <span class='icon is-small'>
                   <i class='fas fa-times'></i>
                 </span>
@@ -94,7 +94,7 @@ echo "</tbody></table>
     <section>
       <div class='manager-explanation'>";
 
-      include_once './src/bit/manager_exp.php';
+      include_once './src/bit/manager_main_exp.php';
 
       echo "</div>
     </section>

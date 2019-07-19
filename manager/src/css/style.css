@@ -114,3 +114,7 @@ table a:hover {
 .txtalgncenter {
 	text-align: center !important;
 }
+
+.main_searchbar {
+	margin: 5% 0% 0% 0%;
+}

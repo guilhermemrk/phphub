@@ -1,7 +1,7 @@
 <?php
 
     include_once './src/bit/manager_options.php';
-    include_once './src/bit/format_pattern.php';
+    include_once './src/bit/misc_format_pattern.php';
 
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
@@ -18,9 +18,9 @@
       <tbody>";
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM entity ORDER BY isActive DESC, companyName ASC LIMIT 50");
+  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT 50");
 } else {
-  $data = $db->prepare("SELECT * FROM entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT 50");
+  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT 50");
   $entityFilter = substr($filter, 1, 2);
   $data->execute([$entityFilter]);
 }
@@ -57,7 +57,7 @@ echo "</tbody></table>
     <section>
       <div class='manager-explanation'>";
 
-      include_once './src/bit/manager_exp.php';
+      include_once './src/bit/manager_main_exp.php';
 
       echo "</div>
     </section>

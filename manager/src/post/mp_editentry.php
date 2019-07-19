@@ -6,7 +6,7 @@
   $ee_status = $_POST['edit_entryStatus'];
   $ee_problem = $_POST['edit_entryProblem'];
 
-  $data = $db->prepare("UPDATE manager SET problem=?, status=? WHERE entryid=?");
+  $data = $db->prepare("UPDATE man_manager SET problem=?, status=? WHERE entryid=?");
 
   if (!empty($ee_id) || !empty($ee_status) || !empty($ee_problem)){
     $data->execute([$ee_problem, $ee_status, $ee_id]) or die(print_r($db->errorInfo(), true));

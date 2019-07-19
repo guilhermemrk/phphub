@@ -7,7 +7,7 @@
       include './src/db/connect.php';
       $page_title = 'Entry Overview';
       echo "<title>{$page_title}</title>";
-      include './src/bit/htmlconfig.php';
+      include './src/bit/core_htmlconfig.php';
 
       $id = $_GET['id'];
     ?>
@@ -16,12 +16,12 @@
 <body>
     <main>
         <?php
-          include './src/bit/header.php';
-          include './src/bit/navbar.php';
+          include './src/bit/core_header.php';
+          include './src/bit/core_navbar.php';
         ?>
         <div class="container-nostyle">
           <?php
-            $sql = "SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid WHERE entryid=$id";
+            $sql = "SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE entryid=$id";
             if ($results = $conn->query($sql)){
               while ($row = $results->fetch_assoc()){
                 $a = utf8_encode($row["entryid"]);
@@ -69,7 +69,7 @@
           ?>
         </div>
     </main>
-    <?php include './src/bit/footer.php'; ?>
+    <?php include './src/bit/core_footer.php'; ?>
 </body>
 
 </html>

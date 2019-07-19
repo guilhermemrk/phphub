@@ -6,7 +6,7 @@
     include_once './src/bit/login_verification.php';
       $page_title = 'Add Entry';
       echo "<title>{$page_title}</title>";
-      include './src/bit/htmlconfig.php';
+      include './src/bit/core_htmlconfig.php';
       include './src/db/connect.php';
     ?>
 </head>
@@ -14,8 +14,8 @@
 <body>
     <main>
         <?php
-          include './src/bit/header.php';
-          include './src/bit/navbar.php';
+          include './src/bit/core_header.php';
+          include './src/bit/core_navbar.php';
         ?>
         <div class="container-a">
             <div class="formcontainer">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="lineInput">
                           <?php
-                          $sql = "SELECT * FROM cep";
+                          $sql = "SELECT * FROM man_cep";
 
                           if ($results = $conn->query($sql)){
                             echo "<select class='textarea' id='city' name='city'>";
@@ -77,7 +77,7 @@
             </div>
         </div>
     </main>
-    <?php include './src/bit/footer.php'; ?>
+    <?php include './src/bit/core_footer.php'; ?>
 </body>
 
 </html>

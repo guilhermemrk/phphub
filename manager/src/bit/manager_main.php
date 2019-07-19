@@ -16,9 +16,9 @@
       <tbody>";
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid WHERE status IN (0,1,2) ORDER BY status DESC, entryDate ASC LIMIT 50");
+  $data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (0,1,2) ORDER BY status DESC, entryDate ASC LIMIT 50");
 } else {
-  $data = $db->prepare("SELECT * FROM manager AS m JOIN entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate ASC LIMIT 50");
+  $data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate ASC LIMIT 50");
   $data->execute([$filter]);
 }
 
@@ -51,7 +51,7 @@ while ($row = $data->fetch()) {
             </button></a>
           </td>";
           } else {
-            echo "<button id='bclmodal$m_status' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, $m_entryid); addModal(`bclmodal$m_status`, `clmodal`);' class='button is-small is-danger'>
+            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, `$m_entryid`); addModal(`bclmodal$m_entryid`, `clmodal`);' class='button is-small is-danger'>
               <span class='icon is-small'>
                 <i class='fas fa-times'></i>
               </span>
@@ -75,7 +75,7 @@ echo "</tbody></table>
     <section>
       <div class='manager-explanation'>";
 
-      include_once './src/bit/manager_exp.php';
+      include_once './src/bit/manager_main_exp.php';
 
       echo "</div>
     </section>

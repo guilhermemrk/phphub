@@ -5,18 +5,13 @@
   $c_id = $_GET["id"];
   $isNfe = $_GET["isNfe"];
 
+  $data = $db->prepare("UPDATE man_manager SET status=? WHERE entryid=?");
+
 if (is_NULL($isNfe)){
-  $sql = "UPDATE manager SET status=0 WHERE entryid=$c_id";
+  $data->execute([0,$c_id]) or die(print_r($db->errorInfo(), true));
+  header("Location: {$_SERVER['HTTP_REFERER']}");
 } else {
-  $sql = "UPDATE manager SET status=20 WHERE entryid=$c_id";
+  $data->execute([20,$c_id]) or die(print_r($db->errorInfo(), true));
+  header("Location: {$_SERVER['HTTP_REFERER']}");
 }
-
-if (mysqli_query($conn, $sql)){
-    echo "Closed the entry number $c_id successfully.";
-    header("Location: {$_SERVER['HTTP_REFERER']}");
-} else {
-    echo "ERROR: Could not execute [$sql]. " . mysqli_error($conn);
-}
-
-  mysqli_close($conn);
 ?>

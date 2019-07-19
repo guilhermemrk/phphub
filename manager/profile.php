@@ -7,7 +7,7 @@
       include './src/db/connect.php';
       $page_title = 'Profile';
       echo "<title>{$page_title}</title>";
-      include './src/bit/htmlconfig.php';
+      include './src/bit/core_htmlconfig.php';
 
       $id = $_GET['id'];
     ?>
@@ -16,12 +16,12 @@
 <body>
     <main>
         <?php
-          include './src/bit/header.php';
-          include './src/bit/navbar.php';
+          include './src/bit/core_header.php';
+          include './src/bit/core_navbar.php';
         ?>
         <div class="container-nostyle">
           <?php
-            $sql = "SELECT * FROM entity as e JOIN cep as c ON e.city = c.cityid WHERE companyid=$id";
+            $sql = "SELECT * FROM man_entity as e JOIN man_cep as c ON e.city = c.cityid WHERE companyid=$id";
             if ($results = $conn->query($sql)){
               while ($row = $results->fetch_assoc()){
                 $a = utf8_encode($row["companyid"]);
@@ -37,7 +37,7 @@
                 // Not working if [city] is actually NULL or '' || ?????????????
                 if ($c == 0){ $c = "<span style='color: #696969;'>Não informado.</span>"; } else { $c = $row["cityName"]; }
 
-                include_once './src/bit/format_pattern.php';
+                include_once './src/bit/misc_format_pattern.php';
 
                 echo "<h1>${b}</h1>";
                 include './src/bit/entityoverview_options.php';
@@ -77,7 +77,7 @@
                         </tr>
                         <tr class='trline-title'>
                             <th class='pthWithSpace'>Added by</th>
-                            <td class='tdWithSpace'><a href='./users.php?user=$h'>${h}</a></td>
+                            <td class='tdWithSpace'><a href='./hub_users.php?user=$h'>${h}</a></td>
                         </tr>
                       </table>
                       <table style='width:100%; text-align: left;'>
@@ -90,7 +90,7 @@
           ?>
         </div>
     </main>
-    <?php include './src/bit/footer.php'; ?>
+    <?php include './src/bit/core_footer.php'; ?>
 </body>
 
 </html>

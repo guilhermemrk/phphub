@@ -4,7 +4,7 @@ echo "<div class='modal' id='clmodal'>
   <div class='modal-background'></div>
   <div class='modal-card'>
     <header class='modal-card-head'>
-      <p class='modal-card-title'>Fechar entrada numero #<span id='closenumber'>#</span></p>
+      <p class='modal-card-title'>Fechar ocorrência número #<span id='closenumber'>#</span></p>
     </header>
     <section class='modal-card-body'>
       Você tem certeza que quer fechar esta entrada?
