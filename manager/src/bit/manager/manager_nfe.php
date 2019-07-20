@@ -1,6 +1,6 @@
 <?php
 
-    include_once './src/bit/manager_options.php';
+    include_once './src/bit/manager/bit/manager_options.php';
 
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
@@ -79,7 +79,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button class='button is-small is-warning' disabled>
+            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`); addModal(`ednfemodal$m_entryid`, `modal_edit_nfe`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>
@@ -94,7 +94,7 @@ echo "</tbody></table>
     <section>
       <div class='manager-explanation'>";
 
-      include_once './src/bit/manager_main_exp.php';
+      include_once './src/bit/manager/bit/manager_main_exp.php';
 
       echo "</div>
     </section>

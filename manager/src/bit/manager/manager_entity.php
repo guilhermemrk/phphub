@@ -1,7 +1,7 @@
 <?php
 
-    include_once './src/bit/manager_options.php';
-    include_once './src/bit/misc_format_pattern.php';
+    include_once './src/bit/manager/bit/manager_options.php';
+    include_once './src/bit/misc/misc_format_pattern.php';
 
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
@@ -57,7 +57,7 @@ echo "</tbody></table>
     <section>
       <div class='manager-explanation'>";
 
-      include_once './src/bit/manager_main_exp.php';
+      include_once './src/bit/manager/bit/manager_entity_exp.php';
 
       echo "</div>
     </section>

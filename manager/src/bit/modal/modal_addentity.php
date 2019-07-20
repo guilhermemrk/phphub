@@ -16,7 +16,7 @@ echo "<div class='modal' id='modal_add_entity'>
               <div class='field'>
               <div class='control'>
               <label class='label'>Nome</label>
-              <input id='entity_name' name='entity_name' type='text' class='input' value=''>
+              <input id='entity_name' name='entity_name' type='text' class='input'>
               </div>
               </div>
               <div class='field'>
@@ -46,6 +46,30 @@ echo "<div class='modal' id='modal_add_entity'>
   </div>
 </div>
 </div>
+<div class='field'>
+    <div class='control'>
+        <label class='label'>Estado</label>
+        <div class='select'>
+            <select id='entity_state' name='entity_state' disabled>
+              <option value='1'>
+                Mato Grosso
+              </option>
+            </select>
+</div>
+</div>
+</div>
+<div class='field'>
+    <div class='control'>
+        <label class='label'>País</label>
+        <div class='select'>
+            <select id='entity_country' name='entity_country' disabled>
+              <option value='1'>
+                Brasil
+              </option>
+            </select>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class='field'>
@@ -53,13 +77,13 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Telefone</label>
-<input id='entity_tel1' name='entity_tel1' type='text' class='input' value=''>
+<input id='entity_tel1' name='entity_tel1' type='text' class='input'>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
   <label class='label'>Telefone II</label>
-  <input id='entity_tel2' name='entity_tel2' type='text' class='input' value=''>
+  <input id='entity_tel2' name='entity_tel2' type='text' class='input'>
 </div>
 </div>
 </div>
@@ -69,13 +93,13 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Email</label>
-<input id='entity_email' name='entity_email' type='text' class='input' value=''>
+<input id='entity_email' name='entity_email' type='text' class='input'>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
   <label class='label'>Email do Contador</label>
-  <input id='entity_emaila' name='entity_emaila' type='text' class='input' value=''>
+  <input id='entity_emaila' name='entity_emaila' type='text' class='input'>
 </div>
 </div>
 </div>

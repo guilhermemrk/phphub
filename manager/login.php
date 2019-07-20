@@ -4,14 +4,14 @@
 <head>
     <?php $page_title = 'Login';
     echo "<title>{$page_title}</title>";
-    include './src/bit/core_htmlconfig.php';
+    include './src/bit/core/core_htmlconfig.php';
     ?>
 </head>
 
 <body>
   <?php
-    include_once './src/bit/core_navbar.php';
-    include_once './src/bit/core_header.php';
+    include_once './src/bit/core/core_navbar.php';
+    include_once './src/bit/core/core_header.php';
 
     $failed = $_GET["failed"];
   ?>
@@ -70,7 +70,7 @@
       </section>
       </div>
   </div>
-    <?php include_once './src/bit/core_footer.php'; ?>
+    <?php include_once './src/bit/core/core_footer.php'; ?>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ echo "<div class='modal' id='edmodal'>
                             </div>
                             <div class='control'>
                                 <label class='label'>Empresa</label>
-                                <input id='edit_companyName' type='text' class='input' value=''>
+                                <input id='edit_companyName' type='text' class='input' disabled>
                             </div>
                         </div>
                         <div class='field'>
@@ -45,7 +45,7 @@ echo "<div class='modal' id='edmodal'>
                 <div class='field'>
                     <label class='label'>Problema</label>
                     <div class='control'>
-                        <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea' placeholder=''></textarea>
+                        <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea'></textarea>
                     </div>
                 </div>
                 <footer class='modal-card-foot'>
