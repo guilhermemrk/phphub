@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+include_once './../../db/connect.php';
+$dataTheme = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$dataTheme->execute([$_SESSION["username"]]);
+$rowTheme = $dataTheme->fetch();
+
+if ($rowTheme["theme"] == 0 || $rowTheme["theme"] == 1){
+  $theme = '';
+} elseif ($rowTheme["theme"] == 2) {
+  $theme = 'is-dark';
+}
+
 $data = $db->query("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
 
 
@@ -17,7 +29,7 @@ echo "<div class='modal' id='modal_add_nfe'>
                     <div class='field'>
                         <div class='control'>
                             <label class='label'>Empresa</label>
-                            <div class='select'>
+                            <div class='select $theme'>
                                 <select id='companyid' name='companyid'>";
 
                                 while ($row = $data->fetch()){
@@ -31,7 +43,7 @@ echo "</select>
 <div class='field'>
 <div class='control'>
 <label class='label'>Status</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='status' name='status'>
     <option value='21'>Pendente</option>
     <option value='20'>Finalizada</option>
@@ -43,7 +55,7 @@ echo "</select>
 <div class='field'>
 <div class='control'>
 <label class='label'>Modelo</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='nfe_model' name='nfe_model'>
     <option value='55'>NFe</option>
     <option value='65'>NFCe</option>
@@ -55,7 +67,7 @@ echo "</select>
 <div class='field'>
 <div class='control'>
 <label class='label'>Procedimento</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='nfe_procedure' name='nfe_procedure'>
     <option value='1'>Autorizar</option>
     <option value='0'>Cancelar</option>
@@ -72,19 +84,19 @@ echo "</select>
 <div class='field'>
 <div class='control'>
 <label class='label'>ID</label>
-<input id='nfe_id' name='nfe_id' type='text' class='input' value=''>
+<input id='nfe_id' name='nfe_id' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
 <label class='label'>NV</label>
-<input id='nfe_nv' name='nfe_nv' type='text' class='input' value=''>
+<input id='nfe_nv' name='nfe_nv' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <p class='control'>
 <label class='label'>NF</label>
-<input id='nfe_nf' name='nfe_nf' type='text' value='' class='input'>
+<input id='nfe_nf' name='nfe_nf' type='text' class='input $theme' value=''>
 </p>
 </div>
 </div>
@@ -92,7 +104,7 @@ echo "</select>
 <div class='field'>
 <label class='label'>Problema</label>
 <div class='control'>
-<textarea class='textarea' placeholder='Textarea' name='problem' id='problem'></textarea>
+<textarea class='textarea $theme' name='problem' id='problem'></textarea>
 </div>
 </div>
 <footer class='modal-card-foot'>

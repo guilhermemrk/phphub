@@ -12,7 +12,7 @@
     $data->execute([$ee_problem, $ee_status, $ee_id]) or die(print_r($db->errorInfo(), true));
     header("Location: {$_SERVER['HTTP_REFERER']}");
   } else {
-    header("Location: /manager/manager.php?error_addentry");
+    header("Location: /manager/manager.php?error");
   }
 
 ?>

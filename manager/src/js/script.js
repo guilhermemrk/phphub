@@ -19,7 +19,7 @@ function changeModalCloseNumber(modalUrlTo, entryIdToClose){
   $("#closenumber").text(entryIdToClose);
 }
 
-function changeManagerModalEdit(entryID, companyName, entryDate, entryProblem, entryStatus){
+function changeManagerModalEdit(entryID, companyid, companyName, entryDate, entryProblem, entryStatus){
   $("#m_edit_number").text(entryID);
   $("#edit_nfecompanyid").text(companyid);
   $("#edit_entryForm").attr("action", `./src/post/mp_editentry.php?id=${entryID}`);

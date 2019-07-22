@@ -1,45 +1,41 @@
 <?php
-  session_start();
-  $sUsername = $_SESSION["username"];
+session_start();
+include_once './src/db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["username"]]);
+$row = $data->fetch();
 
-  echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>
-  <div id='navbarBasicExample' class='navbar-menu'>
+if ($row['theme'] == 0 || $row['theme'] == 1){
+  echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>";
+} elseif ($row['theme'] == 2){
+  echo "<nav class='navbar is-light' role='navigation' aria-label='main navigation'>";
+}
+
+  echo "<div id='navbarBasicExample' class='navbar-menu'>
     <div class='navbar-start'>
       <a class='navbar-item' href='./'>
         Home
       </a>
-      <a class='navbar-item' href='./manager.php'>
-        Manager
-      </a>
-      <a class='navbar-item' href='./manager.php?nfe'>
-        NFe
-      </a>
-      <a class='navbar-item' href='./manager.php?entity'>
-        Entidades
-      </a>
-      <a class='navbar-item' href='./manager.php?sped'>
-        SPED
-      </a>
-      <!--div class='navbar-item has-dropdown is-hoverable'>
-        <a class='navbar-link'>
-          None
+      <div class='navbar-item has-dropdown is-hoverable'>
+        <a class='navbar-link' href='./manager.php'>
+          Manager
         </a>
         <div class='navbar-dropdown'>
-          <a class='navbar-item'>
-            About
+          <a class='navbar-item' href='./manager.php?nfe'>
+            NFe
           </a>
-          <a class='navbar-item'>
-            Jobs
+          <a class='navbar-item' href='./manager.php?entity'>
+            Entidades
           </a>
-          <a class='navbar-item'>
-            Contact
+          <a class='navbar-item' href='./manager.php?sped'>
+            SPED
           </a>
-          <hr class='navbar-divider'>
-          <a class='navbar-item'>
-            Report an issue
-          </a>
-        </div-->
+        </div>
       </div>
+      <a class='navbar-item' href='./notes.php'>
+        Anotações
+      </a>
+
     </div>
 
     ";
@@ -57,21 +53,25 @@
                 </a>
                 <a href='#' class='navbar-item'>
                   Configurações
-                </a>
-                <hr class='navbar-divider'>
+                </a>";
+
+                if ($row['theme'] == 0 || $row['theme'] == 1){
+                  echo "<a href='./switchTheme.php' class='navbar-item'>
+                          Light Theme
+                        </a>";
+                } elseif ($row['theme'] == 2){
+                  echo "<a href='./switchTheme.php' class='navbar-item'>
+                          Dark Theme
+                        </a>";
+                }
+
+                echo "<hr class='navbar-divider'>
                 <a href='/manager/src/post/hp_logout.php' class='navbar-item'>
                   <strong>Logout</strong>
                 </a>
               </div>
             </div>
-    <!--div class='navbar-item'>
-      <div class='buttons'>
-        <a href='/manager/src/post/hp_logout.php' class='button is-danger'>
-          <strong>Logout</strong>
-        </a>
-      </div>
-    </div-->
-  </div>";
+        </div>";
 } else {
   echo "<div class='navbar-end'>
     <div class='navbar-item'>

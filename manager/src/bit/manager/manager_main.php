@@ -36,7 +36,7 @@ while ($row = $data->fetch()) {
   if (strlen($m_problem) >= 100){ $m_problem_formatted = substr(ucfirst(utf8_encode($row["problem"])), 0, 100); $m_problem_formatted .= '...'; } else { $m_problem_formatted = ucfirst(utf8_encode($row["problem"])); }
   if (strlen($m_entrydate) >= 11){ $m_entrydate = substr($row["entryDate"], 0, 10); }
 
-  echo "<tr>
+  echo "<tr class='trline$m_status'>
           <td class='trstatus$m_status'>&nbsp;</td>
           <td><a href='./profile.php?id=$m_companyid'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydate</td>
@@ -60,7 +60,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`); addModal(`bedmodal$m_entryid`, `edmodal`);' class='button is-small is-warning'>
+            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`); addModal(`bedmodal$m_entryid`, `edmodal`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

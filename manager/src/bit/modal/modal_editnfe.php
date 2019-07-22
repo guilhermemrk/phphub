@@ -1,11 +1,23 @@
 <?php
 
+session_start();
+include_once './../../db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["username"]]);
+$row = $data->fetch();
+
+if ($row["theme"] == 0 || $row["theme"] == 1){
+  $theme = '';
+} elseif ($row["theme"] == 2) {
+  $theme = 'is-dark';
+}
+
 echo "<div class='modal' id='modal_edit_nfe'>
 <div class='modal-background'></div>
 <div class='modal-card'>
     <header class='modal-card-head'>
         <p class='modal-card-title'>Editando NFe #<span id='nfe_edit_number'>#</span></p>
-        <button id='cnfemodal' onclick='removeModal(`cnfemodal`, `modal_edit_nfe`);' class='modal-close is-large' aria-label='close'></button>
+        <button id='editcnfemodal' onclick='removeModal(`editcnfemodal`, `modal_edit_nfe`);' class='modal-close is-large' aria-label='close'></button>
     </header>
     <section class='modal-card-body'>
         <form id='edit_nfeform' action='' method='POST'>
@@ -14,21 +26,21 @@ echo "<div class='modal' id='modal_edit_nfe'>
                 <div class='field has-addons'>
                     <div class='field-body'>
                         <div class='field has-addons'>
-                            <div class='control'>
-                                <label class='label' style='margin-left: 20%;'>ID</label>
-                                <a id='edit_nfecompanyid' class='button'>#</a>
+                          <div class='control'>
+                            <label class='label' style='margin-left: 20%;'>ID</label>
+                            <a id='edit_nfecompanyid' class='button $theme'>#</a>
                             </div>
                             <div class='control'>
                                 <label class='label'>Empresa</label>
-                                <input id='editnfe_companyName' type='text' class='input' disabled>
-                            </div>
+                                <input id='editnfe_companyName' type='text' class='input $theme' disabled>
+                                </div>
                         </div>
                     </div>
                 </div>
 <div class='field'>
 <div class='control'>
 <label class='label'>Status</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='editnfe_status' name='editnfe_status'>
     <option value='20'>Finalizada</option>
     <option value='21'>Pendente</option>
@@ -40,7 +52,7 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Modelo</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='editnfe_model' name='editnfe_model'>
     <option value='55'>NFe</option>
     <option value='65'>NFCe</option>
@@ -52,7 +64,7 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Procedimento</label>
-<div class='select'>
+<div class='select $theme'>
 <select id='editnfe_procedure' name='editnfe_procedure'>
     <option value='0'>Cancelar</option>
     <option value='1'>Autorizar</option>
@@ -69,19 +81,19 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <div class='field'>
 <div class='control'>
 <label class='label'>ID</label>
-<input id='editnfe_id' name='editnfe_id' type='text' class='input' value=''>
+<input id='editnfe_id' name='editnfe_id' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
 <label class='label'>NV</label>
-<input id='editnfe_nv' name='editnfe_nv' type='text' class='input' value=''>
+<input id='editnfe_nv' name='editnfe_nv' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <p class='control'>
 <label class='label'>NF</label>
-<input id='editnfe_nf' name='editnfe_nf' type='text' value='' class='input'>
+<input id='editnfe_nf' name='editnfe_nf' type='text' class='input $theme' value=''>
 </p>
 </div>
 </div>
@@ -89,7 +101,7 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <div class='field'>
 <label class='label'>Problema</label>
 <div class='control'>
-<textarea class='textarea' placeholder='Textarea' name='editnfe_problem' id='editnfe_problem'></textarea>
+<textarea class='textarea $theme' placeholder='Textarea' name='editnfe_problem' id='editnfe_problem'></textarea>
 </div>
 </div>
 <footer class='modal-card-foot'>

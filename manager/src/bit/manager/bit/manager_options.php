@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+include_once './../../../db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["username"]]);
+$row = $data->fetch();
+
     echo "<section class='manager_options'>
       <div class='columns'>
         <div class='column is-2'>
@@ -95,14 +102,24 @@
         <div class='column is-3'>&nbsp;</div>
         <div class='column is-4'>
           <div class='container'>
-            <div class='main_searchbar'>
-            <div class='field has-addons'>
-              <div class='control has-icons-left'>
+          <div class='main_searchbar'>
+            <div class='field has-addons'>";
+
+            if ($row['theme'] == 0 || $row['theme'] == 1){
+              echo "<div class='control has-icons-left'>
                 <input type='text' class='input is-light'>
               </div>
               <div class='control'>
-                  <a class='button is-light'>
-                    <span class='icon is-medium is-right'>
+                  <a class='button is-light'>";
+            } elseif ($row['theme'] == 2){
+              echo "<div class='control has-icons-left'>
+                <input type='text' class='input is-primary'>
+              </div>
+              <div class='control'>
+                  <a class='button is-primary'>";
+            }
+
+                    echo "<span class='icon is-medium is-right'>
                       <i class='fa fa-search'></i>
                     </span>
                   </a>

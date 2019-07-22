@@ -34,7 +34,7 @@ while ($row = $data->fetch()) {
   $e_emailaccountant = utf8_encode($row["emailAccountant"]); // ds
   $e_isactive = $row["isActive"]; // e
 
-  echo "<tr>
+  echo "<tr class='trline$e_isactive'>
           <td class='trstatus$e_isactive'></td>
           <td class='txtalgncenter'>$m_companyid</td>
           <td><a href='./profile.php?id=$m_companyid'>" . ucfirst($m_companyname) . "</a></td>

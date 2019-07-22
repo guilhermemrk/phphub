@@ -90,6 +90,18 @@ table a:hover {
 	background: #FF3860 !important;
 }
 
+.trline0 {
+	color: #898989 !important;
+}
+
+.trline0 a {
+	color: #898989 !important;
+}
+
+.trline0 td,th {
+	color: #898989 !important;
+}
+
 .cexpspace {
 	margin-right: 1%;
 }

@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+include_once './../../db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["username"]]);
+$row = $data->fetch();
+
+if ($row["theme"] == 0 || $row["theme"] == 1){
+  $theme = '';
+} elseif ($row["theme"] == 2) {
+  $theme = 'is-dark';
+}
+
 echo "<div class='modal' id='edmodal'>
     <div class='modal-background'></div>
     <div class='modal-card'>
@@ -15,23 +27,23 @@ echo "<div class='modal' id='edmodal'>
                         <div class='field has-addons'>
                             <div class='control'>
                                 <label class='label' style='margin-left: 20%;'>ID</label>
-                                <a id='edit_entryid' class='button'>#</a>
+                                <a id='edit_nfecompanyid' class='button $theme'>#</a>
                             </div>
                             <div class='control'>
                                 <label class='label'>Empresa</label>
-                                <input id='edit_companyName' type='text' class='input' disabled>
+                                <input id='edit_companyName' type='text' class='input $theme' disabled>
                             </div>
                         </div>
                         <div class='field'>
                             <p class='control'>
                                 <label class='label'>Data</label>
-                                <input id='edit_entryDate' type='text' value='' class='input' disabled>
+                                <input id='edit_entryDate' type='text' value='' class='input $theme' disabled>
                             </p>
                         </div>
                         <div class='field'>
                             <div class='control'>
                                 <label class='label'>Status</label>
-                                <div class='select'>
+                                <div class='select $theme'>
                                     <select id='edit_entryStatus' name='edit_entryStatus'>
                                         <option value='0'>Finalizada</option>
                                         <option value='1'>Pendente</option>
@@ -45,7 +57,7 @@ echo "<div class='modal' id='edmodal'>
                 <div class='field'>
                     <label class='label'>Problema</label>
                     <div class='control'>
-                        <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea'></textarea>
+                        <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea $theme'></textarea>
                     </div>
                 </div>
                 <footer class='modal-card-foot'>

@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+include_once './../../db/connect.php';
+$dataTheme = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$dataTheme->execute([$_SESSION["username"]]);
+$rowTheme = $dataTheme->fetch();
+
+if ($rowTheme["theme"] == 0 || $rowTheme["theme"] == 1){
+  $theme = '';
+} elseif ($rowTheme["theme"] == 2) {
+  $theme = 'is-dark';
+}
+
 $data = $db->query("SELECT * FROM man_cep ORDER BY cityName ASC");
 
 echo "<div class='modal' id='modal_add_entity'>
@@ -16,13 +28,13 @@ echo "<div class='modal' id='modal_add_entity'>
               <div class='field'>
               <div class='control'>
               <label class='label'>Nome</label>
-              <input id='entity_name' name='entity_name' type='text' class='input'>
+              <input id='entity_name' name='entity_name' type='text' class='input $theme'>
               </div>
               </div>
               <div class='field'>
                   <div class='control'>
                       <label class='label'>Status</label>
-                      <div class='select'>
+                      <div class='select $theme'>
                           <select id='entity_status' name='entity_status'>
                             <option value='1'>Ativo</option>
                             <option value='0'>Inativo</option>
@@ -37,7 +49,7 @@ echo "<div class='modal' id='modal_add_entity'>
                       <div class='field'>
                           <div class='control'>
                               <label class='label'>Cidade</label>
-                              <div class='select'>
+                              <div class='select $theme'>
                                   <select id='entity_city' name='entity_city'>";
             while ($row = $data->fetch()){
               echo "<option value='" . $row['cityid'] . "'>" . utf8_encode($row['cityName']) . "</option>";
@@ -49,7 +61,7 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
     <div class='control'>
         <label class='label'>Estado</label>
-        <div class='select'>
+        <div class='select $theme'>
             <select id='entity_state' name='entity_state' disabled>
               <option value='1'>
                 Mato Grosso
@@ -61,7 +73,7 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
     <div class='control'>
         <label class='label'>País</label>
-        <div class='select'>
+        <div class='select $theme'>
             <select id='entity_country' name='entity_country' disabled>
               <option value='1'>
                 Brasil
@@ -77,13 +89,13 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Telefone</label>
-<input id='entity_tel1' name='entity_tel1' type='text' class='input'>
+<input id='entity_tel1' name='entity_tel1' type='text' class='input $theme'>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
   <label class='label'>Telefone II</label>
-  <input id='entity_tel2' name='entity_tel2' type='text' class='input'>
+  <input id='entity_tel2' name='entity_tel2' type='text' class='input $theme'>
 </div>
 </div>
 </div>
@@ -93,13 +105,13 @@ echo "<div class='modal' id='modal_add_entity'>
 <div class='field'>
 <div class='control'>
 <label class='label'>Email</label>
-<input id='entity_email' name='entity_email' type='text' class='input'>
+<input id='entity_email' name='entity_email' type='text' class='input $theme'>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
   <label class='label'>Email do Contador</label>
-  <input id='entity_emaila' name='entity_emaila' type='text' class='input'>
+  <input id='entity_emaila' name='entity_emaila' type='text' class='input $theme'>
 </div>
 </div>
 </div>

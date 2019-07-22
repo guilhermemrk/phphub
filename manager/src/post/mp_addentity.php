@@ -18,7 +18,7 @@
     $data->execute([$adent_name, $adent_phone, $adent_phone2, $adent_email, $adent_emaila, $adent_city, $adent_status, $sUsername]) or die(print_r($db->errorInfo(), true));
     header("Location: {$_SERVER['HTTP_REFERER']}");
   } else {
-    header("Location: /manager/manager.php?entity&error_addentry");
+    header("Location: /manager/manager.php?entity&error");
   }
 
 ?>

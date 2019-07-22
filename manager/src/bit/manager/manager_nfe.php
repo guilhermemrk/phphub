@@ -49,7 +49,7 @@ while ($row = $data->fetch()) {
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...';}
   if (strlen($m_entrydate) >= 11){ $m_entrydate = substr($row["entryDate"], 0, 10); }
 
-  echo "<tr>
+  echo "<tr class='trline$m_status_formatted'>
           <td class='trstatus$m_status_formatted'>&nbsp;</td>
           <td><a href='./profile.php?id=$m_companyid'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydate</td>

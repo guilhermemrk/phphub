@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+include_once './../../db/connect.php';
+$dataTheme = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$dataTheme->execute([$_SESSION["username"]]);
+$rowTheme = $dataTheme->fetch();
+
+if ($rowTheme["theme"] == 0 || $rowTheme["theme"] == 1){
+  $theme = '';
+} elseif ($rowTheme["theme"] == 2) {
+  $theme = 'is-dark';
+}
+
 $data = $db->query("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
 
 echo "<div class='modal' id='modal_add'>
@@ -17,7 +29,7 @@ echo "<div class='modal' id='modal_add'>
                     <div class='field'>
                         <div class='control'>
                             <label class='label'>Empresa</label>
-                            <div class='select'>
+                            <div class='select $theme'>
                               <select name='companyid' id='companyid'>";
             while ($row = $data->fetch()){
               echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($row['companyName']) . "</option>";
@@ -29,7 +41,7 @@ echo "<div class='modal' id='modal_add'>
 <div class='field'>
 <div class='control'>
     <label class='label'>Status</label>
-    <div class='select'>
+    <div class='select $theme'>
         <select id='status' name='status'>
             <option value='0'>Finalizada</option>
             <option value='1'>Pendente</option>
@@ -43,7 +55,7 @@ echo "<div class='modal' id='modal_add'>
 <div class='field'>
 <label class='label'>Problema</label>
 <div class='control'>
-<textarea class='textarea' placeholder='Textarea' name='problem' id='problem'></textarea>
+<textarea class='textarea $theme' name='problem' id='problem'></textarea>
 </div>
 </div>
 <footer class='modal-card-foot'>
