@@ -20,12 +20,17 @@
       </thead>
       <tbody>";
 
+$page = $_GET["page"];
+if (is_NULL($page)){ $page = 1; }
+if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = 15*($page-1); }
+
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate ASC LIMIT 50");
+$data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, 15");
 } else {
-  $data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate ASC LIMIT 50");
-  $data->execute([$filter]);
+$data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, 15");
+$data->execute([$filter]);
 }
+
 
 
 while ($row = $data->fetch()) {
@@ -92,9 +97,14 @@ echo "</tbody></table>
   </section>
   <section class='cSpaceSmall'>
     <section>
-      <div class='manager-explanation'>";
+      <div class='manager_explanation'>";
 
       include_once './src/bit/manager/bit/manager_main_exp.php';
+
+      echo "</div>
+      <div class='manager_pagination'>";
+
+      include_once './src/bit/core/core_pagination_nfe.php';
 
       echo "</div>
     </section>

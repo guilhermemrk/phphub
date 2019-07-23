@@ -4,7 +4,7 @@
   $nfe = $_GET["nfe"];
   $entity = $_GET["entity"];
 
-  $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2)");
+  $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (20,21,22)");
   $pagination->execute();
 
   $rowcount = $pagination->rowCount();
@@ -17,13 +17,13 @@
 
 if (intval($finalpage) !== 1){
   echo "<nav class='pagination is-small' role='navigation' aria-label='pagination'>";
-  if ($page > 1){
+  if (!is_NULL($nfe) && $page > 1){
     $previouspage = $page-1;
-    echo "<a href='?page=$previouspage' class='pagination-previous'>Anterior</a>";
+    echo "<a href='?nfe&page=$previouspage' class='pagination-previous'>Anterior</a>";
   }
-  if ($page < intval($finalpage)){
+  if (!is_NULL($nfe) && $page < intval($finalpage)){
     $nextpage = $page+1;
-    echo "<a href='?page=$nextpage' class='pagination-next'>Proxima</a>";
+    echo "<a href='?nfe&page=$nextpage' class='pagination-next'>Proxima</a>";
   }
 
   echo "<ul class='pagination-list'>";
@@ -31,12 +31,12 @@ if (intval($finalpage) !== 1){
   while ($i <= $finalpage){
     if ($i == $page){
       echo "<li>
-        <a href='?page=$i' class='pagination-link is-current' aria-label='Page $i' aria-current='page'>$i</a>
+        <a href='?nfe&page=$i' class='pagination-link is-current' aria-label='Page $i' aria-current='page'>$i</a>
       </li>";
       $i++;
     } else {
       echo "<li>
-        <a href='?page=$i' class='pagination-link' aria-label='Goto page $i'>$i</a>
+        <a href='?nfe&page=$i' class='pagination-link' aria-label='Goto page $i'>$i</a>
       </li>";
       $i++;
     }

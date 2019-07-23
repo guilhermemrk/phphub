@@ -17,10 +17,14 @@
       </thead>
       <tbody>";
 
+$page = $_GET["page"];
+if (is_NULL($page)){ $page = 1; }
+if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = 15*($page-1); }
+
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT 50");
+  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, 15");
 } else {
-  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT 50");
+  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, 15");
   $entityFilter = substr($filter, 1, 2);
   $data->execute([$entityFilter]);
 }
@@ -51,15 +55,20 @@ while ($row = $data->fetch()) {
         </tr>";
 }
 
-echo "</tbody></table>
-  </section>
-  <section class='cSpaceSmall'>
-    <section>
-      <div class='manager-explanation'>";
-
-      include_once './src/bit/manager/bit/manager_entity_exp.php';
-
-      echo "</div>
+  echo "</tbody></table>
     </section>
-  </section>";
+    <section class='cSpaceSmall'>
+      <section>
+        <div class='manager_explanation'>";
+
+        include_once './src/bit/manager/bit/manager_entity_exp.php';
+
+        echo "</div>
+        <div class='manager_pagination'>";
+
+        include_once './src/bit/core/core_pagination_entity.php';
+
+        echo "</div>
+      </section>
+    </section>";
 ?>

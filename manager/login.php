@@ -13,7 +13,7 @@
     include_once './src/bit/core/core_navbar.php';
     include_once './src/bit/core/core_header.php';
 
-    $error = $_GET["loginerror"];
+    $loginerror = $_GET["loginerror"];
   ?>
   <div class='columns is-centered'>
     <div class='column is-4'>
@@ -30,7 +30,7 @@
           <div class="field">
             <label class="label">Usuário</label>
             <div class="control has-icons-left has-icons-right">
-              <?php if (!is_NULL($error)){
+              <?php if (!is_NULL($loginerror)){
                 echo "<input class='input is-danger' type='text' placeholder='Text input' name='lusername'>";
               } else {
                 echo "<input class='input' type='text' placeholder='Text input' name='lusername'>";
@@ -42,7 +42,7 @@
                 <i class="fas fa-check"></i>
               </span>
             </div>
-            <?php if (!is_NULL($error)){
+            <?php if (!is_NULL($loginerror)){
               echo "<p class='help is-danger'>Usuário Inválido.</p>";
             } ?>
 
@@ -51,7 +51,7 @@
           <div class="field">
             <label class="label">Senha</label>
             <div class="control has-icons-left has-icons-right">
-              <?php if (!is_NULL($error)){
+              <?php if (!is_NULL($loginerror)){
                 echo "<input class='input is-danger' type='password' placeholder='Password input' name='lpass'>";
               } else {
                 echo "<input class='input' type='password' placeholder='Password input' name='lpass'>";
@@ -63,7 +63,7 @@
                 <i class="fas fa-exclamation-triangle"></i>
               </span>
             </div>
-            <?php if (!is_NULL($error)){
+            <?php if (!is_NULL($loginerror)){
               echo "<p class='help is-danger'>Senha Inválida.</p>";
             }?>
           </div>
