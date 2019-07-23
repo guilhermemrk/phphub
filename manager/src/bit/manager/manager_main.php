@@ -73,9 +73,14 @@ echo "</tbody></table>
   </section>
   <section class='cSpaceSmall'>
     <section>
-      <div class='manager-explanation'>";
+      <div class='manager_explanation'>";
 
       include_once './src/bit/manager/bit/manager_main_exp.php';
+
+      echo "</div>
+      <div class='manager_pagination'>";
+
+      include_once './src/bit/core/core_pagination.php';
 
       echo "</div>
     </section>

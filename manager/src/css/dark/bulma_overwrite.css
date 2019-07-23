@@ -73,3 +73,12 @@ fieldset[disabled] .textarea {
 .button_text_fix {
   margin-bottom: 5% !important;
 }
+
+.pagination-link, .pagination-previous, .pagination-next {
+	background-color: #424242;
+	color: #F9F9F9;
+}
+
+.pagination-link:hover, .pagination-previous:hover, .pagination-next:hover {
+	color: #C9C9C9;
+}
