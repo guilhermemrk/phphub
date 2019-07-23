@@ -9,25 +9,9 @@ a {
 	color: #1373E4;
 }
 
-.cSpaceAfterHeaderTable {
-	margin-top: 5%;
-}
-
-.cSpaceAfterHeaderMenu {
-	margin-top: 10%;
-}
-
-.cSpaceAfterHeaderLogin {
-	margin-top: 20%;
-}
-
 .cSpaceSmall {
 	margin: 1%;
 	color: #191919;
-}
-
-.mopt-left {
-	width: 35px;
 }
 
 .colorexplanation {
@@ -44,37 +28,6 @@ table a {
 
 table a:hover {
 	color: #5399EC;
-}
-
-.company-name {
-	width: 200px !important;
-}
-
-.m-entrydate {
-	width: 11% !important;
-	text-align: center !important;
-}
-
-.mopt-box {
-	width: 40px;
-	text-align: center !important;
-}
-
-.mopt-status {
-	width: 10px !important;
-}
-
-.entity-email {
-	width: 350px;
-}
-
-.entity-phone {
-	width: 170px;
-}
-
-.nfe-todo-box {
-	width: 150px !important;
-  text-align: center !important;
 }
 
 .trstatus0 {
@@ -110,31 +63,7 @@ table a:hover {
 	color: #191919 !important;
 }
 
-.cexpspace {
-	margin-right: 1%;
-}
-
-.manager_options {
-	margin: 1%;
-}
-
 .manager_options_label {
 	color: #191919;
 	margin: 0% 0% 3% 4%;
-}
-
-.mopte-first {
-	padding-left: 6.25%;
-}
-
-.mopte-second {
-	padding-left: 10.25%;
-}
-
-.txtalgncenter {
-	text-align: center !important;
-}
-
-.main_searchbar {
-	margin: 5% 0% 0% 0%;
 }

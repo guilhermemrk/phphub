@@ -11,6 +11,7 @@
   echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />';
   echo '<meta charset="UTF-8">';
   echo '<link rel="stylesheet" href="./src/css/bulma.css">';
+  echo '<link rel="stylesheet" href="./src/css/common.css">';
   if ($row['theme'] == 0 || $row['theme'] == 1){ // dark
     echo '<link rel="stylesheet" href="./src/css/dark/bulma_overwrite.css">';
     echo '<link rel="stylesheet" href="./src/css/dark/style.css">';

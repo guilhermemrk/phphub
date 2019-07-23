@@ -13,8 +13,8 @@
   if ($count == 1){
     $_SESSION["username"] = $username;
     // $_SESSION["userid"] = $userid;
-    header("Location: /manager/manager.php");
+    header("Location: /manager/manager.php?firstlogin");
   } else {
-    header("Location: /manager/login.php?failed");
+    header("Location: /manager/login.php?loginerror");
   }
 ?>

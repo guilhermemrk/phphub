@@ -1,0 +1,76 @@
+.cSpaceAfterHeaderTable {
+	margin-top: 5%;
+}
+
+.cSpaceAfterHeaderMenu {
+	margin-top: 10%;
+}
+
+.cSpaceAfterHeaderLogin {
+	margin-top: 5%;
+}
+
+.notifications_container {
+	margin-top: 5%;
+}
+
+.mopt-left {
+	width: 35px;
+}
+
+.company-name {
+	width: 200px !important;
+}
+
+.m-entrydate {
+	width: 11% !important;
+	text-align: center !important;
+}
+
+.mopt-box {
+	width: 40px;
+	text-align: center !important;
+}
+
+.mopt-status {
+	width: 10px !important;
+}
+
+.entity-email {
+	width: 350px;
+}
+
+.entity-phone {
+	width: 170px;
+}
+
+.nfe-todo-box {
+	width: 150px !important;
+  text-align: center !important;
+}
+
+
+.cexpspace {
+	margin-right: 1%;
+}
+
+.manager_options {
+	margin: 1%;
+}
+
+
+.mopte-first {
+	padding-left: 6.25%;
+}
+
+.mopte-second {
+	padding-left: 10.25%;
+}
+
+.txtalgncenter {
+	text-align: center !important;
+}
+
+.main_searchbar {
+	margin: 5% 0% 0% 0%;
+}

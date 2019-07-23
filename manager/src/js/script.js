@@ -42,3 +42,12 @@ function changeManagerModalEditNfe(entryID, companyid, companyName, status, mode
   $("#editnfe_nf").attr("value",`${nf}`);
   $("#editnfe_problem").attr("value",`${problem}`);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    $notification = $delete.parentNode;
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});

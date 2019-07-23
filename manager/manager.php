@@ -38,6 +38,8 @@
         <section class='container'>
           <section class='cSpaceAfterHeaderTable'>
               <?php
+              include './src/bit/core/core_notifications.php';
+
               if (is_NULL($nfe) && is_NULL($entity) && is_NULL($sped)){
                 include_once "./src/bit/manager/manager_main.php";
               } elseif (!is_NULL($nfe)) {
