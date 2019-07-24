@@ -6,7 +6,7 @@
   $sUsername = $_SESSION["username"];
   $ae_companyid = $_POST['companyid'];
   $ae_status = $_POST['status'];
-  $ae_problem = utf8_encode($_POST['problem']);
+  $ae_problem = utf8_decode($_POST['problem']);
   $sUsername = $_SESSION["username"];
 
   $data = $db->prepare("INSERT INTO man_manager (companyid, problem, status, addedBy) VALUES (?, ?, ?, ?)");

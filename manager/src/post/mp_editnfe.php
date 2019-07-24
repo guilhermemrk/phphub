@@ -9,7 +9,7 @@
   $enf_id = $_POST["editnfe_id"];
   $enf_nv = $_POST["editnfe_nv"];
   $enf_nf = $_POST["editnfe_nf"];
-  $enf_problem = $_POST["editnfe_problem"];
+  $enf_problem = utf8_decode($_POST["editnfe_problem"]);
 
   $data = $db->prepare("UPDATE man_manager SET status=?, nfe_modelo=?, nfe_todo=?, nfe_id=?, nfe_nv=?, nfe_nf=?, problem=? WHERE entryid=?");
 

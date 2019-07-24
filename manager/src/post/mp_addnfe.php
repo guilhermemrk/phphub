@@ -10,7 +10,7 @@
     $anfe_id = $_POST["nfe_id"];
     $anfe_nv = $_POST["nfe_nv"];
     $anfe_nf = $_POST["nfe_nf"];
-    $anfe_problem = utf8_encode($_POST["problem"]);
+    $anfe_problem = utf8_decode($_POST["problem"]);
     $anfe_procedure = $_POST["nfe_procedure"];
 
     $data = $db->prepare("INSERT INTO man_manager (companyid, status, nfe_modelo, nfe_todo, nfe_id, nfe_nv, nfe_nf, problem, addedBy) VALUES (?,?,?,?,?,?,?,?,?)");

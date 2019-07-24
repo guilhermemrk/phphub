@@ -4,7 +4,7 @@
 
   $ee_id = $_GET['id'];
   $ee_status = $_POST['edit_entryStatus'];
-  $ee_problem = $_POST['edit_entryProblem'];
+  $ee_problem = utf8_decode($_POST['edit_entryProblem']);
 
   $data = $db->prepare("UPDATE man_manager SET problem=?, status=? WHERE entryid=?");
 

@@ -17,14 +17,13 @@
       </thead>
       <tbody>";
 
-$page = $_GET["page"];
 if (is_NULL($page)){ $page = 1; }
-if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = 15*($page-1); }
+if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, 15");
+  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
 } else {
-  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, 15");
+  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
   $entityFilter = substr($filter, 1, 2);
   $data->execute([$entityFilter]);
 }
@@ -46,7 +45,7 @@ while ($row = $data->fetch()) {
           <td>" . formatEmail($e_emailprimary) . "</td>
           <td>" . formatEmail($e_emailaccountant) . "</td>
           <td>
-            <button class='button is-small is-warning' disabled>
+            <a></a><button class='button is-small is-warning' disabled>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

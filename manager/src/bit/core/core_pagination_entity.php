@@ -1,16 +1,17 @@
 <?php
 
-  $page = $_GET["page"];
-  $nfe = $_GET["nfe"];
-  $entity = $_GET["entity"];
 
-  $pagination = $db->prepare("SELECT * FROM man_entity");
+  if (is_NULL($filter)){
+    $pagination = $db->prepare("SELECT * FROM man_entity");
+  } else {
+    $pagination = $db->prepare("SELECT * FROM man_entity WHERE isActive=$entityFilter");
+  }
+
   $pagination->execute();
-
   $rowcount = $pagination->rowCount();
 
-  $finalpage = $rowcount/15;
-  $finalpagemodule = $rowcount%15;
+  $finalpage = $rowcount/$maxperpage;
+  $finalpagemodule = $rowcount%$maxperpage;
   if ($finalpagemodule >= 1){ $finalpage++; }
   if (is_NULL($page)){ $page = 1; }
   $i = 1;

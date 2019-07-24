@@ -20,14 +20,13 @@
       </thead>
       <tbody>";
 
-$page = $_GET["page"];
 if (is_NULL($page)){ $page = 1; }
-if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = 15*($page-1); }
+if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
 if (is_NULL($filter)){
-$data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, 15");
+$data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (20,21,22) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, $maxperpage");
 } else {
-$data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, 15");
+$data = $db->prepare("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (?) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, $maxperpage");
 $data->execute([$filter]);
 }
 

@@ -12,6 +12,8 @@
       $entity = $_GET['entity'];
       $sped = $_GET['sped'];
       $filter = $_GET['filter']; // 0 - closed, 1 - open, 2 - urgent, null = all
+      $page = $_GET["page"];
+      $maxperpage = 30;
 
       $section_title = 'Manager';
       include_once './src/bit/manager/bit/manager_title.php';

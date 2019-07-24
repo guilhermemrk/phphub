@@ -3,7 +3,7 @@
   include_once './src/bit/login/login_verification.php';
   include './../db/connect.php';
 
-  $adent_name = $_POST["entity_name"];
+  $adent_name = utf8_decode($_POST["entity_name"]);
   $adent_status = $_POST["entity_status"];
   $adent_city = $_POST["entity_city"];
   $adent_phone = $_POST["entity_tel1"];
