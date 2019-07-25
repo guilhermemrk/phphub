@@ -4,10 +4,10 @@
     <?php
 
       // ToDo - Make so the entry get status=2 if a day has passed
-      include_once './src/bit/core/core_theme.php';
       include_once './src/bit/login/login_verification.php';
       include './src/db/connect.php';
       include_once './src/bit/core/core_htmlconfig.php';
+      include_once './src/bit/core/core_theme.php';
 
       $nfe = $_GET['nfe'];
       $entity = $_GET['entity'];

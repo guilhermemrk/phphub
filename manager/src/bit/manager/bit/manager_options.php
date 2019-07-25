@@ -99,13 +99,13 @@
           <div class='main_searchbar'>
             <div class='field has-addons'>";
 
-            if ($themeid["theme"] == 0 || $themeid["theme"] == 1){
+            if ($row["theme"] == 0 || $row["theme"] == 1){
               echo "<div class='control has-icons-left'>
                 <input type='text' class='input is-light'>
               </div>
               <div class='control'>
                   <a class='button is-light'>";
-            } elseif ($themeid["theme"] == 2){
+            } elseif ($row["theme"] == 2){
               echo "<div class='control has-icons-left'>
                 <input type='text' class='input is-primary'>
               </div>

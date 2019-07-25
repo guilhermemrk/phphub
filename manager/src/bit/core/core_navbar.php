@@ -1,8 +1,14 @@
 <?php
 
-if ($themeid["theme"] == 0 || $themeid["theme"] == 1){
+session_start();
+include_once './src/db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["username"]]);
+$row = $data->fetch();
+
+if ($row["theme"] == 0 || $row["theme"] == 1){
   echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>";
-} elseif ($themeid["theme"] == 2){
+} elseif ($row["theme"] == 2){
   echo "<nav class='navbar is-light' role='navigation' aria-label='main navigation'>";
 }
 
@@ -50,11 +56,11 @@ if ($themeid["theme"] == 0 || $themeid["theme"] == 1){
                   Configurações
                 </a>";
 
-                if ($themeid["theme"] == 0 || $themeid["theme"] == 1){
+                if ($row["theme"] == 0 || $row["theme"] == 1){
                   echo "<a href='./src/bit/core/core_themeswitch.php' class='navbar-item'>
                           Light Theme
                         </a>";
-                } elseif ($themeid["theme"] == 2){
+                } elseif ($row["theme"] == 2){
                   echo "<a href='./src/bit/core/core_themeswitch.php' class='navbar-item'>
                           Dark Theme
                         </a>";
