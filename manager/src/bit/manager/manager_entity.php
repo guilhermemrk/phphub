@@ -17,9 +17,9 @@ if (is_NULL($page)){ $page = 1; }
 if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM man_entity ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
+  $data = $db->query("SELECT * FROM man_entity AS m JOIN man_cep AS c ON m.city = c.cityid ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
 } else {
-  $data = $db->prepare("SELECT * FROM man_entity WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
+  $data = $db->prepare("SELECT * FROM man_entity AS m JOIN man_cep AS c ON m.city = c.cityid WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
   $entityFilter = substr($filter, 1, 2);
   $data->execute([$entityFilter]);
 }
@@ -28,15 +28,21 @@ if (is_NULL($filter)){
 while ($row = $data->fetch()) {
   $m_companyid = $row["companyid"]; // a
   $m_companyname = utf8_encode($row["companyName"]); // b
-  $e_phone = $row["phone"]; // c
+  $e_phone = $row["phone"];
+  $e_phoneS = $row["phoneSec"]; // c
   $e_emailprimary = utf8_encode($row["emailPrimary"]); // d
   $e_emailaccountant = utf8_encode($row["emailAccountant"]); // ds
-  $e_isactive = $row["isActive"]; // e
+  $e_isactive = $row["isActive"];
+  $e_city = utf8_encode($row["cityName"]);
+  $ent_addedby = $row["addedBy"];
+  $ent_dateAdded = $row["dateAdded"];
+  $ent_remote = $row["remoteLink"];
+
 
   echo "<tr class='trline$e_isactive'>
           <td class='trstatus$e_isactive'></td>
           <td class='txtalgncenter'>$m_companyid</td>
-          <td><a href='./profile.php?id=$m_companyid'>" . ucfirst($m_companyname) . "</a></td>
+          <td><a onclick='entityOverview(`$m_companyid`, `$m_companyname`, `$e_phone`, `$e_phoneS`, `$e_emailprimary`, `$e_emailaccountant`, `$e_isactive`, `$ent_addedby`, `$e_city`, `$ent_dateAdded`, `$ent_remote`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>" . formatPhone($e_phone) . "</td>
           <td>" . formatEmail($e_emailprimary) . "</td>
           <td>" . formatEmail($e_emailaccountant) . "</td>
