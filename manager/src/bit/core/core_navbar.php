@@ -22,6 +22,9 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
           Manager
         </a>
         <div class='navbar-dropdown'>
+          <a class='navbar-item' href='./manager.php'>
+            Ocorrências
+          </a>
           <a class='navbar-item' href='./manager.php?nfe'>
             NFe
           </a>
