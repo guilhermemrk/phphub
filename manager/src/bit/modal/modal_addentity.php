@@ -1,16 +1,5 @@
 <?php
-
-session_start();
 include_once './../../db/connect.php';
-$dataTheme = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-$dataTheme->execute([$_SESSION["username"]]);
-$rowTheme = $dataTheme->fetch();
-
-if ($rowTheme["theme"] == 0 || $rowTheme["theme"] == 1){
-  $theme = '';
-} elseif ($rowTheme["theme"] == 2) {
-  $theme = 'is-dark';
-}
 
 $data = $db->query("SELECT * FROM man_cep ORDER BY cityName ASC");
 
@@ -19,10 +8,10 @@ echo "<div class='modal' id='modal_add_entity'>
     <div class='modal-card'>
         <header class='modal-card-head'>
             <p class='modal-card-title'>Nova entidade</p>
-            <button id='clentmodal' onclick='removeModal(`clentmodal`, `modal_add_entity`);' class='modal-close is-large' aria-label='close'></button>
+            <button id='clentmodal' onclick='removeModal(`modal_add_entity`);' class='delete is-large' aria-label='close'></button>
         </header>
-        <section class='modal-card-body'>
             <form action='./src/post/mp_addentity.php' method='POST'>
+        <section class='modal-card-body'>
               <div class='field'>
               <div class='field-body'>
               <div class='field'>
@@ -116,6 +105,7 @@ echo "<div class='modal' id='modal_add_entity'>
 </div>
 </div>
 </div>
+</section>
 <footer class='modal-card-foot'>
 <button class='button is-success is-fullwidth is-focused' name='submit' id='submit'>
 <span class='icon is-small'>
@@ -124,7 +114,6 @@ echo "<div class='modal' id='modal_add_entity'>
 </button>
 </footer>
 </form>
-</section>
 </div>
 </div>";
 ?>

@@ -1,11 +1,5 @@
 <?php
 
-session_start();
-include_once './../../../db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-$data->execute([$_SESSION["username"]]);
-$row = $data->fetch();
-
     echo "<section class='manager_options'>
       <div class='columns'>
         <div class='column is-2'>
@@ -13,7 +7,7 @@ $row = $data->fetch();
             <div class='manager_options_label'>Ocorrências</div>
           </div>
           <div class='container'>
-          <button id='omodal' onclick='addModal(`omodal`, `modal_add`);' class='button is-small is-success'>
+          <button id='omodal' onclick='addModal(`modal_add`);' class='button is-small is-success'>
             <span class='icon is-small'>
               <i class='fas fa-plus'></i>
             </span>
@@ -45,7 +39,7 @@ $row = $data->fetch();
             <div class='manager_options_label'>NFe</div>
           </div>
           <div class='container'>
-          <button id='addnfemodal' onclick='addModal(`addnfemodal`, `modal_add_nfe`);' class='button is-small is-success'>
+          <button id='addnfemodal' onclick='addModal(`modal_add_nfe`);' class='button is-small is-success'>
             <span class='icon is-small'>
               <i class='fas fa-plus'></i>
             </span>
@@ -77,7 +71,7 @@ $row = $data->fetch();
             <div class='manager_options_label'>Entidades</div>
           </div>
           <div class='container'>
-          <button id='addentitymodal' onclick='addModal(`addentitymodal`, `modal_add_entity`);' class='button is-small is-success'>
+          <button id='addentitymodal' onclick='addModal(`modal_add_entity`);' class='button is-small is-success'>
             <span class='icon is-small'>
               <i class='fas fa-plus'></i>
             </span>
@@ -105,13 +99,13 @@ $row = $data->fetch();
           <div class='main_searchbar'>
             <div class='field has-addons'>";
 
-            if ($row['theme'] == 0 || $row['theme'] == 1){
+            if ($themeid["theme"] == 0 || $themeid["theme"] == 1){
               echo "<div class='control has-icons-left'>
                 <input type='text' class='input is-light'>
               </div>
               <div class='control'>
                   <a class='button is-light'>";
-            } elseif ($row['theme'] == 2){
+            } elseif ($themeid["theme"] == 2){
               echo "<div class='control has-icons-left'>
                 <input type='text' class='input is-primary'>
               </div>

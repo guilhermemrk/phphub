@@ -1,7 +1,7 @@
 <?php
   session_start();
   include_once './src/bit/login/login_verification.php';
-  include './src/db/connect.php';
+  include './../../db/connect.php';
 
   $data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
   $update = $db->prepare("UPDATE hub_users SET theme=? WHERE username=?");

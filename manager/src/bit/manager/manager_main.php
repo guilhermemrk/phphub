@@ -1,7 +1,4 @@
 <?php
-
-    include_once './src/bit/manager/bit/manager_options.php';
-
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
         <tr>
@@ -19,9 +16,25 @@
     if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
     if (is_NULL($filter)){
-      $data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN (0,1,2) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, $maxperpage");
+      $data = $db->query("SELECT *
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN (0,1,2)
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
     } else {
-      $data = $db->query("SELECT * FROM man_manager AS m JOIN man_entity AS e ON m.companyid = e.companyid WHERE status IN ($filter) ORDER BY status DESC, entryDate DESC LIMIT $sqlpagination, $maxperpage");
+      $data = $db->query("SELECT *
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN ($filter)
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
     }
 
 
@@ -33,6 +46,15 @@ while ($row = $data->fetch()) {
   // ca = $m_problem_formatted
   $m_status = $row["status"]; // d
   $m_entrydate = $row["entryDate"]; // e
+  $ent_phone = $row["phone"];
+  $ent_phoneSec = $row["phoneSec"];
+  $ent_email = $row["emailPrimary"];
+  $ent_emaila = $row["emailAccountant"];
+  $ent_active = $row["isActive"];
+  $ent_addedby = $row["addedBy"];
+  $ent_city = $row["cityName"];
+  $ent_dateAdded = $row["dateAdded"];
+  $ent_remoteLink = $row["remoteLink"];
 
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
   if (strlen($m_problem) >= 100){ $m_problem_formatted = substr(ucfirst(utf8_encode($row["problem"])), 0, 100); $m_problem_formatted .= '...'; } else { $m_problem_formatted = ucfirst(utf8_encode($row["problem"])); }
@@ -40,7 +62,7 @@ while ($row = $data->fetch()) {
 
   echo "<tr class='trline$m_status'>
           <td class='trstatus$m_status'>&nbsp;</td>
-          <td><a href='./profile.php?id=$m_companyid'>" . ucfirst($m_companyname) . "</a></td>
+          <td><a id='ent_overview_modal$m_companyid' onclick='entityOverview(`$m_companyid`, `" . utf8_encode($m_companyname) . "`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `" . utf8_encode($ent_city) . "`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydate</td>
           <td><a href='./problem.php?id=$m_entryid'>$m_problem_formatted</a></td>
           <td>";
@@ -53,7 +75,7 @@ while ($row = $data->fetch()) {
             </button></a>
           </td>";
           } else {
-            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, `$m_entryid`); addModal(`bclmodal$m_entryid`, `clmodal`);' class='button is-small is-danger'>
+            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, `$m_entryid`); addModal(`clmodal`);' class='button is-small is-danger'>
               <span class='icon is-small'>
                 <i class='fas fa-times'></i>
               </span>
@@ -62,7 +84,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`); addModal(`bedmodal$m_entryid`, `edmodal`);' class='button is-small is-warning'>
+            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`); addModal(`edmodal`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

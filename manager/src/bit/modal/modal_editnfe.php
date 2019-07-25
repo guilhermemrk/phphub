@@ -1,26 +1,14 @@
 <?php
 
-session_start();
-include_once './../../db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-$data->execute([$_SESSION["username"]]);
-$row = $data->fetch();
-
-if ($row["theme"] == 0 || $row["theme"] == 1){
-  $theme = '';
-} elseif ($row["theme"] == 2) {
-  $theme = 'is-dark';
-}
-
 echo "<div class='modal' id='modal_edit_nfe'>
 <div class='modal-background'></div>
 <div class='modal-card'>
     <header class='modal-card-head'>
         <p class='modal-card-title'>Editando NFe #<span id='nfe_edit_number'>#</span></p>
-        <button id='editcnfemodal' onclick='removeModal(`editcnfemodal`, `modal_edit_nfe`);' class='modal-close is-large' aria-label='close'></button>
+        <button id='editcnfemodal' onclick='removeModal(`modal_edit_nfe`);' class='delete is-large' aria-label='close'></button>
     </header>
-    <section class='modal-card-body'>
         <form id='edit_nfeform' action='' method='POST'>
+    <section class='modal-card-body'>
             <div class='field'>
                 <div class='field-body'>
                 <div class='field has-addons'>
@@ -28,7 +16,7 @@ echo "<div class='modal' id='modal_edit_nfe'>
                         <div class='field has-addons'>
                           <div class='control'>
                             <label class='label' style='margin-left: 20%;'>ID</label>
-                            <a id='edit_nfecompanyid' class='button $theme'>#</a>
+                            <span id='edit_nfe_companyid' class='button $theme'>#</span>
                             </div>
                             <div class='control'>
                                 <label class='label'>Empresa</label>
@@ -104,6 +92,7 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <textarea class='textarea $theme' placeholder='Textarea' name='editnfe_problem' id='editnfe_problem'></textarea>
 </div>
 </div>
+</section>
 <footer class='modal-card-foot'>
 <button class='button is-warning is-fullwidth is-focused' value='1'>
 <span class='icon is-small'>
@@ -112,7 +101,6 @@ echo "<div class='modal' id='modal_edit_nfe'>
 </button>
 </footer>
 </form>
-</section>
 </div>
 </div>";
 

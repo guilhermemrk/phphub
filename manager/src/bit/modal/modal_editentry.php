@@ -1,26 +1,14 @@
 <?php
 
-session_start();
-include_once './../../db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-$data->execute([$_SESSION["username"]]);
-$row = $data->fetch();
-
-if ($row["theme"] == 0 || $row["theme"] == 1){
-  $theme = '';
-} elseif ($row["theme"] == 2) {
-  $theme = 'is-dark';
-}
-
 echo "<div class='modal' id='edmodal'>
     <div class='modal-background'></div>
     <div class='modal-card'>
         <header class='modal-card-head'>
             <p class='modal-card-title'>Editar ocorrência #<span id='m_edit_number'>#</span></p>
-            <button id='cemodal' onclick='removeModal(`cemodal`, `edmodal`);' class='modal-close is-large' aria-label='close'></button>
+            <button id='cemodal' onclick='removeModal(`edmodal`);' class='delete is-large' aria-label='close'></button>
         </header>
+        <form id='edit_entryForm' action='' method='POST'>
         <section class='modal-card-body'>
-            <form id='edit_entryForm' action='' method='POST'>
                 <div class='field has-addons'>
                     <div class='field-body'>
                         <!-- style='width: 10% !important;' -->
@@ -60,15 +48,15 @@ echo "<div class='modal' id='edmodal'>
                         <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea $theme'></textarea>
                     </div>
                 </div>
-                <footer class='modal-card-foot'>
-                    <button class='button is-warning is-fullwidth is-focused' id='edit_entrySubmit'>
-                        <span class='icon is-small'>
-                          <i class='fas fa-check'></i>
-                        </span>
-                    </button>
-                </footer>
-            </form>
         </section>
+        <footer class='modal-card-foot'>
+            <button class='button is-warning is-fullwidth is-focused' id='edit_entrySubmit'>
+                <span class='icon is-small'>
+                  <i class='fas fa-check'></i>
+                </span>
+            </button>
+        </footer>
+    </form>
     </div>
 </div>";
 ?>

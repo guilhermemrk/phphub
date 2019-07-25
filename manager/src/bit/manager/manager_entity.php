@@ -1,8 +1,4 @@
 <?php
-
-    include_once './src/bit/manager/bit/manager_options.php';
-    include_once './src/bit/misc/misc_format_pattern.php';
-
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
         <tr>

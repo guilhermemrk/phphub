@@ -1,7 +1,4 @@
 <?php
-
-    include_once './src/bit/manager/bit/manager_options.php';
-
     echo "<table class='table is-bordered is-fullwidth'>
       <thead>
         <tr>
@@ -50,7 +47,7 @@ while ($row = $data->fetch()) {
   if ($nfe_model == '55'){ $nfe_model_formatted = 'NFe'; } elseif ($nfe_model == '65'){ $nfe_model_formatted = 'NFCe'; } elseif ($nfe_model == '99'){ $nfe_model_formatted = 'Outro'; }
   if (is_numeric($nfe_todo) && $nfe_todo == 0){ $nfe_todo_formatted = 'Cancelar'; } elseif ($nfe_todo == 1){ $nfe_todo_formatted = 'Autorizar'; } elseif ($nfe_todo == 2){ $nfe_todo_formatted = 'Inutilizar'; } elseif ($nfe_todo == 3){ $nfe_todo_formatted = 'Outro'; }
   if (strlen($m_problem) >= 30){ $m_problem = substr($row["problem"], 0, 30); $m_problem .= '...'; }
-  if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...';}
+  if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
   if (strlen($m_entrydate) >= 11){ $m_entrydate = substr($row["entryDate"], 0, 10); }
 
   echo "<tr class='trline$m_status_formatted'>
@@ -74,7 +71,7 @@ while ($row = $data->fetch()) {
             </td>";
           } else {
             echo "<td>
-              <button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`bclmodal$m_entryid`, `clmodal`);' class='button is-small is-danger'>
+              <button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`clmodal`);' class='button is-small is-danger'>
                 <span class='icon is-small'>
                   <i class='fas fa-times'></i>
                 </span>
@@ -83,7 +80,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`); addModal(`ednfemodal$m_entryid`, `modal_edit_nfe`);' class='button is-small is-warning'>
+            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`); addModal(`modal_edit_nfe`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>
