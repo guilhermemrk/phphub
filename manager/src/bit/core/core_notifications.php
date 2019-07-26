@@ -4,7 +4,7 @@
 $loginerror = $_GET["loginerror"];
 $loginexpired = $_GET["loginexpired"];
 $logout = $_GET["logout"];
-$firstlogin = $_GET["firstlogin"];
+// $firstlogin = $_GET["firstlogin"];
 
 // Manager
 $error = $_GET["error"];
@@ -41,12 +41,12 @@ if (!is_NULL($error)){
   ';
 }
 
-if (!is_NULL($firstlogin)){
-  echo "
-  <div class='notification is-info'>
-  <button class='delete'></button>
-    Bem vindo de volta, $sUsername!
-  </div>
-  ";
-}
+// if (!is_NULL($firstlogin)){
+//   echo "
+//   <div class='notification is-info'>
+//   <button class='delete'></button>
+//     Bem vindo de volta, $sUsername!
+//   </div>
+//   ";
+// }
  ?>

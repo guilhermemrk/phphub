@@ -67,3 +67,11 @@ table a:hover {
 	color: #191919;
 	margin: 0% 0% 3% 4%;
 }
+
+.ent_th_title {
+	border-bottom: 1px solid #A9A9A9;
+}
+
+.ent_td_title {
+	border-bottom: 1px solid #A9A9A9;
+}

@@ -93,7 +93,34 @@
           </button>
           </div>
         </div>
-        <div class='column is-3'>&nbsp;</div>
+        <div class='column is-2'>
+          <div class='container'>
+            <div class='manager_options_label'>SPED</div>
+          </div>
+          <div class='container'>
+          <button id='addentitymodal' onclick='' class='button is-small is-success'>
+            <span class='icon is-small'>
+              <i class='fas fa-plus'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-asterisk'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped&filter=41`' class='button is-small is-info'>
+            <span class='icon is-small'>
+              <i class='fas fa-check'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped&filter=40`' class='button is-small is-danger'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          </div>
+        </div>
+        <div class='column is-1'></div>
         <div class='column is-4'>
           <div class='container'>
           <div class='main_searchbar'>

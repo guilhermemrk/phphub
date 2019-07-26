@@ -16,7 +16,7 @@
     if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
     if (is_NULL($filter)){
-      $data = $db->query("SELECT *
+      $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
                           FROM man_manager AS m
                           JOIN man_entity AS e
                           ON m.companyid = e.companyid
@@ -26,7 +26,7 @@
                           ORDER BY m.status DESC, m.entryDate DESC
                           LIMIT $sqlpagination, $maxperpage");
     } else {
-      $data = $db->query("SELECT *
+      $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
                           FROM man_manager AS m
                           JOIN man_entity AS e
                           ON m.companyid = e.companyid
@@ -39,13 +39,13 @@
 
 
 while ($row = $data->fetch()) {
-  $m_entryid = $row["entryid"]; // a
-  $m_companyid = $row["companyid"]; // b
-  $m_companyname = utf8_encode($row["companyName"]); // ba
-  $m_problem = ucfirst(utf8_encode($row["problem"])); // c
-  // ca = $m_problem_formatted
-  $m_status = $row["status"]; // d
-  $m_entrydate = $row["entryDate"]; // e
+  $m_entryid = $row["entryid"];
+  $m_companyid = $row["companyid"];
+  $m_companyname = utf8_encode($row["companyName"]);
+  $m_problem = ucfirst(utf8_encode($row["problem"]));
+  $m_status = $row["status"];
+  $m_entrydate = $row["entryDate"];
+  $m_addedby = $row["m_addedby"];
   $ent_phone = $row["phone"];
   $ent_phoneSec = $row["phoneSec"];
   $ent_email = $row["emailPrimary"];
@@ -57,14 +57,14 @@ while ($row = $data->fetch()) {
   $ent_remoteLink = $row["remoteLink"];
 
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
-  if (strlen($m_problem) >= 100){ $m_problem_formatted = substr(ucfirst(utf8_encode($row["problem"])), 0, 100); $m_problem_formatted .= '...'; } else { $m_problem_formatted = ucfirst(utf8_encode($row["problem"])); }
-  if (strlen($m_entrydate) >= 11){ $m_entrydate = substr($row["entryDate"], 0, 10); }
+  if (strlen($m_problem) >= 100){ $m_problem_formatted = substr(ucfirst(utf8_encode($row["problem"])), 0, 100); $m_problem_formatted .= '...'; } elseif (is_NULL($m_problem) || strlen($m_problem) == 0){ $m_problem_formatted = 'Não informado.'; } else { $m_problem_formatted = ucfirst(utf8_encode($row["problem"])); }
+  if (strlen($m_entrydate) >= 11){ $m_entrydateFormatted = substr($row["entryDate"], 0, 10); } else { $m_entrydateFormatted = $m_entrydate; }
 
   echo "<tr class='trline$m_status'>
           <td class='trstatus$m_status'>&nbsp;</td>
-          <td><a id='ent_overview_modal$m_companyid' onclick='entityOverview(`$m_companyid`, `" . utf8_encode($m_companyname) . "`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `" . utf8_encode($ent_city) . "`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
-          <td class='txtalgncenter'>$m_entrydate</td>
-          <td><a href='./problem.php?id=$m_entryid'>$m_problem_formatted</a></td>
+          <td><a id='ent_overview_modal$m_companyid' onclick='entityOverview(`$m_companyid`, `$m_companyname`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `" . utf8_encode($ent_city) . "`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
+          <td class='txtalgncenter'>$m_entrydateFormatted</td>
+          <td><a id='entry_overview_modal$m_companyid' onclick='entryOverview(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$m_problem`); addModal(`entry_overview_modal`);'>$m_problem_formatted</a></td>
           <td>";
 
           if ($m_status == 0){

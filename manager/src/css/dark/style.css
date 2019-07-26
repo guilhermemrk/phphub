@@ -26,7 +26,6 @@ table a:hover {
 	color: #C9C9C9;
 }
 
-
 .trstatus0 {
 	background: #292929 !important;
 }
@@ -54,4 +53,14 @@ table a:hover {
 .manager_options_label {
 	color: #999999;
 	margin: 0% 0% 3% 4%;
+}
+
+.ent_th_title {
+	color: #F9F9F9 !important;
+	border-bottom: 1px solid #393939;
+}
+
+.ent_td_title {
+	color: #E9E9E9 !important;
+	border-bottom: 1px solid #393939;
 }

@@ -32,12 +32,10 @@
       include_once './src/bit/misc/misc_format_pattern.php';
       // Modals
       include_once './src/bit/modal/modal_addentry.php';
-      include_once './src/bit/modal/modal_editentry.php';
-      include_once './src/bit/modal/modal_editnfe.php';
       include_once './src/bit/modal/modal_closeentry.php';
       include_once './src/bit/modal/modal_addnfe.php';
       include_once './src/bit/modal/modal_addentity.php';
-      include_once './src/bit/modal/modal_entryoverview.php';
+      include_once './src/bit/modal/modal_entityoverview.php';
     ?>
     <div class='columns is-centered'>
         <div class='column is-full'>
@@ -48,10 +46,15 @@
               include_once './src/bit/manager/bit/manager_options.php';
 
               if (is_NULL($nfe) && is_NULL($entity) && is_NULL($sped)){
+                include_once './src/bit/modal/modal_editentry.php';
+                include_once './src/bit/modal/modal_entryoverview.php';
                 include_once "./src/bit/manager/manager_main.php";
               } elseif (!is_NULL($nfe)) {
+                include_once './src/bit/modal/modal_editnfe.php';
+                include_once './src/bit/modal/modal_nfeoverview.php';
                 include_once "./src/bit/manager/manager_nfe.php";
               } elseif (!is_NULL($entity)) {
+                include_once './src/bit/modal/modal_editentity.php';
                 include_once "./src/bit/manager/manager_entity.php";
               } elseif (!is_NULL($sped)) {
                 include_once "./src/bit/manager_sped.php";

@@ -39,6 +39,9 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
       <a class='navbar-item' href='./notes.php'>
         Anotações
       </a>
+      <a class='navbar-item' href='./graph.php'>
+        Resumo
+      </a>
 
     </div>
 

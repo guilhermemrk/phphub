@@ -17,23 +17,36 @@ if (is_NULL($page)){ $page = 1; }
 if ($page == 1){ $sqlpagination = 0; } else { $sqlpagination = $maxperpage*($page-1); }
 
 if (is_NULL($filter)){
-  $data = $db->query("SELECT * FROM man_entity AS m JOIN man_cep AS c ON m.city = c.cityid ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
+  $data = $db->query("SELECT *
+                      FROM man_entity AS m
+                      JOIN man_cep AS c
+                      ON m.city = c.cityid
+                      ORDER BY isActive DESC,companyName ASC
+                      LIMIT $sqlpagination, $maxperpage");
 } else {
-  $data = $db->prepare("SELECT * FROM man_entity AS m JOIN man_cep AS c ON m.city = c.cityid WHERE isActive=? ORDER BY isActive DESC, companyName ASC LIMIT $sqlpagination, $maxperpage");
+  $data = $db->prepare("SELECT *
+                        FROM man_entity AS m
+                        JOIN man_cep AS c
+                        ON m.city = c.cityid
+                        WHERE isActive=?
+                        ORDER BY isActive DESC, companyName ASC
+                        LIMIT $sqlpagination, $maxperpage");
+
   $entityFilter = substr($filter, 1, 2);
   $data->execute([$entityFilter]);
 }
 
 
 while ($row = $data->fetch()) {
-  $m_companyid = $row["companyid"]; // a
-  $m_companyname = utf8_encode($row["companyName"]); // b
+  $m_companyid = $row["companyid"];
+  $m_companyname = utf8_encode($row["companyName"]);
   $e_phone = $row["phone"];
-  $e_phoneS = $row["phoneSec"]; // c
-  $e_emailprimary = utf8_encode($row["emailPrimary"]); // d
-  $e_emailaccountant = utf8_encode($row["emailAccountant"]); // ds
+  $e_phoneS = $row["phoneSec"];
+  $e_emailprimary = utf8_encode($row["emailPrimary"]);
+  $e_emailaccountant = utf8_encode($row["emailAccountant"]);
   $e_isactive = $row["isActive"];
   $e_city = utf8_encode($row["cityName"]);
+  $e_cityid = utf8_encode($row["cityid"]);
   $ent_addedby = $row["addedBy"];
   $ent_dateAdded = $row["dateAdded"];
   $ent_remote = $row["remoteLink"];
@@ -47,11 +60,11 @@ while ($row = $data->fetch()) {
           <td>" . formatEmail($e_emailprimary) . "</td>
           <td>" . formatEmail($e_emailaccountant) . "</td>
           <td>
-            <a></a><button class='button is-small is-warning' disabled>
+            <button onclick='editEntity(`$m_companyid`, `$m_companyname`, `$e_isactive`, `$e_cityid`, `$e_phone`, `$e_phoneS`, `$e_emailprimary`, `$e_emailaccountant`); addModal(`modal_edit_entity`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>
-            </button></a>
+            </button>
           </td>
         </tr>";
 }

@@ -22,7 +22,8 @@ echo "<div class='modal' id='modal_add_nfe'>
                                 <select id='companyid' name='companyid'>";
 
                                 while ($row = $data->fetch()){
-                                  echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($row['companyName']) . "</option>";
+                                  if (strlen($row['companyName']) > 20){ $companyName = substr($row['companyName'], 0, 20); $companyName .= '...'; } else { $companyName = $row['companyName']; }
+                                  echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($companyName) . "</option>";
                                 }
 
 echo "</select>
