@@ -128,13 +128,13 @@
 
             if ($row["theme"] == 0 || $row["theme"] == 1){
               echo "<div class='control has-icons-left'>
-                <input type='text' class='input is-light'>
+                <input type='text' class='input is-light' disabled>
               </div>
               <div class='control'>
                   <a class='button is-light'>";
             } elseif ($row["theme"] == 2){
               echo "<div class='control has-icons-left'>
-                <input type='text' class='input is-primary'>
+                <input type='text' class='input is-primary' disabled>
               </div>
               <div class='control'>
                   <a class='button is-primary'>";

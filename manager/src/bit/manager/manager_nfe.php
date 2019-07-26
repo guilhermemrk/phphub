@@ -27,7 +27,7 @@ $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
                     ON m.companyid = e.companyid
                     JOIN man_cep AS c
                     ON e.city = c.cityid
-                    WHERE m.status IN (20,21,22)
+                    WHERE m.status IN (20,21,22) AND m.addedBy IN ('$sUsername')
                     ORDER BY m.status DESC, m.entryDate DESC
                     LIMIT $sqlpagination, $maxperpage");
 } else {
@@ -37,7 +37,7 @@ $data = $db->prepare("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
                     ON m.companyid = e.companyid
                     JOIN man_cep AS c
                     ON e.city = c.cityid
-                    WHERE m.status IN ($filter)
+                    WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername')
                     ORDER BY m.status DESC, m.entryDate DESC
                     LIMIT $sqlpagination, $maxperpage");
 $data->execute([$filter]);

@@ -19,7 +19,7 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
       </a>
       <div class='navbar-item has-dropdown is-hoverable'>
         <a class='navbar-link' href='./manager.php'>
-          Manager
+          Gerenciador
         </a>
         <div class='navbar-dropdown'>
           <a class='navbar-item' href='./manager.php'>
@@ -32,15 +32,15 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
             Entidades
           </a>
           <a class='navbar-item' href='./manager.php?sped'>
-            SPED
+            <strike>SPED</strike>
           </a>
         </div>
       </div>
       <a class='navbar-item' href='./notes.php'>
-        Anotações
+        <strike>Anotações</strike>
       </a>
       <a class='navbar-item' href='./graph.php'>
-        Resumo
+        <strike>Resumo</strike>
       </a>
 
     </div>
@@ -55,11 +55,11 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
                 Olá, ${sUsername}!
               </a>
               <div class='navbar-dropdown'>
-                <a href='/manager/user/profile.php?id=$a' class='navbar-item'>
-                  Perfil
+                <a href='#' class='navbar-item'>
+                  <strike>Perfil</strike>
                 </a>
                 <a href='#' class='navbar-item'>
-                  Configurações
+                  <strike>Configurações</strike>
                 </a>";
 
                 if ($row["theme"] == 0 || $row["theme"] == 1){
@@ -74,7 +74,7 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
 
                 echo "<hr class='navbar-divider'>
                 <a href='/manager/src/post/hp_logout.php' class='navbar-item'>
-                  <strong>Logout</strong>
+                  <strong>Sair</strong>
                 </a>
               </div>
             </div>

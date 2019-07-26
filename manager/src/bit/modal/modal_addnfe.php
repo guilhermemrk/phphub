@@ -73,19 +73,19 @@ echo "</select>
 <div class='field-body'>
 <div class='field'>
 <div class='control'>
-<label class='label'>ID</label>
+<label class='label'>Cod. Orcamento (ID)</label>
 <input id='nfe_id' name='nfe_id' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <div class='control'>
-<label class='label'>NV</label>
+<label class='label'>Número da Venda (NV)</label>
 <input id='nfe_nv' name='nfe_nv' type='text' class='input $theme' value=''>
 </div>
 </div>
 <div class='field'>
 <p class='control'>
-<label class='label'>NF</label>
+<label class='label'>Número da Nota (NF)</label>
 <input id='nfe_nf' name='nfe_nf' type='text' class='input $theme' value=''>
 </p>
 </div>

@@ -1,9 +1,9 @@
 <?php
 
   if (is_NULL($filter)){
-    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2)");
+    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2) WHERE addedBy=$sUsername");
   } else {
-    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN ($filter)");
+    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN ($filter) WHERE addedBy=$sUsername");
   }
 
   $pagination->execute();

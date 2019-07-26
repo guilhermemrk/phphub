@@ -13,10 +13,12 @@ $row = $data->fetch();
   }
   echo "<div class='content has-text-centered'>
     <p>
-      Developed by <strong>Akai#0001</strong> - 2019.<br />
-      All rights reserved.
+      &nbsp;
     </p>
   </div>
 </footer>
 </div>";
+
+//       Developed by Akai#0001 - 2019.
+//           All rights reserved.
 ?>

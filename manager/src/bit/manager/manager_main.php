@@ -22,7 +22,7 @@
                           ON m.companyid = e.companyid
                           JOIN man_cep AS c
                           ON e.city = c.cityid
-                          WHERE m.status IN (0,1,2)
+                          WHERE m.status IN (0,1,2) AND m.addedBy IN ('$sUsername')
                           ORDER BY m.status DESC, m.entryDate DESC
                           LIMIT $sqlpagination, $maxperpage");
     } else {
@@ -32,11 +32,10 @@
                           ON m.companyid = e.companyid
                           JOIN man_cep AS c
                           ON e.city = c.cityid
-                          WHERE m.status IN ($filter)
+                          WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername')
                           ORDER BY m.status DESC, m.entryDate DESC
                           LIMIT $sqlpagination, $maxperpage");
     }
-
 
 while ($row = $data->fetch()) {
   $m_entryid = $row["entryid"];
