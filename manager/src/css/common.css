@@ -84,3 +84,48 @@
 	clear: both !important;
 	margin-top: 15.6% !important;
 }
+
+.trstatus0 {
+	background: #292929 !important;
+}
+
+.trstatus1 {
+	background: #D9D9D9 !important;
+}
+
+.trstatus2 {
+	background: #FF3860 !important;
+}
+
+.trstsped0 { /* Enviado */
+	background: #292929 !important;
+}
+
+.trstsped1 { /* Pendente */
+	background: #D9D9D9 !important;
+}
+
+.trstsped2 { /* Em Progresso */
+	background: #9DFF61 !important;
+}
+
+.trstsped3 { /* Erro */
+	background: #FFAC29 !important;
+}
+
+.trstsped4 { /* Urgente */
+	background: #FF3860 !important;
+}
+
+.trstsped5 { /* Urgente + Erro */
+	background: #2F75B5 !important;
+}
+
+.trline0 {
+	color: #898989 !important;
+}
+
+.statusfirstdiv {
+	float: left;
+	width: 40%;
+}

@@ -93,7 +93,7 @@
           </button>
           </div>
         </div>
-        <div class='column is-2'>
+        <div class='column is-one-fifth'>
           <div class='container'>
             <div class='manager_options_label'>SPED</div>
           </div>
@@ -108,20 +108,34 @@
               <i class='fas fa-asterisk'></i>
             </span>
           </button>
-          <button onclick='window.location.href=`./manager.php?sped&filter=41`' class='button is-small is-info'>
+          <button onclick='window.location.href=`./manager.php?sped&filter=1`' class='button is-small is-info'>
             <span class='icon is-small'>
               <i class='fas fa-check'></i>
             </span>
           </button>
-          <button onclick='window.location.href=`./manager.php?sped&filter=40`' class='button is-small is-danger'>
+          <button onclick='window.location.href=`./manager.php?sped&filter=2`' class='button is-small is-primary'>
+            <span class='icon is-small'>
+              <i class='fas fa-check'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped&filter=3`' class='button is-small is-warning'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped&filter=0`' class='button is-small is-dark'>
+            <span class='icon is-small'>
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+          <button onclick='window.location.href=`./manager.php?sped&filter=5`' class='button is-small is-info'>
             <span class='icon is-small'>
               <i class='fas fa-times'></i>
             </span>
           </button>
           </div>
         </div>
-        <div class='column is-1'></div>
-        <div class='column is-4'>
+        <div class='column is-3'>
           <div class='container'>
           <div class='main_searchbar'>
             <div class='field has-addons'>";

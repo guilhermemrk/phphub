@@ -35,8 +35,8 @@ echo "</select>
 <label class='label'>Status</label>
 <div class='select $theme'>
 <select id='status' name='status'>
-    <option value='21'>Pendente</option>
     <option value='20'>Finalizada</option>
+    <option value='21' selected>Pendente</option>
     <option value='22'>Urgente</option>
 </select>
 </div>
@@ -47,7 +47,7 @@ echo "</select>
 <label class='label'>Modelo</label>
 <div class='select $theme'>
 <select id='nfe_model' name='nfe_model'>
-    <option value='55'>NFe</option>
+    <option value='55' selected>NFe</option>
     <option value='65'>NFCe</option>
     <option value='99'>Outro</option>
 </select>
@@ -59,8 +59,8 @@ echo "</select>
 <label class='label'>Procedimento</label>
 <div class='select $theme'>
 <select id='nfe_procedure' name='nfe_procedure'>
-    <option value='1'>Autorizar</option>
     <option value='0'>Cancelar</option>
+    <option value='1' selected>Autorizar</option>
     <option value='2'>Inutilizar</option>
     <option value='3'>Outro</option>
 </select>

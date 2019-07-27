@@ -32,7 +32,7 @@ echo "<div class='modal' id='modal_add'>
     <div class='select $theme'>
         <select id='status' name='status'>
             <option value='0'>Finalizada</option>
-            <option value='1'>Pendente</option>
+            <option value='1' selected>Pendente</option>
             <option value='2'>Urgente</option>
         </select>
     </div>

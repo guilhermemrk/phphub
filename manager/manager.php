@@ -57,7 +57,7 @@
                 include_once './src/bit/modal/modal_editentity.php';
                 include_once "./src/bit/manager/manager_entity.php";
               } elseif (!is_NULL($sped)) {
-                include_once "./src/bit/manager_sped.php";
+                include_once "./src/bit/manager/manager_sped.php";
               }
               ?>
         </section>
