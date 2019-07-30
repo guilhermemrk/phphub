@@ -10,22 +10,34 @@ function removeModal(modal){
     $(`#${modal}`).removeClass('is-active');
 }
 
-function changeModalCloseNumber(modalUrlTo, entryIdToClose){
-  $("#confirmclosenumber").attr("onclick",`window.location.href='${modalUrlTo}${entryIdToClose}'`);
+function changeModalCloseNumber(urlTo, entryIdToClose){
+  $("#confirmclosenumber").attr("action",`${urlTo}${entryIdToClose}`);
   $("#closenumber").text(entryIdToClose);
 }
 
-function changeManagerModalEdit(entryID, companyid, companyName, entryDate, entryProblem, entryStatus){
+function closeSped(urlTo, entryIdToClose, companyName){
+  $("#confirmclosesped").attr("action",`${urlTo}${entryIdToClose}`);
+  $("#spedCompanyName").text(companyName);
+}
+
+function editSped(urlTo, entryIdToClose, companyName, status){
+  $("#confirmeditsped").attr("action",`${urlTo}${entryIdToClose}`);
+  $("#spedEditCompanyName").text(companyName);
+  document.getElementById("editsped_status").value = status;
+}
+
+function changeManagerModalEdit(entryID, companyid, companyName, entryDate, entryProblem, entryStatus, solution){
   $("#m_edit_number").text(entryID);
   $("#edit_nfecompanyid").text(companyid);
   $("#edit_entryForm").attr("action", `./src/post/mp_editentry.php?id=${entryID}`);
   $("#edit_companyName").attr("value",`${companyName}`);
   $("#edit_entryDate").attr("value",`${entryDate}`);
   $("#edit_entryProblem").text(`${entryProblem}`);
+  $("#edit_entrySolution").text(`${solution}`);
   document.getElementById("edit_entryStatus").value = entryStatus;
 }
 
-function changeManagerModalEditNfe(entryID, companyid, companyName, status, model, procedure, id, nv, nf, problem){
+function changeManagerModalEditNfe(entryID, companyid, companyName, status, model, procedure, id, nv, nf, problem, solution){
   $("#nfe_edit_number").text(entryID);
   $("#edit_nfeform").attr("action", `./src/post/mp_editnfe.php?id=${entryID}`);
   $("#editnfe_companyName").attr("value",`${companyName}`);
@@ -34,6 +46,7 @@ function changeManagerModalEditNfe(entryID, companyid, companyName, status, mode
   $("#editnfe_nf").attr("value",`${nf}`);
   $("#editnfe_problem").text(`${problem}`);
   $("#edit_nfe_companyid").text(`${companyid}`);
+  $("#editnfe_Solution").text(`${solution}`);
   document.getElementById("editnfe_status").value = status;
   document.getElementById("editnfe_model").value = model;
   document.getElementById("editnfe_procedure").value = procedure;
@@ -76,7 +89,7 @@ function entityOverview(companyid, companyName, phone, phoneSec, emailP, emailA,
   $("#ent_isActive").text(`${isActive}`);
 }
 
-function entryOverview(entryID, companyid, companyName, status, addedBy, entryDate, problem){
+function entryOverview(entryID, companyid, companyName, status, addedBy, entryDate, problem, solution){
   if (status == 0){ status = "Finalizada"; } else if (status == 1) { status = "Pendente"; } else if (status == 2){ status = "Urgente"; }
   $("#entry_titleid").text(`${entryID}`);
   $("#mentry_id").text(`${entryID}`);
@@ -86,14 +99,15 @@ function entryOverview(entryID, companyid, companyName, status, addedBy, entryDa
   $("#mentry_addedby").text(`${addedBy}`);
   $("#mentry_entryDate").text(`${entryDate}`);
   $("#mentry_problem").text(`${problem}`);
+  $("#mentry_solution").text(`${solution}`);
 }
 
-function nfeOverview(nfe_model, entryid, companyid, companyName, id, nv, nf, status, addedby, entrydate, todo, problem){
+function nfeOverview(nfe_model, entryid, companyid, companyName, id, nv, nf, status, addedby, entrydate, todo, problem, solution){
   if (nfe_model == 55){ nfe_modelFormatted = 'NFe'; } else if (nfe_model == 65){ nfe_modelFormatted = 'NFCe'; } else { nfe_modelFormatted = 'Entrada'; }
-  if (status == 0){ status = "Finalizada"; } else if (status == 1) { status = "Pendente"; } else if (status == 2){ status = "Urgente"; }
+  if (status == 20){ status = "Finalizada"; } else if (status == 21) { status = "Pendente"; } else if (status == 22){ status = "Urgente"; }
   if (todo == 0){ todo = "Cancelar"; } else if (todo == 1) { todo = "Autorizar"; } else if (todo == 2){ todo = "Inutilizar"; } else if (todo == 3){ todo = "Outro"; }
   $("#mnfe_model1").text(`${nfe_modelFormatted}`);
-  $("#mnfe_model2").text(`${nfe_model}`);
+  $("#mnfe_model2").text(`${nfe_model} - ${nfe_modelFormatted}`);
   $("#mnfe_titleid").text(`${entryid}`);
   $("#mnfe_entryid").text(`${entryid}`);
   $("#mnfe_companyid").text(`${companyid}`);
@@ -106,6 +120,7 @@ function nfeOverview(nfe_model, entryid, companyid, companyName, id, nv, nf, sta
   $("#mnfe_entryDate").text(`${entrydate}`);
   $("#mnfe_todo").text(`${todo}`);
   $("#mnfe_problem").text(`${problem}`);
+  $("#mnfe_solution").text(`${solution}`);
 }
 
 function editEntity(companyid, companyName, status, city, phone, phoneSec, email, emaila){

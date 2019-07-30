@@ -7,15 +7,21 @@ echo "<div class='modal' id='clmodal'>
       <p class='modal-card-title'>Fechar ocorrência número #<span id='closenumber'>#</span></p>
       <button id='clmodalb' onclick='removeModal(`clmodal`);' class='delete is-large' aria-label='close'></button>
     </header>
+    <form id='confirmclosenumber' action='' method='POST'>
     <section class='modal-card-body'>
-      Você tem certeza que quer fechar esta entrada?
+      <div class='field'>
+          <label class='label'>Solução</label>
+          <div class='control'>
+              <textarea id='entrySolution' name='entrySolution' class='textarea $theme'></textarea>
+          </div>
+      </div>
     </section>
     <footer class='modal-card-foot'>
-      <button class='button is-danger is-focused' id='confirmclosenumber' onclick='window.location.href=``'>
+      <button class='button is-danger is-focused is-fullwidth'>
         <span class='icon is-small'><i class='fas fa-times'></i></span>
       </button>
-      <button id='mcl_cancel' class='button is-black' onClick='removeModal(`clmodal`);'><span class='button_text_fix'>Cancelar</span></button>
     </footer>
+    </form>
   </div>
 </div>";
 

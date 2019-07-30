@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <th class='ent_th_title'>Empresa:</th>
-          <td class='ent_td_title'>[<span id='mentry_companyid'>#</span>] <span id='mentry_companyName'>#</span></td>
+          <td class='ent_td_title'><span id='mentry_companyid'>#</span> - <span id='mentry_companyName'>#</span></td>
         </tr>
         <tr>
           <th class='ent_th_title'>Situação:</th>
@@ -32,6 +32,10 @@
         <tr>
           <th class='ent_th_title' style='width: 30%;'>Problema:</th>
           <td class='ent_td_title' style='width: 50%;'><span id='mentry_problem'></span></td>
+        </tr>
+        <tr>
+          <th class='ent_th_title' style='width: 30%;'>Solução:</th>
+          <td class='ent_td_title' style='width: 50%;'><span id='mentry_solution'></span></td>
         </tr>
       </table>
       </section>

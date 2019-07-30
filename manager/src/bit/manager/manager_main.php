@@ -54,6 +54,8 @@ while ($row = $data->fetch()) {
   $ent_city = $row["cityName"];
   $ent_dateAdded = $row["dateAdded"];
   $ent_remoteLink = $row["remoteLink"];
+  $m_solution = $row["solution"];
+  $m_solution_encoded = utf8_encode($row["solution"]);
 
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
   if (strlen($m_problem) >= 100){ $m_problem_formatted = substr(ucfirst(utf8_encode($row["problem"])), 0, 100); $m_problem_formatted .= '...'; } elseif (is_NULL($m_problem) || strlen($m_problem) == 0){ $m_problem_formatted = 'Não informado.'; } else { $m_problem_formatted = ucfirst(utf8_encode($row["problem"])); }
@@ -63,7 +65,7 @@ while ($row = $data->fetch()) {
           <td class='trstatus$m_status'>&nbsp;</td>
           <td><a id='ent_overview_modal$m_companyid' onclick='entityOverview(`$m_companyid`, `$m_companyname`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `" . utf8_encode($ent_city) . "`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydateFormatted</td>
-          <td><a id='entry_overview_modal$m_companyid' onclick='entryOverview(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$m_problem`); addModal(`entry_overview_modal`);'>$m_problem_formatted</a></td>
+          <td><a id='entry_overview_modal$m_companyid' onclick='entryOverview(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$m_problem`, `$m_solution_encoded`); addModal(`entry_overview_modal`);'>$m_problem_formatted</a></td>
           <td>";
 
           if ($m_status == 0){
@@ -74,7 +76,7 @@ while ($row = $data->fetch()) {
             </button></a>
           </td>";
           } else {
-            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`, `$m_entryid`); addModal(`clmodal`);' class='button is-small is-danger'>
+            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`,`$m_entryid`); addModal(`clmodal`);' class='button is-small is-danger'>
               <span class='icon is-small'>
                 <i class='fas fa-times'></i>
               </span>
@@ -83,7 +85,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`); addModal(`edmodal`);' class='button is-small is-warning'>
+            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`, `$m_solution_encoded`); addModal(`edmodal`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

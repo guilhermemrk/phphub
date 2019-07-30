@@ -92,6 +92,12 @@ echo "<div class='modal' id='modal_edit_nfe'>
 <textarea class='textarea $theme' placeholder='Textarea' name='editnfe_problem' id='editnfe_problem'></textarea>
 </div>
 </div>
+<div class='field'>
+    <label class='label'>Solução</label>
+    <div class='control'>
+        <textarea id='editnfe_Solution' name='editnfe_Solution' class='textarea $theme'></textarea>
+    </div>
+</div>
 </section>
 <footer class='modal-card-foot'>
 <button class='button is-warning is-fullwidth is-focused' value='1'>

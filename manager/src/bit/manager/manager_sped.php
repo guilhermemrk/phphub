@@ -9,6 +9,7 @@
           <th class='entity-phone'>Phone</th>
           <th class='entity-email'>Accountant Email</th>
           <th class='mopt-box'></th>
+          <th class='mopt-box'></th>
         </tr>
       </thead>
       <tbody>";
@@ -50,6 +51,8 @@ while ($row = $data->fetch()) {
   $ent_addedby = $row["addedBy"];
   $ent_dateAdded = $row["dateAdded"];
   $ent_remote = $row["remoteLink"];
+  $sped = $row["sped"];
+  $sped_status = $row["sped_status"];
   $sped_user = $row["sped_user"];
 
   if ($sped_status == 0){ $sped_statusFormatted = 'Enviado'; }
@@ -72,10 +75,29 @@ while ($row = $data->fetch()) {
           }
           echo "<td class='txtalgncenter'>" . formatPhone($e_phone) . "</td>
           <td>" . formatEmail($e_emailaccountant) . "</td>
-          <td class='txtalgncenter'>
-            <button class='button is-small is-primary' disabled>
+          ";
+          if ($sped_status != 0){
+            echo "<td class='txtalgncenter'>
+              <button class='button is-small is-primary' onclick='closeSped(`./src/post/mp_closesped.php?id=`, `$m_companyid`, `$m_companyname`); addModal(`modal_spedclose`)'>
+                <span class='icon is-small'>
+                  <i class='fas fa-check'></i>
+                </span>
+              </button>
+            </td>";
+          } else {
+            echo "<td class='txtalgncenter'>
+              <button class='button is-small is-primary' disabled>
+                <span class='icon is-small'>
+                  <i class='fas fa-check'></i>
+                </span>
+              </button>
+            </td>";
+          }
+
+          echo "<td class='txtalgncenter'>
+            <button class='button is-small is-warning' onclick='editSped(`./src/post/mp_editsped.php?id=`, `$m_companyid`, `$m_companyname`, `$sped_status`); addModal(`modal_spededit`);'>
               <span class='icon is-small'>
-                <i class='fas fa-check'></i>
+                <i class='fas fa-pen'></i>
               </span>
             </button>
           </td>

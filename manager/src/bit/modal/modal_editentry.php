@@ -48,6 +48,12 @@ echo "<div class='modal' id='edmodal'>
                         <textarea id='edit_entryProblem' name='edit_entryProblem' class='textarea $theme'></textarea>
                     </div>
                 </div>
+                <div class='field'>
+                    <label class='label'>Solução</label>
+                    <div class='control'>
+                        <textarea id='edit_entrySolution' name='edit_entrySolution' class='textarea $theme'></textarea>
+                    </div>
+                </div>
         </section>
         <footer class='modal-card-foot'>
             <button class='button is-warning is-fullwidth is-focused' id='edit_entrySubmit'>

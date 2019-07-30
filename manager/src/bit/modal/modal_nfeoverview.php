@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <th class='ent_th_title'>Empresa:</th>
-          <td class='ent_td_title'>[<span id='mnfe_companyid'>#</span>] <span id='mnfe_companyName'>#</span></td>
+          <td class='ent_td_title'><span id='mnfe_companyid'>#</span> - <span id='mnfe_companyName'>#</span></td>
         </tr>
         <tr>
           <th class='ent_th_title'>Modelo:</th>
@@ -34,6 +34,18 @@
           <td class='ent_td_title'><span id='mnfe_nf'></span></td>
         </tr>
         <tr>
+          <th class='ent_th_title'>Procedimento:</th>
+          <td class='ent_td_title'><span id='mnfe_todo'></span></td>
+        </tr>
+        <tr>
+          <th class='ent_th_title' style='width: 30%;'>Observação:</th>
+          <td class='ent_td_title' style='width: 50%;'><span id='mnfe_problem'></span></td>
+        </tr>
+        <tr>
+          <th class='ent_th_title' style='width: 30%;'>Solução:</th>
+          <td class='ent_td_title' style='width: 50%;'><span id='mnfe_solution'></span></td>
+        </tr>
+        <tr>
           <th class='ent_th_title'>Situação:</th>
           <td class='ent_td_title'><span id='mnfe_status'></span></td>
         </tr>
@@ -44,14 +56,6 @@
         <tr>
           <th class='ent_th_title'>Data de adição:</th>
           <td class='ent_td_title'><span id='mnfe_entryDate'></span></td>
-        </tr>
-        <tr>
-          <th class='ent_th_title'>Procedimento:</th>
-          <td class='ent_td_title'><span id='mnfe_todo'></span></td>
-        </tr>
-        <tr>
-          <th class='ent_th_title' style='width: 30%;'>Observação:</th>
-          <td class='ent_td_title' style='width: 50%;'><span id='mnfe_problem'></span></td>
         </tr>
       </table>
       </section>

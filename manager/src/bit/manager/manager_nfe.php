@@ -68,13 +68,14 @@ while ($row = $data->fetch()) {
   $ent_city = utf8_encode($row["cityName"]);
   $ent_dateAdded = $row["dateAdded"];
   $ent_remoteLink = $row["remoteLink"];
-
+  $m_solution = $row["solution"];
+  $m_solution_encoded = utf8_encode($row["solution"]);
 
   if ($nfe_model == '55'){ $nfe_model_formatted = 'NFe'; } elseif ($nfe_model == '65'){ $nfe_model_formatted = 'NFCe'; } elseif ($nfe_model == '99'){ $nfe_model_formatted = 'Outro'; }
   if (is_numeric($nfe_todo) && $nfe_todo == 0){ $nfe_todo_formatted = 'Cancelar'; } elseif ($nfe_todo == 1){ $nfe_todo_formatted = 'Autorizar'; } elseif ($nfe_todo == 2){ $nfe_todo_formatted = 'Inutilizar'; } elseif ($nfe_todo == 3){ $nfe_todo_formatted = 'Outro'; }
   if (strlen($m_problem) >= 45){ $m_problemFormatted = substr(utf8_encode($row["problem"]), 0, 45); $m_problemFormatted .= '...'; } elseif (is_NULL($row["problem"]) || strlen($row["problem"]) == 0){ $m_problemFormatted = 'Não informado.'; } else { $m_problemFormatted = utf8_encode($m_problem); }
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
-  if (strlen($m_entrydate) >= 11){ $m_entrydateFormatted = substr($row["entryDate"], 0, 10); } else {$m_entrydateFormatted = $m_entrydate; }
+  if (strlen($m_entrydate) >= 11){ $m_entrydateFormatted = substr($row["entryDate"], 0, 10); } else { $m_entrydateFormatted = $m_entrydate; }
 
   echo "<tr class='trline$m_status_formatted'>
           <td class='trstatus$m_status_formatted'>&nbsp;</td>
@@ -85,7 +86,7 @@ while ($row = $data->fetch()) {
           <td class='txtalgncenter'>$nfe_nv</th>
           <td class='txtalgncenter'>$nfe_nf</th>
           <td class='txtalgncenter'>$nfe_todo_formatted</th>
-          <td><a onclick='nfeOverview(`$nfe_model`, `$m_entryid`, `$m_companyid`, `$m_companyname`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$nfe_todo`, `$m_problem`); addModal(`nfe_overview_modal`);'>" . ucfirst($m_problemFormatted) . "</a></td>";
+          <td><a onclick='nfeOverview(`$nfe_model`, `$m_entryid`, `$m_companyid`, `$m_companyname`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$nfe_todo`, `$m_problem`, `$m_solution_encoded`); addModal(`nfe_overview_modal`);'>" . ucfirst($m_problemFormatted) . "</a></td>";
 
           if ($m_status == 20){
             echo "<td>
@@ -106,7 +107,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td>
-            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`); addModal(`modal_edit_nfe`);' class='button is-small is-warning'>
+            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`, `$m_solution`); addModal(`modal_edit_nfe`);' class='button is-small is-warning'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>
