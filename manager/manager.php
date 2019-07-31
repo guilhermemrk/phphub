@@ -15,6 +15,7 @@
       $filter = $_GET['filter']; // 0 - closed, 1 - open, 2 - urgent, null = all
       $page = $_GET["page"];
       $getid = $_GET["id"];
+      $error = $_GET["error"];
       $maxperpage = 30;
 
       $section_title = 'Manager';
@@ -43,6 +44,7 @@
           <section class='cSpaceAfterHeaderTable'>
               <?php
               include './src/bit/core/core_notifications.php';
+              // include_once './src/bit/manager/bit/manager_navbar.php';
               include_once './src/bit/manager/bit/manager_options.php';
 
               if (is_NULL($nfe) && is_NULL($entity) && is_NULL($sped)){

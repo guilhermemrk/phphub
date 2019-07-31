@@ -59,8 +59,8 @@ while ($row = $data->fetch()) {
           <td class='txtalgncenter'>" . formatPhone($e_phone) . "</td>
           <td>" . formatEmail($e_emailprimary) . "</td>
           <td>" . formatEmail($e_emailaccountant) . "</td>
-          <td>
-            <button onclick='editEntity(`$m_companyid`, `$m_companyname`, `$e_isactive`, `$e_cityid`, `$e_phone`, `$e_phoneS`, `$e_emailprimary`, `$e_emailaccountant`); addModal(`modal_edit_entity`);' class='button is-small is-warning'>
+          <td class='txtalgncenter'>
+            <button onclick='editEntity(`$m_companyid`, `$m_companyname`, `$e_isactive`, `$e_cityid`, `$e_phone`, `$e_phoneS`, `$e_emailprimary`, `$e_emailaccountant`); addModal(`modal_edit_entity`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar entidade'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

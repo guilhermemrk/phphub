@@ -78,7 +78,7 @@ while ($row = $data->fetch()) {
           ";
           if ($sped_status != 0){
             echo "<td class='txtalgncenter'>
-              <button class='button is-small is-primary' onclick='closeSped(`./src/post/mp_closesped.php?id=`, `$m_companyid`, `$m_companyname`); addModal(`modal_spedclose`)'>
+              <button class='button is-small is-primary tooltip is-tooltip-left is-tooltip-primary' data-tooltip='Finalizar SPED' onclick='closeSped(`./src/post/mp_closesped.php?id=`, `$m_companyid`, `$m_companyname`); addModal(`modal_spedclose`)'>
                 <span class='icon is-small'>
                   <i class='fas fa-check'></i>
                 </span>
@@ -95,7 +95,7 @@ while ($row = $data->fetch()) {
           }
 
           echo "<td class='txtalgncenter'>
-            <button class='button is-small is-warning' onclick='editSped(`./src/post/mp_editsped.php?id=`, `$m_companyid`, `$m_companyname`, `$sped_status`); addModal(`modal_spededit`);'>
+            <button class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar situação' onclick='editSped(`./src/post/mp_editsped.php?id=`, `$m_companyid`, `$m_companyname`, `$sped_status`); addModal(`modal_spededit`);'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

@@ -89,7 +89,7 @@ while ($row = $data->fetch()) {
           <td><a onclick='nfeOverview(`$nfe_model`, `$m_entryid`, `$m_companyid`, `$m_companyname`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$nfe_todo`, `$m_problem`, `$m_solution_encoded`); addModal(`nfe_overview_modal`);'>" . ucfirst($m_problemFormatted) . "</a></td>";
 
           if ($m_status == 20){
-            echo "<td>
+            echo "<td class='txtalgncenter'>
               <button class='button is-small is-danger' disabled>
                 <span class='icon is-small'>
                   <i class='fas fa-times'></i>
@@ -97,8 +97,8 @@ while ($row = $data->fetch()) {
               </button></a>
             </td>";
           } else {
-            echo "<td>
-              <button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`clmodal`);' class='button is-small is-danger'>
+            echo "<td class='txtalgncenter'>
+              <button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?isNfe&id=`, $m_entryid); addModal(`clmodal`);' class='button is-small is-danger tooltip is-tooltip-left is-tooltip-danger' data-tooltip='Finalizar NFe/NFCe'>
                 <span class='icon is-small'>
                   <i class='fas fa-times'></i>
                 </span>
@@ -106,8 +106,8 @@ while ($row = $data->fetch()) {
             </td>";
           }
 
-  echo   "<td>
-            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`, `$m_solution`); addModal(`modal_edit_nfe`);' class='button is-small is-warning'>
+  echo   "<td class='txtalgncenter'>
+            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`, `$m_solution`); addModal(`modal_edit_nfe`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar NFe/NFCe'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

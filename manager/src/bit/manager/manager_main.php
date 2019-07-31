@@ -66,7 +66,7 @@ while ($row = $data->fetch()) {
           <td><a id='ent_overview_modal$m_companyid' onclick='entityOverview(`$m_companyid`, `$m_companyname`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `" . utf8_encode($ent_city) . "`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydateFormatted</td>
           <td><a id='entry_overview_modal$m_companyid' onclick='entryOverview(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$m_addedby`, `$m_entrydate`, `$m_problem`, `$m_solution_encoded`); addModal(`entry_overview_modal`);'>$m_problem_formatted</a></td>
-          <td>";
+          <td class='txtalgncenter'>";
 
           if ($m_status == 0){
             echo "<button class='button is-small is-danger' disabled>
@@ -76,7 +76,7 @@ while ($row = $data->fetch()) {
             </button></a>
           </td>";
           } else {
-            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`,`$m_entryid`); addModal(`clmodal`);' class='button is-small is-danger'>
+            echo "<button id='bclmodal$m_entryid' onclick='changeModalCloseNumber(`./src/post/mp_closeentry.php?id=`,`$m_entryid`); addModal(`clmodal`);' class='button is-small is-danger tooltip is-tooltip-left is-tooltip-danger' data-tooltip='Finalizar occorência'>
               <span class='icon is-small'>
                 <i class='fas fa-times'></i>
               </span>
@@ -84,8 +84,8 @@ while ($row = $data->fetch()) {
           </td>";
           }
 
-  echo   "<td>
-            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`, `$m_solution_encoded`); addModal(`edmodal`);' class='button is-small is-warning'>
+  echo   "<td class='txtalgncenter'>
+            <button id='bedmodal$m_entryid' onclick='changeManagerModalEdit(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_entrydate`, `$m_problem`, `$m_status`, `$m_solution_encoded`); addModal(`edmodal`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar occorrência'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

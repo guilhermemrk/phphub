@@ -32,7 +32,7 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
             Entidades
           </a>
           <a class='navbar-item' href='./manager.php?sped'>
-            <strike>SPED</strike>
+            SPED
           </a>
         </div>
       </div>

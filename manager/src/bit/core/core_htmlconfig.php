@@ -11,6 +11,8 @@
   echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />';
   echo '<meta charset="UTF-8">';
   echo '<link rel="stylesheet" href="./src/css/bulma.css">';
+  echo '<script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/dist/js/bulma-extensions.min.js"></script>';
+  echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/dist/css/bulma-extensions.min.css">';
   echo '<link rel="stylesheet" href="./src/css/common.css">';
   if ($row['theme'] == 0 || $row['theme'] == 1){ // dark
     echo '<link rel="stylesheet" href="./src/css/dark/bulma_overwrite.css">';
