@@ -73,3 +73,7 @@ fieldset[disabled] .textarea {
 .button_text_fix {
   margin-bottom: 5% !important;
 }
+
+.navbar.is-light {
+	background-color: rgba(249,249,249,0.9) !important;
+}

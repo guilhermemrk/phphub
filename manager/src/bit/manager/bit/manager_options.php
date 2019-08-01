@@ -108,12 +108,12 @@
               <i class='fas fa-asterisk'></i>
             </span>
           </button>
-          <button onclick='window.location.href=`./manager.php?sped&filter=1`' class='button is-small is-light tooltip is-tooltip-bottom is-tooltip-light' data-tooltip='SPEDs enviados'>
+          <button onclick='window.location.href=`./manager.php?sped&filter=1`' class='button is-small is-light tooltip is-tooltip-bottom is-tooltip-light' data-tooltip='SPEDs pendentes'>
             <span class='icon is-small'>
               <i class='fas fa-times'></i>
             </span>
           </button>
-          <button onclick='window.location.href=`./manager.php?sped&filter=0`' class='button is-small is-dark tooltip is-tooltip-bottom is-tooltip-dark' data-tooltip='SPEDs pendentes'>
+          <button onclick='window.location.href=`./manager.php?sped&filter=0`' class='button is-small is-dark tooltip is-tooltip-bottom is-tooltip-dark' data-tooltip='SPEDs enviados'>
             <span class='icon is-small'>
               <i class='fas fa-check'></i>
             </span>

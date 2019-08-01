@@ -76,12 +76,15 @@ while ($row = $data->fetch()) {
   if (strlen($m_problem) >= 45){ $m_problemFormatted = substr(utf8_encode($row["problem"]), 0, 45); $m_problemFormatted .= '...'; } elseif (is_NULL($row["problem"]) || strlen($row["problem"]) == 0){ $m_problemFormatted = 'Não informado.'; } else { $m_problemFormatted = utf8_encode($m_problem); }
   if (strlen($m_companyname) >= 20){ $m_companyname = substr($row["companyName"], 0, 20); $m_companyname .= '...'; }
   if (strlen($m_entrydate) >= 11){ $m_entrydateFormatted = substr($row["entryDate"], 0, 10); } else { $m_entrydateFormatted = $m_entrydate; }
+  if ($m_status != 20){
+    if ($nfe_model == 55){ $nfemodel_tag = "<span class='tag is-info'>$nfe_model_formatted</span>"; } else if ($nfe_model == 65){ $nfemodel_tag = "<span class='tag is-warning'>$nfe_model_formatted</span>"; } else if ($nfe_model == 99){ $nfemodel_tag = "<span class='tag is-light'>$nfe_model_formatted</span>"; }
+  } else { $nfemodel_tag = "<span class='tag is-dark'>$nfe_model_formatted</span>"; }
 
   echo "<tr class='trline$m_status_formatted'>
           <td class='trstatus$m_status_formatted'>&nbsp;</td>
           <td><a onclick='entityOverview(`$m_companyid`, `$m_companyname`, `$ent_phone`, `$ent_phoneSec`, `$ent_email`, `$ent_emaila`, `$ent_active`, `$ent_addedby`, `$ent_city`, `$ent_dateAdded`, `$ent_remoteLink`); addModal(`ent_overview_modal`);'>" . ucfirst($m_companyname) . "</a></td>
           <td class='txtalgncenter'>$m_entrydateFormatted</td>
-          <td class='txtalgncenter'>$nfe_model_formatted</td>
+          <td class='txtalgncenter'>$nfemodel_tag</td>
           <td class='txtalgncenter'>$nfe_id</th>
           <td class='txtalgncenter'>$nfe_nv</th>
           <td class='txtalgncenter'>$nfe_nf</th>
@@ -107,7 +110,7 @@ while ($row = $data->fetch()) {
           }
 
   echo   "<td class='txtalgncenter'>
-            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`, `$m_solution`); addModal(`modal_edit_nfe`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar NFe/NFCe'>
+            <button id='ednfemodal$m_entryid' onclick='changeManagerModalEditNfe(`$m_entryid`, `$m_companyid`, `$m_companyname`, `$m_status`, `$nfe_model`, `$nfe_todo`, `$nfe_id`, `$nfe_nv`, `$nfe_nf`, `$m_problem`, `$m_solution`); addModal(`modal_edit_nfe`);' class='button is-small is-warning tooltip is-tooltip-left is-tooltip-warning' data-tooltip='Editar NFe/NFCe'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

@@ -7,9 +7,11 @@ $data->execute([$_SESSION["username"]]);
 $row = $data->fetch();
 
 if ($row["theme"] == 0 || $row["theme"] == 1){
-  echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>";
+  echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'></nav>
+        <nav class='navbar is-dark is-fixed-top' role='navigation' aria-label='main navigation'>";
 } elseif ($row["theme"] == 2){
-  echo "<nav class='navbar is-light' role='navigation' aria-label='main navigation'>";
+  echo "<nav class='navbar is-light' role='navigation' aria-label='main navigation'></nav>
+        <nav class='navbar is-light is-fixed-top' role='navigation' aria-label='main navigation'>";
 }
 
   echo "<div id='navbarBasicExample' class='navbar-menu'>

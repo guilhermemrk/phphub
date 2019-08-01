@@ -62,6 +62,8 @@ while ($row = $data->fetch()) {
   else if ($sped_status == 4){ $sped_statusFormatted = 'Urgente'; }
   else if ($sped_status == 5){ $sped_statusFormatted = 'Urgente & Erro'; }
 
+  if (is_NULL($e_emailaccountant) || empty($e_emailaccountant)){ $e_emailfield = $e_emailprimary; } else { $e_emailfield = $e_emailaccountant; }
+
 
   echo "<tr class='trline$e_isactive'>
           <td class='trstsped$sped_status'></td>
@@ -74,7 +76,7 @@ while ($row = $data->fetch()) {
             echo "<td>$sped_statusFormatted</td>";
           }
           echo "<td class='txtalgncenter'>" . formatPhone($e_phone) . "</td>
-          <td>" . formatEmail($e_emailaccountant) . "</td>
+          <td>" . formatEmail($e_emailfield) . "</td>
           ";
           if ($sped_status != 0){
             echo "<td class='txtalgncenter'>
@@ -95,7 +97,7 @@ while ($row = $data->fetch()) {
           }
 
           echo "<td class='txtalgncenter'>
-            <button class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar situação' onclick='editSped(`./src/post/mp_editsped.php?id=`, `$m_companyid`, `$m_companyname`, `$sped_status`); addModal(`modal_spededit`);'>
+            <button class='button is-small is-warning tooltip is-tooltip-left is-tooltip-warning' data-tooltip='Editar situação' onclick='editSped(`./src/post/mp_editsped.php?id=`, `$m_companyid`, `$m_companyname`, `$sped_status`); addModal(`modal_spededit`);'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

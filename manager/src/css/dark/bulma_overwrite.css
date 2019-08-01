@@ -82,3 +82,7 @@ fieldset[disabled] .textarea {
 .pagination-link:hover, .pagination-previous:hover, .pagination-next:hover {
 	color: #C9C9C9;
 }
+
+.navbar.is-dark {
+	background-color: rgba(54,54,54,0.9) !important;
+}

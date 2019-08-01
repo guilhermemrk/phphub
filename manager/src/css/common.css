@@ -129,3 +129,17 @@
 	float: left;
 	width: 40%;
 }
+
+.man_main_divproblem {
+	float: left;
+	width: 85%;
+}
+
+.man_main_divptag {
+	float: right;
+}
+
+.navbar is-transparent {
+background-color: transparent !important;
+background-image: none !important;
+}

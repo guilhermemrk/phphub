@@ -18,8 +18,8 @@
       $error = $_GET["error"];
       $maxperpage = 30;
 
-      $section_title = 'Manager';
-      include_once './src/bit/manager/bit/manager_title.php';
+      $section_title = 'Gerenciador';
+      include './src/bit/manager/bit/manager_title.php';
       echo "<title>{$section_title} - {$page_title}</title>";
 
 
