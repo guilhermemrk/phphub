@@ -1,7 +1,7 @@
 <?php
 include_once './../../db/connect.php';
 
-$data = $db->query("SELECT * FROM man_cep WHERE cityid<>0 ORDER BY cityName ASC");
+$select_city = $db->prepare("SELECT * FROM man_cep ORDER BY cityid ASC");
 
 echo "<div class='modal' id='modal_add_entity'>
     <div class='modal-background'></div>
@@ -39,11 +39,11 @@ echo "<div class='modal' id='modal_add_entity'>
                           <div class='control'>
                               <label class='label'>Cidade</label>
                               <div class='select $theme'>
-                                  <select id='entity_city' name='entity_city'>
-                                  <option value='0' selected>Não informado.</option>";
-            while ($row = $data->fetch()){
-              echo "<option value='" . $row['cityid'] . "'>" . utf8_encode($row['cityName']) . "</option>";
-            }
+                                  <select id='entity_city' name='entity_city'>";
+                                  $select_city->execute();
+                                  while ($row = $select_city->fetch()){
+                                    echo "<option value='" . $row['cityid'] . "'>" . utf8_encode($row['cityName']) . "</option>";
+                                  }
       echo "</select>
   </div>
 </div>

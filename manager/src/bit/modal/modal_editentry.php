@@ -1,4 +1,6 @@
 <?php
+include_once './../../db/connect.php';
+$select_category = $db->query("SELECT * FROM man_managercategory ORDER BY categoryid ASC");
 
 echo "<div class='modal' id='edmodal'>
     <div class='modal-background'></div>
@@ -22,11 +24,24 @@ echo "<div class='modal' id='edmodal'>
                                 <input id='edit_companyName' type='text' class='input $theme' disabled>
                             </div>
                         </div>
-                        <div class='field'>
+                        <!--div class='field'>
                             <p class='control'>
                                 <label class='label'>Data</label>
                                 <input id='edit_entryDate' type='text' value='' class='input $theme' disabled>
                             </p>
+                        </div-->
+                        <div class='field'>
+                        <div class='control'>
+                            <label class='label'>Sistema</label>
+                            <div class='select $theme'>
+                                <select id='edit_entryCategory' name='edit_entryCategory'>
+                                    ";
+                                    while ($row = $select_category->fetch()){
+                                      echo "<option value='" . $row['categoryid'] . "'>" . utf8_encode($row['categoryName']) . "</option>";
+                                    }
+                                echo "</select>
+                            </div>
+                        </div>
                         </div>
                         <div class='field'>
                             <div class='control'>

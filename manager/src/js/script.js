@@ -26,14 +26,15 @@ function editSped(urlTo, entryIdToClose, companyName, status){
   document.getElementById("editsped_status").value = status;
 }
 
-function changeManagerModalEdit(entryID, companyid, companyName, entryDate, entryProblem, entryStatus, solution){
+function changeManagerModalEdit(entryID, companyid, companyName, entryDate, entryProblem, entryStatus, solution, category){
   $("#m_edit_number").text(entryID);
   $("#edit_nfecompanyid").text(companyid);
   $("#edit_entryForm").attr("action", `./src/post/mp_editentry.php?id=${entryID}`);
   $("#edit_companyName").attr("value",`${companyName}`);
-  $("#edit_entryDate").attr("value",`${entryDate}`);
+  // $("#edit_entryDate").attr("value",`${entryDate}`);
   $("#edit_entryProblem").text(`${entryProblem}`);
   $("#edit_entrySolution").text(`${solution}`);
+  document.getElementById("edit_entryCategory").value = category;
   document.getElementById("edit_entryStatus").value = entryStatus;
 }
 

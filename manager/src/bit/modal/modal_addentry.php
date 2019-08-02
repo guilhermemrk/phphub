@@ -1,7 +1,8 @@
 <?php
 include_once './../../db/connect.php';
 
-$data = $db->query("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
+$select_company = $db->prepare("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
+$select_category = $db->prepare("SELECT * FROM man_managercategory ORDER BY categoryid ASC");
 
 echo "<div class='modal' id='modal_add'>
 <div class='modal-background'></div>
@@ -19,9 +20,10 @@ echo "<div class='modal' id='modal_add'>
                             <label class='label'>Empresa</label>
                             <div class='select $theme'>
                               <select name='companyid' id='companyid'>";
-            while ($row = $data->fetch()){
-              echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($row['companyName']) . "</option>";
-            }
+                              $select_company->execute();
+                              while ($row = $select_company->fetch()){
+                                echo "<option value='" . $row['companyid'] . "'>" . utf8_encode($row['companyName']) . "</option>";
+                              }
       echo "</select>
     </div>
 </div>
@@ -35,6 +37,20 @@ echo "<div class='modal' id='modal_add'>
             <option value='1' selected>Pendente</option>
             <option value='2'>Urgente</option>
         </select>
+    </div>
+</div>
+</div>
+<div class='field'>
+<div class='control'>
+    <label class='label'>Sistema</label>
+    <div class='select $theme'>
+        <select id='entryCategory' name='entryCategory'>
+        ";
+        $select_category->execute();
+        while ($row = $select_category->fetch()){
+          echo "<option value='" . $row['categoryid'] . "'>" . utf8_encode($row['categoryName']) . "</option>";
+        }
+        echo "</select>
     </div>
 </div>
 </div>
