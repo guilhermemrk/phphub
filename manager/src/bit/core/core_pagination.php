@@ -1,9 +1,11 @@
 <?php
+  session_start();
+  $sUsername = $_SESSION["username"];
 
   if (is_NULL($filter)){
-    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2) WHERE addedBy=$sUsername");
+    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2) AND addedBy='$sUsername'");
   } else {
-    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN ($filter) WHERE addedBy=$sUsername");
+    $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN ($filter) AND addedBy='$sUsername'");
   }
 
   $pagination->execute();
