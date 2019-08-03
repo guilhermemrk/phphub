@@ -13,7 +13,7 @@ $row = $data->fetch();
   }
   echo "<div class='content has-text-centered'>
     <p>
-      &nbsp;
+      Manager v1.2
     </p>
   </div>
 </footer>
