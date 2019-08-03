@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <?php
+    session_start();
 
       // ToDo - Make so the entry get status=2 if a day has passed
       include_once './src/bit/login/login_verification.php';
@@ -16,6 +17,7 @@
       $page = $_GET["page"];
       $getid = $_GET["id"];
       $error = $_GET["error"];
+      $usergroup = $_SESSION['usergroup'];
       $maxperpage = 30;
 
       $section_title = 'Gerenciador';

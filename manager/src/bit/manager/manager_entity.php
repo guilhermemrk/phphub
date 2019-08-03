@@ -1,4 +1,6 @@
 <?php
+session_start();
+$sUsergroup = $_SESSION['username'];
 echo <<<HTML
     <table class='table is-bordered is-fullwidth'>
       <thead>
@@ -27,6 +29,7 @@ if (is_NULL($filter)) {
                       FROM man_entity AS m
                       JOIN man_cep AS c
                       ON m.city = c.cityid
+                      WHERE entgroup=$sUsergroup[2]
                       ORDER BY isActive DESC,companyName ASC
                       LIMIT $sqlpagination, $maxperpage");
 } else {

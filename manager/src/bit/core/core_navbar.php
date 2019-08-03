@@ -2,8 +2,8 @@
 
 session_start();
 include_once './src/db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-$data->execute([$_SESSION["username"]]);
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username='Guilherme'");
+$data->execute();
 $row = $data->fetch();
 
 if ($row["theme"] == 0 || $row["theme"] == 1){
@@ -23,8 +23,11 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
       include './src/bit/core/navbar/core_navbar_manager.php';
       include './src/bit/core/navbar/core_navbar_util.php';
 
-      echo "<a class='navbar-item' href='./graph.php'>
-        <strike>Resumo</strike>
+      echo "<!--a class='navbar-item' href='./graph.php'>
+        Resumo
+      </a-->
+      <a class='navbar-item'>
+        Group " . $_SESSION["username"][2] . "
       </a>
     </div>";
 

@@ -5,7 +5,7 @@ $util = $db->query("SELECT * FROM man_menuitems WHERE menuid=3 ORDER BY itemOrde
 
 echo "<div class='navbar-item has-dropdown is-hoverable is-dark'>
   <a class='navbar-link'>
-    Olá, ${sUsername}!
+    Olá, $_SESSION[username][1]!
   </a>
   <div class='navbar-dropdown'>";
   while ($item = $util->fetch()){

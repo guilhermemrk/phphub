@@ -48,7 +48,7 @@ echo "<div class='modal' id='modal_add_entity'>
   </div>
 </div>
 </div>
-<div class='field'>
+<!--div class='field'>
     <div class='control'>
         <label class='label'>Estado</label>
         <div class='select $theme'>
@@ -71,7 +71,7 @@ echo "<div class='modal' id='modal_add_entity'>
             </select>
 </div>
 </div>
-</div>
+</div-->
 </div>
 </div>
 <div class='field'>
