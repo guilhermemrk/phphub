@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include_once './../../db/connect.php';
 
 $data = $db->query("SELECT * FROM man_cep ORDER BY cityName ASC");
@@ -48,6 +50,21 @@ echo "<div class='modal' id='modal_edit_entity'>
 </div>
 </div>
 <div class='field'>
+    <div class='control'>
+        <label class='label'>SPED</label>
+        <div class='select $theme'>
+            <select id='editentity_sped' name='editentity_sped'>
+              <option value='1'>
+                Sim
+              </option>
+              <option value='0' selected>
+                Não
+              </option>
+            </select>
+</div>
+</div>
+</div>
+<!--div class='field'>
 <div class='control'>
 <label class='label'>Estado</label>
 <div class='select $theme'>
@@ -70,7 +87,7 @@ Brasil
 </select>
 </div>
 </div>
-</div>
+</div-->
 </div>
 </div>
 <div class='field'>

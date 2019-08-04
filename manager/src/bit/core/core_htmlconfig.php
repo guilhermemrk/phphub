@@ -2,7 +2,7 @@
   session_start();
   include_once './src/db/connect.php';
   $data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
-  $data->execute([$_SESSION["username"]]);
+  $data->execute([$_SESSION["login"][0]]);
   $row = $data->fetch();
 
   define('TIMEZONE', 'America/Cuiaba');

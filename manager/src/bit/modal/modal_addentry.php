@@ -1,8 +1,12 @@
 <?php
+session_start();
+
 include_once './../../db/connect.php';
 
-$select_company = $db->prepare("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
-$select_category = $db->prepare("SELECT * FROM man_managercategory ORDER BY categoryid ASC");
+$sUsergroup = $_SESSION["login"][1];
+
+$select_company = $db->prepare("SELECT * FROM man_entity WHERE isActive=1 AND entgroup=$sUsergroup ORDER BY companyName ASC");
+$select_category = $db->prepare("SELECT * FROM man_managercategory WHERE categoryGroup IN (0, $sUsergroup) ORDER BY categoryid ASC");
 
 echo "<div class='modal' id='modal_add'>
 <div class='modal-background'></div>
@@ -42,7 +46,7 @@ echo "<div class='modal' id='modal_add'>
 </div>
 <div class='field'>
 <div class='control'>
-    <label class='label'>Sistema</label>
+    <label class='label'>Tag</label>
     <div class='select $theme'>
         <select id='entryCategory' name='entryCategory'>
         ";

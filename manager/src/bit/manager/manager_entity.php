@@ -1,6 +1,6 @@
 <?php
 session_start();
-$sUsergroup = $_SESSION['username'];
+$sUsergroup = $_SESSION['login'][1];
 echo <<<HTML
     <table class='table is-bordered is-fullwidth'>
       <thead>
@@ -29,15 +29,15 @@ if (is_NULL($filter)) {
                       FROM man_entity AS m
                       JOIN man_cep AS c
                       ON m.city = c.cityid
-                      WHERE entgroup=$sUsergroup[2]
-                      ORDER BY isActive DESC,companyName ASC
+                      WHERE entgroup=$sUsergroup
+                      ORDER BY isActive DESC, companyName ASC
                       LIMIT $sqlpagination, $maxperpage");
 } else {
     $data = $db->prepare("SELECT *
                         FROM man_entity AS m
                         JOIN man_cep AS c
                         ON m.city = c.cityid
-                        WHERE isActive=?
+                        WHERE isActive=? AND entgroup=$sUsergroup
                         ORDER BY isActive DESC, companyName ASC
                         LIMIT $sqlpagination, $maxperpage");
     $entityFilter = substr($filter, 1, 2);
@@ -54,7 +54,7 @@ while ($row = $data->fetch()) {
           <td>" . formatEmail($row["emailPrimary"]) . "</td>
           <td>" . formatEmail($row["emailAccountant"]) . "</td>
           <td class='txtalgncenter'>
-            <button onclick='editEntity(`$row[companyid]`, `$m_companyname`, `$row[isActive]`, `$row[cityid]`, `$row[phone]`, `$row[phoneSec]`, `$row[emailPrimary]`, `$row[emailAccountant]`); addModal(`modal_edit_entity`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar entidade'>
+            <button onclick='editEntity(`$row[companyid]`, `$m_companyname`, `$row[isActive]`, `$row[cityid]`, `$row[phone]`, `$row[phoneSec]`, `$row[emailPrimary]`, `$row[emailAccountant]`, `$row[sped]`); addModal(`modal_edit_entity`);' class='button is-small is-warning tooltip is-tooltip-right is-tooltip-warning' data-tooltip='Editar entidade'>
               <span class='icon is-small'>
                 <i class='fas fa-pen'></i>
               </span>

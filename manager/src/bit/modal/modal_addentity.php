@@ -48,19 +48,22 @@ echo "<div class='modal' id='modal_add_entity'>
   </div>
 </div>
 </div>
-<!--div class='field'>
+<div class='field'>
     <div class='control'>
-        <label class='label'>Estado</label>
+        <label class='label'>SPED</label>
         <div class='select $theme'>
-            <select id='entity_state' name='entity_state' disabled>
+            <select id='entity_sped' name='entity_sped'>
               <option value='1'>
-                Mato Grosso
+                Sim
+              </option>
+              <option value='0' selected>
+                Não
               </option>
             </select>
 </div>
 </div>
 </div>
-<div class='field'>
+<!--div class='field'>
     <div class='control'>
         <label class='label'>País</label>
         <div class='select $theme'>

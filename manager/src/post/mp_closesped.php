@@ -4,7 +4,7 @@
   include './../db/connect.php';
 
   $sped_id = $_GET["id"];
-  $sUsername = $_SESSION["username"];
+  $sUsername = $_SESSION["login"][0];
 
   $data = $db->prepare("UPDATE man_entity SET sped_status=0, sped_user=? WHERE companyid=?");
   if (is_NULL($sped_id) || empty($sped_id)){

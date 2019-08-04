@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $sUsername = $_SESSION["username"];
+  $sUsername = $_SESSION["login"][0];
 
   if (is_NULL($filter)){
     $pagination = $db->prepare("SELECT * FROM man_manager WHERE status IN (0,1,2) AND addedBy='$sUsername'");

@@ -14,7 +14,6 @@ echo "<div class='modal' id='modal_spededit'>
         <label class='label'>Status</label>
           <div class='select $theme'>
             <select id='editsped_status' name='editsped_status'>
-                <option value='0'>Enviado</option>
                 <option value='1'>Pendente</option>
                 <option value='2'>Em progresso</option>
                 <option value='3'>Erro</option>

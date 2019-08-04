@@ -59,10 +59,8 @@ while ($row = $data->fetch()) {
     } else {
         $m_entrydateFormatted = $row["entryDate"];
     }
-    if ($row["category"] == 1) {
-        $categorytag = "<span class='tag is-link'>$row[categoryName]</span>";
-    } else if ($row["category"] == 2) {
-        $categorytag = "<span class='tag is-danger'>$row[categoryName]</span>";
+    if (!empty($row["category"])) {
+        $categorytag = "<span class='tag is-$row[categoryColor]'>$row[categoryName]</span>";
     } else {
         $categorytag = '';
     }

@@ -12,7 +12,9 @@
   $loginarray = array($username => 1, $usergroup => 2);
 
   if ($count == 1){
-    $_SESSION["username"] = $loginarray;
+    $_SESSION['login'] = array();
+    array_push($_SESSION['login'], $_POST['lusername'], $usergroup);
+    $session = $_SESSION['login'];
 
     header("Location: /manager/manager.php");
   } else {

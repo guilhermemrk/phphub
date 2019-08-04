@@ -1,4 +1,6 @@
 <?php
+session_start();
+$sUsergroup = $_SESSION['login'][1];
 echo <<<HTML
 <table class='table is-bordered is-fullwidth'>
       <thead>
@@ -29,7 +31,7 @@ if (is_NULL($filter)) {
                       FROM man_entity AS m
                       JOIN man_cep AS c
                       ON m.city = c.cityid
-                      WHERE m.sped=1
+                      WHERE m.sped=1 AND entgroup=$sUsergroup
                       ORDER BY m.sped_status DESC, m.companyName ASC
                       LIMIT $sqlpagination, $maxperpage");
 } else {
@@ -37,7 +39,7 @@ if (is_NULL($filter)) {
                         FROM man_entity AS m
                         JOIN man_cep AS c
                         ON m.city = c.cityid
-                        WHERE m.sped=1 AND m.sped_status=?
+                        WHERE m.sped=1 AND m.sped_status=? AND entgroup=$sUsergroup
                         ORDER BY m.sped_status DESC, m.companyName ASC
                         LIMIT $sqlpagination, $maxperpage");
     $data->execute([$filter]);

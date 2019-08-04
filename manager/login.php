@@ -2,8 +2,10 @@
 <html>
 
 <head>
-    <?php $page_title = 'Login';
-    echo "<title>{$page_title}</title>";
+    <?php $section_title = 'Login';
+    session_start();
+    if (!is_NULL($_SESSION['login'][0])){ header("Location: /manager/manager.php"); }
+    echo "<title>{$section_title}</title>";
     include './src/bit/core/core_htmlconfig.php';
     ?>
 </head>

@@ -5,15 +5,15 @@
 
   $data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
   $update = $db->prepare("UPDATE hub_users SET theme=? WHERE username=?");
-  $data->execute([$_SESSION["username"]]);
+  $data->execute([$_SESSION["login"][0]]);
   $row = $data->fetch();
 
 
   if ($row["theme"] == 0 || $row["theme"] == 1){
-    $update->execute(['2', $_SESSION["username"]]);
+    $update->execute(['2', $_SESSION["login"][0]]);
     header("Location: {$_SERVER['HTTP_REFERER']}");
   } elseif ($row["theme"] == 2){
-    $update->execute(['1', $_SESSION["username"]]);
+    $update->execute(['1', $_SESSION["login"][0]]);
     header("Location: {$_SERVER['HTTP_REFERER']}");
   }
 

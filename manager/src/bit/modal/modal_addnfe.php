@@ -1,7 +1,9 @@
 <?php
 include_once './../../db/connect.php';
 
-$data = $db->query("SELECT * FROM man_entity WHERE isActive=1 ORDER BY companyName ASC");
+$sUsergroup = $_SESSION["login"][1];
+
+$data = $db->query("SELECT * FROM man_entity WHERE isActive=1 AND entgroup=$sUsergroup ORDER BY companyName ASC");
 
 
 echo "<div class='modal' id='modal_add_nfe'>

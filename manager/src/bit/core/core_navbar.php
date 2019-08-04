@@ -1,8 +1,10 @@
 <?php
 
 session_start();
+$sUsername = $_SESSION["login"][0];
+
 include_once './src/db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username='Guilherme'");
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=$sUsername");
 $data->execute();
 $row = $data->fetch();
 
@@ -20,15 +22,12 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
         Home
       </a>";
 
-      include './src/bit/core/navbar/core_navbar_manager.php';
-      include './src/bit/core/navbar/core_navbar_util.php';
+      if (!is_NULL($sUsername)){ include './src/bit/core/navbar/core_navbar_manager.php'; }
+      if (!is_NULL($sUsername)){ include './src/bit/core/navbar/core_navbar_util.php'; }
 
       echo "<!--a class='navbar-item' href='./graph.php'>
         Resumo
       </a-->
-      <a class='navbar-item'>
-        Group " . $_SESSION["username"][2] . "
-      </a>
     </div>";
 
     if (!is_NULL($sUsername)){

@@ -124,7 +124,7 @@ function nfeOverview(nfe_model, entryid, companyid, companyName, id, nv, nf, sta
   $("#mnfe_solution").text(`${solution}`);
 }
 
-function editEntity(companyid, companyName, status, city, phone, phoneSec, email, emaila){
+function editEntity(companyid, companyName, status, city, phone, phoneSec, email, emaila, sped){
   $("#editentity_companyid").text(`${companyid}`);
   $("#editentity_title").text(`${companyName}`);
   $("#editentity_name").attr(`value`, `${companyName}`);
@@ -135,6 +135,7 @@ function editEntity(companyid, companyName, status, city, phone, phoneSec, email
   $("#editentity_email").attr(`value`, `${email}`);
   $("#editentity_emaila").attr(`value`, `${emaila}`);
   $("#editentity_form").attr(`action`, `./src/post/mp_editentity.php?id=${companyid}`);
+  document.getElementById("editentity_sped").value = sped;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

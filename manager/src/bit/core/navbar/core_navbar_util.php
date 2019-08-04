@@ -1,7 +1,9 @@
 <?php
 
+$sUsergroup = $_SESSION["login"][1];
+
 include './src/db/connect.php';
-$util = $db->query("SELECT * FROM man_menuitems WHERE menuid=2 ORDER BY itemOrder ASC LIMIT 10");
+$util = $db->query("SELECT * FROM man_menuitems WHERE menuid=3 AND menuGroup=$sUsergroup ORDER BY itemOrder ASC LIMIT 10");
 
 echo "<div class='navbar-item has-dropdown is-hoverable'>
 <a class='navbar-link'>

@@ -1,6 +1,6 @@
 <?php
 include_once './../../db/connect.php';
-$select_category = $db->query("SELECT * FROM man_managercategory ORDER BY categoryid ASC");
+$select_category = $db->query("SELECT * FROM man_managercategory WHERE categoryGroup IN (0, $sUsergroup) ORDER BY categoryid ASC");
 
 echo "<div class='modal' id='edmodal'>
     <div class='modal-background'></div>
@@ -32,7 +32,7 @@ echo "<div class='modal' id='edmodal'>
                         </div-->
                         <div class='field'>
                         <div class='control'>
-                            <label class='label'>Sistema</label>
+                            <label class='label'>Tag</label>
                             <div class='select $theme'>
                                 <select id='edit_entryCategory' name='edit_entryCategory'>
                                     ";

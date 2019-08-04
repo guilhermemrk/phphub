@@ -1,7 +1,8 @@
 <?php
   session_start();
-  $sUsername = $_SESSION["username"][1];
-  $sUsergroup = $_SESSION["username"][2];
+  $session = $_SESSION['login'];
+  $sUsername = $session[0];
+  $sUsergroup = $session[1];
 
   if (is_NULL($sUsername)){
     header("Location: /manager/login.php?loginexpired");
