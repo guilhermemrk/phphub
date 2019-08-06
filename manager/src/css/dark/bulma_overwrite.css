@@ -85,4 +85,5 @@ fieldset[disabled] .textarea {
 
 .navbar.is-dark {
 	background-color: rgba(54,54,54,0.9) !important;
+	color: #F9F9F9 !important;
 }
