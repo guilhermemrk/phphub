@@ -1,1 +1,1 @@
-<?php header("Location: ./manager.php");
+<?php header("Location: ./manager.php"); ?>

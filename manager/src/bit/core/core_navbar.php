@@ -2,13 +2,14 @@
 
 session_start();
 $sUsername = $_SESSION["login"][0];
+$sUsergroup = $_SESSION["login"][1];
 
-include_once './src/db/connect.php';
-$data = $db->prepare("SELECT theme FROM hub_users WHERE username=$sUsername");
-$data->execute();
+include './src/db/connect.php';
+$data = $db->prepare("SELECT theme FROM hub_users WHERE username=?");
+$data->execute([$_SESSION["login"][0]]);
 $row = $data->fetch();
 
-if ($row["theme"] == 0 || $row["theme"] == 1){
+if ($row["theme"] <= 1){
   echo "<nav class='navbar is-dark' role='navigation' aria-label='main navigation'></nav>
   <nav class='navbar is-dark is-fixed-top' role='navigation' aria-label='main navigation'>";
 } elseif ($row["theme"] == 2){
@@ -16,25 +17,24 @@ if ($row["theme"] == 0 || $row["theme"] == 1){
   <nav class='navbar is-light is-fixed-top' role='navigation' aria-label='main navigation'>";
 }
 
+include './src/bit/core/functions/f_navbar.php';
+
   echo "<div id='navbarBasicExample' class='navbar-menu'>
     <div class='navbar-start'>
       <a class='navbar-item' href='./'>
         Home
       </a>";
 
-      if (!is_NULL($sUsername)){ include './src/bit/core/navbar/core_navbar_manager.php'; }
-      if (!is_NULL($sUsername)){ include './src/bit/core/navbar/core_navbar_util.php'; }
+      if (!is_NULL($sUsername)){ navbarList('Gerenciador', 1, 0); }
+      if (!is_NULL($sUsername)){ navbarList('Utilidades', 2, $sUsergroup); }
 
-      echo "<!--a class='navbar-item' href='./graph.php'>
-        Resumo
-      </a-->
-    </div>";
+      echo "</div>";
 
     if (!is_NULL($sUsername)){
   echo "<div class='navbar-end'>
           <div class='navbar-item'>";
 
-          include './src/bit/core/navbar/core_navbar_profile.php';
+          navbarList("Olá, $sUsername!", 3, 0);
 
             echo "</div>
         </div>";
