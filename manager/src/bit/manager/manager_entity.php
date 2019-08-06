@@ -8,9 +8,9 @@ echo <<<HTML
           <th class='mopt-status'></th>
           <th class='mopt-box'>ID</th>
           <th class='company-name'>Empresa</th>
-          <th class='entity-phone'>Phone</th>
+          <th class='entity-phone'>Telefone</th>
           <th class='entity-email'>Email</th>
-          <th class='entity-email'>Accountant Email</th>
+          <th class='entity-email'>Contador</th>
           <th class='mopt-box'></th>
         </tr>
       </thead>
