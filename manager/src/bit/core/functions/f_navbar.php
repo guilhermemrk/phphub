@@ -8,7 +8,7 @@
     </a>
       <div class='navbar-dropdown'>";
     while ($item = $util->fetch()){
-      echo "<a class='navbar-item' href='$item[itemLink]'>" . utf8_encode($item["itemName"]) . "</a>";
+      echo "<a class='navbar-item' target='$item[linkTarget]' href='$item[itemLink]'>" . utf8_encode($item["itemName"]) . "</a>";
     }
     echo "</div>
     </div>";
