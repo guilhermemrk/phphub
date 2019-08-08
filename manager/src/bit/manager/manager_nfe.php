@@ -26,28 +26,48 @@ if ($page == 1) {
 } else {
     $sqlpagination = $maxperpage * ($page - 1);
 }
-if (is_NULL($filter)) {
+if (is_NULL($filter) && is_NULL($fcompany)) {
     $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
-                    FROM man_manager AS m
-                    JOIN man_entity AS e
-                    ON m.companyid = e.companyid
-                    JOIN man_cep AS c
-                    ON e.city = c.cityid
-                    WHERE m.status IN (20,21,22) AND m.addedBy IN ('$sUsername')
-                    ORDER BY m.status DESC, m.entryDate DESC
-                    LIMIT $sqlpagination, $maxperpage");
-} else {
-    $data = $db->prepare("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
-                    FROM man_manager AS m
-                    JOIN man_entity AS e
-                    ON m.companyid = e.companyid
-                    JOIN man_cep AS c
-                    ON e.city = c.cityid
-                    WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername')
-                    ORDER BY m.status DESC, m.entryDate DESC
-                    LIMIT $sqlpagination, $maxperpage");
-    $data->execute([$filter]);
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN (20,21,22) AND m.addedBy IN ('$sUsername')
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
+} else if (!is_NULL($filter)) {
+    $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername')
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
+} elseif (!is_NULL($fcompany)) {
+    $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN (20,21,22) AND m.addedBy IN ('$sUsername') AND m.companyid IN ($fcompany)
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
+} elseif (!is_NULL($filter) && !is_NULL($fcompany)) {
+    $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername') AND m.companyid IN ($fcompany)
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
 }
+
 while ($row = $data->fetch()) {
     $m_companyname = utf8_encode($row["companyName"]);
     $m_problem = ucfirst(utf8_encode($row["problem"]));

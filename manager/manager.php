@@ -17,8 +17,10 @@
       $page = $_GET["page"];
       $getid = $_GET["id"];
       $error = $_GET["error"];
+      $fcompany = $_GET["fcompany"];
       $usergroup = $_SESSION['usergroup'];
       $maxperpage = 30;
+
 
       $section_title = 'Gerenciador';
       include './src/bit/manager/bit/manager_title.php';
@@ -52,18 +54,18 @@
               if (is_NULL($nfe) && is_NULL($entity) && is_NULL($sped)){
                 include_once './src/bit/modal/modal_editentry.php';
                 include_once './src/bit/modal/modal_entryoverview.php';
-                include_once "./src/bit/manager/manager_main.php";
+                include_once './src/bit/manager/manager_main.php';
               } elseif (!is_NULL($nfe)) {
                 include_once './src/bit/modal/modal_editnfe.php';
                 include_once './src/bit/modal/modal_nfeoverview.php';
-                include_once "./src/bit/manager/manager_nfe.php";
+                include_once './src/bit/manager/manager_nfe.php';
               } elseif (!is_NULL($entity)) {
                 include_once './src/bit/modal/modal_editentity.php';
                 include_once "./src/bit/manager/manager_entity.php";
               } elseif (!is_NULL($sped)) {
                 include_once './src/bit/modal/modal_closesped.php';
                 include_once './src/bit/modal/modal_editsped.php';
-                include_once "./src/bit/manager/manager_sped.php";
+                include_once './src/bit/manager/manager_sped.php';
               }
               ?>
         </section>

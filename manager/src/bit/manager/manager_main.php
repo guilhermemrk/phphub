@@ -21,7 +21,8 @@ if ($page == 1) {
 } else {
     $sqlpagination = $maxperpage * ($page - 1);
 }
-if (is_NULL($filter)) {
+
+if (is_NULL($filter) && is_NULL($fcompany)) {
     $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*, mc.*
                           FROM man_manager AS m
                           JOIN man_entity AS e
@@ -33,7 +34,7 @@ if (is_NULL($filter)) {
                           WHERE m.status IN (0,1,2) AND m.addedBy IN ('$sUsername')
                           ORDER BY m.status DESC, m.entryDate DESC
                           LIMIT $sqlpagination, $maxperpage");
-} else {
+} elseif (!is_NULL($filter)) {
     $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*, mc.*
                           FROM man_manager AS m
                           JOIN man_entity AS e
@@ -43,6 +44,30 @@ if (is_NULL($filter)) {
                           JOIN man_managercategory AS mc
                           ON m.category = mc.categoryid
                           WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername')
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
+} elseif (!is_NULL($fcompany)) {
+    $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*, mc.*
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          JOIN man_managercategory AS mc
+                          ON m.category = mc.categoryid
+                          WHERE m.status IN (0,1,2) AND m.addedBy IN ('$sUsername') AND m.companyid IN ($fcompany)
+                          ORDER BY m.status DESC, m.entryDate DESC
+                          LIMIT $sqlpagination, $maxperpage");
+} elseif (!is_NULL($filter) && !is_NULL($fcompany)) {
+    $data = $db->query("SELECT m.addedBy AS m_addedby, m.*, e.*, c.*, mc.*
+                          FROM man_manager AS m
+                          JOIN man_entity AS e
+                          ON m.companyid = e.companyid
+                          JOIN man_cep AS c
+                          ON e.city = c.cityid
+                          JOIN man_managercategory AS mc
+                          ON m.category = mc.categoryid
+                          WHERE m.status IN ($filter) AND m.addedBy IN ('$sUsername') AND m.companyid IN ($fcompany)
                           ORDER BY m.status DESC, m.entryDate DESC
                           LIMIT $sqlpagination, $maxperpage");
 }
