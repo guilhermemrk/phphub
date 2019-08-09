@@ -7,7 +7,6 @@
   $mins -= $hrs * 60;
   $offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
 
-  //Your DB Connection - sample
   $db = new PDO('mysql:host=localhost;dbname=hub', 'root', 'admindb123');
   $db->exec("SET time_zone='$offset';");
 
