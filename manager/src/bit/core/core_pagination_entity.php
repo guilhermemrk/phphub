@@ -1,10 +1,12 @@
 <?php
 
+session_start();
+$sUsergroup = $_SESSION['login'][1];
 
   if (is_NULL($filter)){
     $pagination = $db->prepare("SELECT * FROM man_entity");
   } else {
-    $pagination = $db->prepare("SELECT * FROM man_entity WHERE isActive=$entityFilter");
+    $pagination = $db->prepare("SELECT * FROM man_entity WHERE isActive=$entityFilter AND entgroup=$sUsergroup");
   }
 
   $pagination->execute();
