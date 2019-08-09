@@ -8,7 +8,7 @@
   $offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
 
   //Your DB Connection - sample
-  $db = new PDO('mysql:host=localhost;dbname=managerdb', 'root', 'admindb123');
+  $db = new PDO('mysql:host=localhost;dbname=hub', 'root', 'admindb123');
   $db->exec("SET time_zone='$offset';");
 
   if (!$db){
