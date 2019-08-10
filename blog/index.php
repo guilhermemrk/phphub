@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Masshiro's Lair</title>
-    <?php include './bit/core_htmlconfig.php'; ?>
+    <?php include './bit/core_htmlconfig.php';
+          include './bit/format_pattern.php'; ?>
     </script>
   </head>
   <body>
-    <div class="columns">
-      <div class="column is-three-fifths">
-        <div class="window">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="window">
             <div class="inner">
                 <div class="header">
                     <div class="sprite windows-application-icon"></div>
@@ -34,10 +36,9 @@
 
                       while ($row = $data->fetch()){
                         echo "<div class='postbit'>
-                        <h3><a href='post.php?page=$row[postid]'>" . utf8_encode($row["posttitle"]) . "</a></h3>
-                              <h5>Autor: $row[username] | Date: $row[postdate] | Tags: $row[posttags]</h4>";
-                        echo utf8_encode($row["postcontent"]);
-                        echo "</div>";
+                                <p class='h3'><a href='post.php?page=$row[postid]'>" . utf8_encode($row["posttitle"]) . "</a></p>
+                                <p class='h6'>Autor: $row[username] | Date: $row[postdate] | Tags: $row[posttags]</p>" . formatProblem($row["postcontent"], '/(.{250})(.*)/', 250) . "
+                              </div>";
                       }
                       ?>
                     </div>
@@ -46,5 +47,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

@@ -8,9 +8,10 @@
     </script>
   </head>
   <body>
-    <div class="columns">
-      <div class="column is-9">
-        <div class="window">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-9">
+          <div class="window">
             <div class="inner">
                 <div class="header">
                     <div class="sprite windows-application-icon"></div>
@@ -37,7 +38,7 @@
                       while ($row = $data->fetch()){
                         echo "<div class='postbit'>
                         <h3><a href='#$row[postid]'>" . utf8_encode($row["posttitle"]) . "</a></h3>
-                              <h5>Autor: $row[username] | Date: $row[postdate] | Tags: $row[posttags]</h4>". utf8_encode($row["postcontent"]) . "</div>";
+                              <h6>Autor: $row[username] | Date: $row[postdate] | Tags: $row[posttags]</h6>". utf8_encode($row["postcontent"]) . "</div>";
                       }
                       ?>
                       <div class="commentsection">
@@ -49,5 +50,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>
